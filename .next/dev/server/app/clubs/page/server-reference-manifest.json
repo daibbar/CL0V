@@ -1,0 +1,65 @@
+{
+  "node": {
+    "4068ec2a8f1cec9e6399866025e8fdab327333ca94": {
+      "workers": {
+        "app/clubs/page": {
+          "moduleId": "[project]/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createClub",
+          "filename": "actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/clubs/page": "action-browser"
+      },
+      "exportedName": "createClub",
+      "filename": "actions/club-actions.ts"
+    },
+    "608bac51e847b30fabb0ccde8a43b2873d50c4bafa": {
+      "workers": {
+        "app/clubs/page": {
+          "moduleId": "[project]/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateClub",
+          "filename": "actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/clubs/page": "action-browser"
+      },
+      "exportedName": "updateClub",
+      "filename": "actions/club-actions.ts"
+    },
+    "403d7a2303cdbfe5c97c8ed12918a1460bc6234e08": {
+      "workers": {
+        "app/clubs/page": {
+          "moduleId": "[project]/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteClub",
+          "filename": "actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/clubs/page": "action-browser"
+      },
+      "exportedName": "deleteClub",
+      "filename": "actions/club-actions.ts"
+    },
+    "003463c017610e523e6b9725dbcb4573ae2457dda1": {
+      "workers": {
+        "app/clubs/page": {
+          "moduleId": "[project]/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getClubs",
+          "filename": "actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/clubs/page": "action-browser"
+      },
+      "exportedName": "getClubs",
+      "filename": "actions/club-actions.ts"
+    }
+  },
+  "edge": {}
+}
