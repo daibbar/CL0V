@@ -20,8 +20,8 @@ import { Plus, Edit, Trash2, Users, Calendar, Award, Building2, TrendingUp, Load
 import { useToast } from "@/hooks/use-toast"
 
 // 1. Import Types & Actions
-import { Major } from "@/types/db"
-import { StudentWithMajor, getStudents, createStudent, updateStudent, deleteStudent, getMajors } from "@/actions/student-actions"
+import { Major, Event, Club, Activity } from "@/types/db"
+import { StudentWithMajor, getStudents, createStudent, updateStudent, deleteStudent, getMajors, getStudentEvents, getStudentClubs, getStudentActivities, getTotalActivitiesCount } from "@/actions/student-actions"
 
 
 
@@ -29,6 +29,10 @@ export default function StudentsPage() {
   // State for Real Data
   const [students, setStudents] = useState<StudentWithMajor[]>([])
   const [majors, setMajors] = useState<Major[]>([])
+  const [studentEvents, setStudentEvents] = useState<Event[]>([])
+  const [studentClubs, setStudentClubs] = useState<Club[]>([])
+  const [studentActivities, setStudentActivities] = useState<Activity[]>([])
+  const [totalActivities, setTotalActivities] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(true)
 
   // UI State
@@ -41,12 +45,14 @@ export default function StudentsPage() {
   const loadData = async () => {
     setIsLoading(true)
     try {
-      const [studentsData, majorsData] = await Promise.all([
+      const [studentsData, majorsData, activitiesCount] = await Promise.all([
         getStudents(),
-        getMajors()
+        getMajors(),
+        getTotalActivitiesCount()
       ])
       setStudents(studentsData)
       setMajors(majorsData)
+      setTotalActivities(activitiesCount)
       
       // Select the first student by default if available
       if (studentsData.length > 0 && !selectedStudent) {
@@ -62,6 +68,18 @@ export default function StudentsPage() {
   useEffect(() => {
     loadData()
   }, [])
+
+  useEffect(() => {
+    if (selectedStudent) {
+      getStudentEvents(selectedStudent.studentId).then(setStudentEvents)
+      getStudentClubs(selectedStudent.studentId).then(setStudentClubs)
+      getStudentActivities(selectedStudent.studentId).then(setStudentActivities)
+    } else {
+      setStudentEvents([])
+      setStudentClubs([])
+      setStudentActivities([])
+    }
+  }, [selectedStudent])
 
   // --- 2. HANDLE ACTIONS ---
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -156,7 +174,7 @@ export default function StudentsPage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-2xl font-bold">--</p> 
+                  <p className="text-2xl font-bold">{totalActivities}</p> 
                 </CardContent>
               </Card>
 
@@ -212,24 +230,24 @@ export default function StudentsPage() {
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                       <div className="grid grid-cols-2 gap-4">
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="lastName">Last Name</Label>
                           <Input id="lastName" name="lastName" defaultValue={editingStudent?.lastName} required />
                         </div>
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="firstName">First Name</Label>
                           <Input id="firstName" name="firstName" defaultValue={editingStudent?.firstName} required />
                         </div>
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="cne">Student Code (CNE)</Label>
                         <Input id="cne" name="cne" defaultValue={editingStudent?.cne} required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="email">Email</Label>
                         <Input id="email" name="email" type="email" defaultValue={editingStudent?.email} required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="majorId">Program (Major)</Label>
                         <Select name="majorId" defaultValue={editingStudent?.majorId?.toString() || ""} required>
                           <SelectTrigger>
@@ -265,23 +283,23 @@ export default function StudentsPage() {
                   students.map((student) => (
                     <div
                       key={student.studentId}
-                      className={`p-4 rounded-lg border cursor-pointer transition-all hover:border-primary/50 ${
+                      className={`p-4 rounded-lg border cursor-pointer transition-all ${
                         selectedStudent?.studentId === student.studentId
-                          ? "bg-primary/5 border-primary"
-                          : "bg-card border-border"
+                          ? "bg-primary/10 border-primary"
+                          : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
                       }`}
                       onClick={() => setSelectedStudent(student)}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>
                           <h3 className="font-semibold text-sm">{`${student.firstName} ${student.lastName}`}</h3>
-                          <p className="text-xs text-muted-foreground">{student.cne}</p>
+                          <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{student.cne}</p>
                         </div>
                         <div className="flex gap-1">
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-7 w-7"
+                            className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleEdit(student)
@@ -292,21 +310,21 @@ export default function StudentsPage() {
                           <Button
                             variant="ghost"
                             size="icon"
-                            className="h-7 w-7"
+                            className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleDelete(student.studentId)
                             }}
                           >
-                            <Trash2 className="h-3.5 w-3.5 text-destructive" />
+                            <Trash2 className="h-3.5 w-3.5 text-destructive group-hover:text-destructive-foreground" />
                           </Button>
                         </div>
                       </div>
                       <div className="space-y-1">
-                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary">
+                        <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary group-hover:bg-white/20 group-hover:text-white">
                           {student.majorName || "No Major"}
                         </span>
-                        <p className="text-xs text-muted-foreground">{student.email}</p>
+                        <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{student.email}</p>
                       </div>
                     </div>
                   ))
@@ -336,17 +354,17 @@ export default function StudentsPage() {
                     <div className="grid grid-cols-3 gap-6">
                       <div className="text-center p-4 rounded-lg bg-primary/5">
                         <Award className="h-6 w-6 text-primary mx-auto mb-2" />
-                        <p className="text-2xl font-bold">0</p>
+                        <p className="text-2xl font-bold">{selectedStudent.activityCount}</p>
                         <p className="text-xs text-muted-foreground">Activities</p>
                       </div>
                       <div className="text-center p-4 rounded-lg bg-primary/5">
                         <Calendar className="h-6 w-6 text-primary mx-auto mb-2" />
-                        <p className="text-2xl font-bold">0</p>
+                        <p className="text-2xl font-bold">{selectedStudent.eventCount}</p>
                         <p className="text-xs text-muted-foreground">Events</p>
                       </div>
                       <div className="text-center p-4 rounded-lg bg-primary/5">
                         <Building2 className="h-6 w-6 text-primary mx-auto mb-2" />
-                        <p className="text-2xl font-bold">0</p>
+                        <p className="text-2xl font-bold">{selectedStudent.clubCount}</p>
                         <p className="text-xs text-muted-foreground">Clubs</p>
                       </div>
                     </div>
@@ -363,7 +381,22 @@ export default function StudentsPage() {
                     <CardDescription>All activities this student has participated in</CardDescription>
                   </CardHeader>
                   <CardContent>
-                        <p className="text-sm text-muted-foreground text-center py-4">No activities registered yet</p>
+                    {studentActivities.length === 0 ? (
+                      <p className="text-sm text-muted-foreground text-center py-4">No activities registered yet</p>
+                    ) : (
+                      <div className="space-y-4">
+                        {studentActivities.map((activity) => (
+                           <div key={activity.activityId} className="flex items-center justify-between border-b pb-4 last:border-0 last:pb-0">
+                             <div>
+                               <p className="font-medium">{activity.activityName}</p>
+                               <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-secondary text-secondary-foreground capitalize">
+                                 {activity.type}
+                                </span>
+                             </div>
+                           </div>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
 
@@ -377,7 +410,22 @@ export default function StudentsPage() {
                     <CardDescription>Events this student has attended</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    {studentEvents.length === 0 ? (
                       <p className="text-sm text-muted-foreground text-center py-4">No events attended yet</p>
+                    ) : (
+                      <div className="space-y-4">
+                        {studentEvents.map((event) => (
+                           <div key={event.eventId} className="flex items-center justify-between border-b pb-4 last:border-0 last:pb-0">
+                             <div>
+                               <p className="font-medium">{event.eventName}</p>
+                               <p className="text-xs text-muted-foreground">
+                                 {new Date(event.startDate).toLocaleDateString()} - {new Date(event.endDate).toLocaleDateString()}
+                               </p>
+                             </div>
+                           </div>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
 
@@ -391,7 +439,22 @@ export default function StudentsPage() {
                     <CardDescription>Clubs this student is a member of</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    {studentClubs.length === 0 ? (
                       <p className="text-sm text-muted-foreground text-center py-4">Not a member of any clubs yet</p>
+                    ) : (
+                      <div className="space-y-4">
+                        {studentClubs.map((club) => (
+                           <div key={club.clubId} className="flex items-center justify-between border-b pb-4 last:border-0 last:pb-0">
+                             <div>
+                               <p className="font-medium">{club.clubName}</p>
+                               <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-secondary text-secondary-foreground">
+                                 {club.category}
+                               </span>
+                             </div>
+                           </div>
+                        ))}
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
               </div>

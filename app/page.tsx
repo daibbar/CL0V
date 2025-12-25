@@ -1,28 +1,26 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, Calendar, Activity, BookOpen, TrendingUp, TrendingDown } from "lucide-react"
-import { getClubs } from "@/actions/club-actions"
-import { getEvents } from "@/actions/event-actions"
-import { getStudents } from "@/actions/student-actions"
-import { getActivities } from "@/actions/activity-actions"
+import { 
+  getDashboardStats, 
+  getRecentActivities, 
+  getClubCategoryStats, 
+  getEngagementMetrics 
+} from "@/actions/dashboard-actions"
 
 export default async function HomePage() {
-  // Load minimal counts from the database
-  const [clubs, events, students, activities] = await Promise.all([
-    getClubs(),
-    getEvents(),
-    getStudents(),
-    getActivities(),
+  const [dashboardStats, recentActivities, clubsByCategory, engagementMetrics] = await Promise.all([
+    getDashboardStats(),
+    getRecentActivities(),
+    getClubCategoryStats(),
+    getEngagementMetrics()
   ])
 
   const stats = [
-    { title: "Total Clubs", value: String(clubs.length), icon: Users, color: "text-blue-500 bg-blue-500/10", change: "" },
-    { title: "Upcoming Events", value: String(events.length), icon: Calendar, color: "text-purple-500 bg-purple-500/10", change: "" },
-    { title: "Active Students", value: String(students.length), icon: BookOpen, color: "text-green-500 bg-green-500/10", change: "" },
-    { title: "Total Activities", value: String(activities.length), icon: Activity, color: "text-orange-500 bg-orange-500/10", change: "" },
+    { title: "Total Clubs", value: String(dashboardStats.clubCount), icon: Users, color: "text-blue-500 bg-blue-500/10", change: "" },
+    { title: "Upcoming Events", value: String(dashboardStats.upcomingEventsCount), icon: Calendar, color: "text-purple-500 bg-purple-500/10", change: "" },
+    { title: "Active Students", value: String(dashboardStats.activeStudentsCount), icon: BookOpen, color: "text-green-500 bg-green-500/10", change: "In Clubs" },
+    { title: "Total Activities", value: String(dashboardStats.activityCount), icon: Activity, color: "text-orange-500 bg-orange-500/10", change: "" },
   ]
-
-  const recentActivities: { type: string; name: string; time: string }[] = []
-  const clubsByCategory: { category: string; count: number; percentage: number }[] = []
 
   return (
     <div className="min-h-screen bg-background">
@@ -49,9 +47,7 @@ export default async function HomePage() {
               <CardContent>
                 <div className="text-2xl font-bold text-foreground">{stat.value}</div>
                 <div className="flex items-center gap-1 mt-1">
-                  {stat.change && stat.change.startsWith("+") && <TrendingUp className="h-3 w-3 text-green-600" />}
-                  {stat.change && stat.change.startsWith("-") && <TrendingDown className="h-3 w-3 text-red-600" />}
-                  <p className="text-xs text-muted-foreground">{stat.change || ""}</p>
+                  {stat.change && <p className="text-xs text-muted-foreground">{stat.change}</p>}
                 </div>
               </CardContent>
             </Card>
@@ -63,7 +59,7 @@ export default async function HomePage() {
           <Card>
             <CardHeader>
               <CardTitle>Recent Activities</CardTitle>
-              <CardDescription>Latest updates from the system</CardDescription>
+              <CardDescription>Latest activities scheduled</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -87,7 +83,7 @@ export default async function HomePage() {
             </CardContent>
           </Card>
 
-          {/* Clubs by Category (placeholder) */}
+          {/* Clubs by Category */}
           <Card>
             <CardHeader>
               <CardTitle>Clubs by Category</CardTitle>
@@ -101,7 +97,7 @@ export default async function HomePage() {
                   clubsByCategory.map((item) => (
                     <div key={item.category} className="space-y-2">
                       <div className="flex items-center justify-between text-sm">
-                        <span className="font-medium text-foreground">{item.category}</span>
+                        <span className="font-medium text-foreground capitalize">{item.category}</span>
                         <span className="text-muted-foreground">{item.count} clubs ({item.percentage}%)</span>
                       </div>
                       <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
@@ -126,34 +122,34 @@ export default async function HomePage() {
               <div className="rounded-lg border border-border bg-muted/30 p-4">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-muted-foreground">Engagement Rate</p>
-                    <p className="text-2xl font-bold text-foreground mt-1">78%</p>
+                    <p className="text-sm font-medium text-muted-foreground">Club Participation</p>
+                    <p className="text-2xl font-bold text-foreground mt-1">{engagementMetrics.engagementRate}%</p>
                   </div>
                   <TrendingUp className="h-8 w-8 text-green-600" />
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">+12% from last month</p>
+                <p className="text-xs text-muted-foreground mt-2">of students in a club</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/30 p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Event Attendance</p>
-                    <p className="text-2xl font-bold text-foreground mt-1">92%</p>
+                    <p className="text-2xl font-bold text-foreground mt-1">{engagementMetrics.eventAttendanceRate}%</p>
                   </div>
                   <TrendingUp className="h-8 w-8 text-green-600" />
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">+5% from last month</p>
+                <p className="text-xs text-muted-foreground mt-2">of students joined an event</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/30 p-4">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-sm font-medium text-muted-foreground">Resource Utilization</p>
-                    <p className="text-2xl font-bold text-foreground mt-1">65%</p>
+                    <p className="text-2xl font-bold text-foreground mt-1">-</p>
                   </div>
                   <Activity className="h-8 w-8 text-blue-600" />
                 </div>
-                <p className="text-xs text-muted-foreground mt-2">Optimal usage level</p>
+                <p className="text-xs text-muted-foreground mt-2">Metric pending implementation</p>
               </div>
             </div>
           </CardContent>

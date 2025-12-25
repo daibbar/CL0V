@@ -1,4 +1,125 @@
 {
-  "node": {},
+  "node": {
+    "00905ced75f03995e227b455995464dedb302e1ced": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getResources",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "getResources",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "40ee5438c8961451bbfb3b0b77f7e9f178c2c524ba": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "createResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "607a8e08b05b1a1ebb58971bc65ba06677a6fe31ae": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "updateResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "40396c3f28fed8b5da41699c47aa596277509cfbc9": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "deleteResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "004b16872264b7de30e368c2e395d8c92468b04c65": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getReservations",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "getReservations",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "40abac75f02495a1afb4eee1758bc3a1a22c59ed7d": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createReservation",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "createReservation",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "40284b035f4c334da0822a91ad88d37d2186c22267": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteReservation",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "deleteReservation",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "00d7abac122d2009179788ee8ba03e756a794d1668": {
+      "workers": {
+        "app/resources/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getActivities",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/resources/page": "action-browser"
+      },
+      "exportedName": "getActivities",
+      "filename": "CL0V/actions/activity-actions.ts"
+    }
+  },
   "edge": {}
 }

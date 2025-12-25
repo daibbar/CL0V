@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Toaster } from "@/components/ui/toaster"
-import { AppSidebar } from "@/components/app-sidebar" // This imports the component you just shared
+import { AppSidebar } from "@/components/app-sidebar"
 import { 
   SidebarProvider, 
   SidebarTrigger, 
@@ -34,7 +34,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
-        {/* defaultOpen={false} ensures it starts collapsed (icon only) */}
         <SidebarProvider defaultOpen={false}>
           <AppSidebar />
           

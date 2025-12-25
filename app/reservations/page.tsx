@@ -106,24 +106,24 @@ export default function ReservationsPage() {
                       <DialogDescription>Book a resource for an activity</DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="nom">Reservation Name</Label>
                         <Input id="nom" name="nom" placeholder="Workshop Booking" required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="activity_name">Activity</Label>
                         <Input id="activity_name" name="activity_name" placeholder="Select activity" required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="resource_name">Resource</Label>
                         <Input id="resource_name" name="resource_name" placeholder="Select resource" required />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="date_debut">Start Date & Time</Label>
                           <Input id="date_debut" name="date_debut" type="datetime-local" required />
                         </div>
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="date_fin">End Date & Time</Label>
                           <Input id="date_fin" name="date_fin" type="datetime-local" required />
                         </div>
@@ -143,30 +143,30 @@ export default function ReservationsPage() {
                   <div
                     key={reservation.id_reservation}
                     onClick={() => setSelectedReservation(reservation)}
-                    className={`p-4 rounded-lg border cursor-pointer transition-colors ${
+                    className={`p-4 rounded-lg border cursor-pointer transition-all ${
                       selectedReservation?.id_reservation === reservation.id_reservation
                         ? "bg-primary/10 border-primary"
-                        : "bg-card hover:bg-accent border-border"
+                        : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
                     }`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="space-y-1 flex-1">
                         <p className="font-medium text-sm">{reservation.nom}</p>
-                        <p className="text-xs text-muted-foreground">{reservation.resource_name}</p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{reservation.resource_name}</p>
+                        <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">
                           {new Date(reservation.date_debut).toLocaleDateString()}
                         </p>
                       </div>
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8"
+                        className="h-8 w-8 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                         onClick={(e) => {
                           e.stopPropagation()
                           handleDelete(reservation.id_reservation)
                         }}
                       >
-                        <Trash2 className="h-4 w-4 text-destructive" />
+                        <Trash2 className="h-4 w-4 text-destructive group-hover:text-destructive-foreground" />
                       </Button>
                     </div>
                   </div>

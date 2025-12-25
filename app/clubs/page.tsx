@@ -24,7 +24,7 @@ import { useToast } from "@/hooks/use-toast"
 import { Club, Event, Activity, Student } from "@/types/db"
 
 // 2. Import Server Actions
-import { createClub, updateClub, deleteClub, getClubs } from "@/actions/club-actions"
+import { createClub, updateClub, deleteClub, getClubs, getClubMembers, getClubEvents, getClubActivities } from "@/actions/club-actions"
 
 // 3. Define joined/UI-specific types
 type Member = Student & {
@@ -39,6 +39,12 @@ export default function ClubsPage() {
   const [isOpen, setIsOpen] = useState(false)
   const [editingClub, setEditingClub] = useState<Club | null>(null)
   const [selectedClub, setSelectedClub] = useState<number | null>(null)
+  
+  // Detail States
+  const [clubMembers, setClubMembers] = useState<Member[]>([])
+  const [clubEvents, setClubEvents] = useState<Event[]>([])
+  const [clubActivities, setClubActivities] = useState<Activity[]>([])
+
   const { toast } = useToast()
 
   // --- 1. FETCH REAL DATA ON LOAD ---
@@ -57,6 +63,37 @@ export default function ClubsPage() {
   useEffect(() => {
     loadClubs()
   }, [])
+
+  // --- FETCH DETAILS WHEN SELECTED CLUB CHANGES ---
+  useEffect(() => {
+    async function fetchDetails() {
+      if (!selectedClub) {
+        setClubMembers([])
+        setClubEvents([])
+        setClubActivities([])
+        return
+      }
+
+      try {
+        const [members, events, activities] = await Promise.all([
+          getClubMembers(selectedClub),
+          getClubEvents(selectedClub),
+          getClubActivities(selectedClub)
+        ])
+        // We need to cast the result to Member[] because the DB query returns the join result
+        // which matches the shape but TypeScript might need reassurance or the action return type should be explicit.
+        // For now, implicit casting via assignment usually works if shapes match.
+        setClubMembers(members as Member[])
+        setClubEvents(events as Event[])
+        setClubActivities(activities as Activity[])
+      } catch (error) {
+        console.error("Error fetching club details", error)
+        toast({ title: "Error loading details", variant: "destructive" })
+      }
+    }
+
+    fetchDetails()
+  }, [selectedClub, toast])
 
   // --- 2. HANDLE SUBMIT (CREATE / UPDATE) ---
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -116,10 +153,6 @@ export default function ClubsPage() {
   }
 
   const selectedClubData = clubs.find((c) => c.clubId === selectedClub)
-  // TODO: Implement server actions for members/events/activities per-club
-  const clubMembers: Member[] = []
-  const clubEvents: Event[] = []
-  const clubActivities: Activity[] = []
 
   return (
     <div className="min-h-screen bg-background">
@@ -161,11 +194,11 @@ export default function ClubsPage() {
                       </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="clubName">Club Name</Label>
                         <Input id="clubName" name="clubName" defaultValue={editingClub?.clubName} required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="category">Category</Label>
                         <Select name="category" defaultValue={editingClub?.category} required>
                           <SelectTrigger>
@@ -179,7 +212,7 @@ export default function ClubsPage() {
                           </SelectContent>
                         </Select>
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="createdAt">Creation Date</Label>
                         <Input
                           id="createdAt"
@@ -189,7 +222,7 @@ export default function ClubsPage() {
                           required
                         />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="description">Description</Label>
                         <Textarea
                           id="description"
@@ -221,17 +254,17 @@ export default function ClubsPage() {
                   clubs.map((club) => (
                     <div
                       key={club.clubId}
-                      className={`flex items-start justify-between p-3 rounded-lg border cursor-pointer transition-all ${
+                      className={`flex items-start justify-between p-4 rounded-lg border cursor-pointer transition-all ${
                         selectedClub === club.clubId
                           ? "bg-primary/10 border-primary"
-                          : "bg-card border-border hover:bg-muted"
+                          : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
                       }`}
                       onClick={() => setSelectedClub(club.clubId)}
                     >
                       <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-foreground text-sm truncate">{club.clubName}</h3>
-                        <p className="text-xs text-muted-foreground mt-1">
-                          <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent">
+                        <h3 className="font-semibold text-foreground text-sm truncate group-hover:text-accent-foreground">{club.clubName}</h3>
+                        <p className="text-xs text-muted-foreground mt-1 group-hover:text-accent-foreground/80">
+                          <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-accent/10 text-accent group-hover:bg-white/20 group-hover:text-white">
                             {club.category}
                           </span>
                         </p>
@@ -240,7 +273,7 @@ export default function ClubsPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7"
+                          className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                           onClick={(e) => {
                             e.stopPropagation()
                             handleEdit(club)
@@ -251,13 +284,13 @@ export default function ClubsPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7"
+                          className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                           onClick={(e) => {
                             e.stopPropagation()
                             handleDelete(club.clubId)
                           }}
                         >
-                          <Trash2 className="h-3.5 w-3.5 text-destructive" />
+                          <Trash2 className="h-3.5 w-3.5 text-destructive group-hover:text-destructive-foreground" />
                         </Button>
                       </div>
                     </div>

@@ -165,6 +165,21 @@
       "exportedName": "getClubsByEvent",
       "filename": "CL0V/actions/club-actions.ts"
     },
+    "00545b232253d73c1b611478bd06ced735bf06d28f": {
+      "workers": {
+        "app/events/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getClubs",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/events/page": "action-browser"
+      },
+      "exportedName": "getClubs",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
     "00b3e34c4e07d70cddec963eb433f89987d4b1ecc1": {
       "workers": {
         "app/events/page": {

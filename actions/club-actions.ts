@@ -90,6 +90,53 @@ export async function getClubsByEvent(eventId: number) {
 }
 
 // --- CLUB MEMBERSHIPS ---
+export async function getClubMembers(clubId: number) {
+  try {
+    const members = db.prepare(`
+      SELECT s.*, cm.joinedAt
+      FROM students s
+      JOIN clubMemberships cm ON s.studentId = cm.studentId
+      WHERE cm.clubId = ?
+      ORDER BY cm.joinedAt DESC
+    `).all(clubId);
+    
+    return members;
+  } catch (error: any) {
+    console.error("Failed to fetch club members:", error);
+    return [];
+  }
+}
+
+export async function getClubEvents(clubId: number) {
+  try {
+    // Events where the club is an organizer
+    const events = db.prepare(`
+      SELECT e.*
+      FROM events e
+      JOIN eventOrganizers eo ON e.eventId = eo.eventId
+      WHERE eo.clubId = ?
+      ORDER BY e.startDate DESC
+    `).all(clubId);
+    return events;
+  } catch (error) {
+    console.error("Failed to fetch club events:", error);
+    return [];
+  }
+}
+
+export async function getClubActivities(clubId: number) {
+  try {
+    // Activities owned by the club
+    const activities = db.prepare(`
+      SELECT * FROM activities WHERE clubId = ? ORDER BY startDate DESC
+    `).all(clubId);
+    return activities;
+  } catch (error) {
+     console.error("Failed to fetch club activities:", error);
+     return [];
+  }
+}
+
 export async function getClubMemberships() {
   try {
     const rows = db.prepare(`

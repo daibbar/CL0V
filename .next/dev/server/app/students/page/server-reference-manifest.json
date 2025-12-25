@@ -74,6 +74,66 @@
       },
       "exportedName": "getMajors",
       "filename": "CL0V/actions/student-actions.ts"
+    },
+    "405896ee1640fc439a0edc4e76ed44615f302849a8": {
+      "workers": {
+        "app/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentEvents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/students/page": "action-browser"
+      },
+      "exportedName": "getStudentEvents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "4058c552c6e5832b78d3ff3972d188e1e2544edc4f": {
+      "workers": {
+        "app/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentClubs",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/students/page": "action-browser"
+      },
+      "exportedName": "getStudentClubs",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40409b46f825f48fd11d0bbe12e6eb545405bce9bd": {
+      "workers": {
+        "app/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentActivities",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/students/page": "action-browser"
+      },
+      "exportedName": "getStudentActivities",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "000c05c8913e8b991c02dcbc9a6588eb11351ad47d": {
+      "workers": {
+        "app/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getTotalActivitiesCount",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/students/page": "action-browser"
+      },
+      "exportedName": "getTotalActivitiesCount",
+      "filename": "CL0V/actions/student-actions.ts"
     }
   },
   "edge": {}

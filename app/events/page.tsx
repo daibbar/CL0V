@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Plus, Edit, Trash2, Calendar, Users, Award, UserCheck, BookOpen, UserPlus, X } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 // Import the actions
@@ -22,7 +23,8 @@ import { createEvent, updateEvent, deleteEvent, addStudentToEvent, removeStudent
 import { getStudents } from "@/actions/student-actions"
 import type { Student } from "@/types/db"
 import { getActivities, getActivityGuests, getActivityReservations } from "@/actions/activity-actions"
-import { getClubsByEvent } from "@/actions/club-actions"
+import { getClubsByEvent, getClubs } from "@/actions/club-actions"
+import { Checkbox } from "@/components/ui/checkbox"
 
 // Use canonical types from types/db
 import type { Event, Activity, Reservation, Club as ClubType, Guest, GuestRole } from "@/types/db"
@@ -44,6 +46,10 @@ export default function EventsPage() {
   const [eventReservations, setEventReservations] = useState<Reservation[]>([])
   const [organizingClubs, setOrganizingClubs] = useState<ClubType[]>([])
   
+  // New State for Club Selection
+  const [allClubs, setAllClubs] = useState<ClubType[]>([])
+  const [selectedClubIds, setSelectedClubIds] = useState<number[]>([])
+
   // Dialog States
   const [isEventDialogOpen, setIsEventDialogOpen] = useState(false)
   const [isStudentDialogOpen, setIsStudentDialogOpen] = useState(false)
@@ -56,12 +62,15 @@ export default function EventsPage() {
     const loadData = async () => {
       setIsLoading(true)
       try {
-        const [eventsData, studentsData] = await Promise.all([
+        const [eventsData, studentsData, clubsData] = await Promise.all([
           getEvents(),
-          getStudents()
+          getStudents(),
+          getClubs()
         ])
         setEvents(eventsData)
         setStudents(studentsData)
+        setAllClubs(clubsData)
+
         if (eventsData.length > 0) {
           setSelectedEvent(eventsData[0])
           // load participants for first event
@@ -108,6 +117,9 @@ export default function EventsPage() {
 
     const loadEventDetails = async () => {
       try {
+        // Refresh participants for the newly selected event
+        fetchParticipants(selectedEvent.eventId);
+
         const activities = await getActivities()
         const filtered = activities.filter((a: Activity) => a.eventId === selectedEvent.eventId)
         setEventActivities(filtered)
@@ -147,6 +159,9 @@ export default function EventsPage() {
   const handleEventSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
+    
+    // Append selected clubs as JSON
+    formData.append('clubIds', JSON.stringify(selectedClubIds));
 
     try {
       if (editingEvent) {
@@ -159,6 +174,13 @@ export default function EventsPage() {
             endDate: formData.get("endDate") as string,
           }
           setEvents(events.map((e) => (e.eventId === editingEvent.eventId ? updatedEvent : e)))
+          
+          // If the currently selected event was edited, refresh its details (specifically organizers)
+          if (selectedEvent?.eventId === editingEvent.eventId) {
+              const clubs = (await getClubsByEvent(selectedEvent.eventId)) as ClubType[]
+              setOrganizingClubs(clubs)
+          }
+          
           toast({ title: result.message })
         } else {
           toast({ title: result.message, variant: "destructive" })
@@ -166,15 +188,10 @@ export default function EventsPage() {
       } else {
         const result = await createEvent(formData)
         if (result.success) {
-          // Note: In a real app, you'd fetch the new ID from DB
-          const newEvent: Event = {
-            eventId: Date.now(),
-            eventName: formData.get("eventName") as string,
-            startDate: formData.get("startDate") as string,
-            endDate: formData.get("endDate") as string,
-          }
-          setEvents([...events, newEvent])
-          toast({ title: result.message })
+           // Reload events to get the new ID properly
+           const newEvents = await getEvents();
+           setEvents(newEvents);
+           toast({ title: result.message })
         } else {
           toast({ title: result.message, variant: "destructive" })
         }
@@ -182,6 +199,7 @@ export default function EventsPage() {
 
       setIsEventDialogOpen(false)
       setEditingEvent(null)
+      setSelectedClubIds([]) // Reset selection
     } catch (error: any) {
       toast({ title: error.message || "An error occurred", variant: "destructive" })
     }
@@ -191,9 +209,11 @@ export default function EventsPage() {
     try {
       const result = await deleteEvent(id)
       if (result.success) {
-        setEvents(events.filter((e) => e.eventId !== id))
+        const updatedEvents = events.filter((e) => e.eventId !== id)
+        setEvents(updatedEvents)
+        
         if (selectedEvent?.eventId === id) {
-          setSelectedEvent(events[0] || null)
+          setSelectedEvent(updatedEvents[0] || null)
         }
         toast({ title: result.message })
       } else {
@@ -204,8 +224,11 @@ export default function EventsPage() {
     }
   }
 
-  const handleEditEvent = (event: Event) => {
+  const handleEditEvent = async (event: Event) => {
     setEditingEvent(event)
+    // Fetch current organizers to populate the checkboxes
+    const organizers = await getClubsByEvent(event.eventId);
+    setSelectedClubIds(organizers.map(c => c.clubId));
     setIsEventDialogOpen(true)
   }
 
@@ -292,11 +315,11 @@ export default function EventsPage() {
                       </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleEventSubmit} className="space-y-4 mt-4">
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="eventName">Event Name</Label>
                         <Input id="eventName" name="eventName" defaultValue={editingEvent?.eventName} required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="startDate">Start Date & Time</Label>
                         <Input
                           id="startDate"
@@ -306,7 +329,7 @@ export default function EventsPage() {
                           required
                         />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="endDate">End Date & Time</Label>
                         <Input
                           id="endDate"
@@ -316,6 +339,38 @@ export default function EventsPage() {
                           required
                         />
                       </div>
+                      
+                      {/* Club Selection UI */}
+                      <div className="grid gap-2">
+                        <Label>Organizing Clubs</Label>
+                        <div className="mt-2 border rounded-md p-3 h-40 overflow-y-auto space-y-2">
+                           {allClubs.map((club) => (
+                             <div key={club.clubId} className="flex items-center space-x-2">
+                               <Checkbox 
+                                  id={`club-${club.clubId}`}
+                                  checked={selectedClubIds.includes(club.clubId)}
+                                  onCheckedChange={(checked) => {
+                                      if (checked) {
+                                          setSelectedClubIds([...selectedClubIds, club.clubId]);
+                                      } else {
+                                          setSelectedClubIds(selectedClubIds.filter(id => id !== club.clubId));
+                                      }
+                                  }}
+                               />
+                               <label 
+                                  htmlFor={`club-${club.clubId}`}
+                                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                               >
+                                  {club.clubName}
+                               </label>
+                             </div>
+                           ))}
+                           {allClubs.length === 0 && (
+                               <p className="text-sm text-muted-foreground">No clubs available.</p>
+                           )}
+                        </div>
+                      </div>
+
                       <div className="flex gap-2 justify-end">
                         <Button type="button" variant="outline" onClick={() => setIsEventDialogOpen(false)}>
                           Cancel
@@ -329,49 +384,25 @@ export default function EventsPage() {
             </CardHeader>
             <CardContent className="space-y-2">
               {events.map((event) => (
-                <button
+                <div
                   key={event.eventId}
                   onClick={() => setSelectedEvent(event)}
-                  className={`w-full text-left p-4 rounded-lg border transition-colors ${
+                  className={`w-full text-left p-4 rounded-lg border cursor-pointer transition-all ${
                     selectedEvent?.eventId === event.eventId
-                      ? "bg-primary text-primary-foreground border-primary"
-                      : "bg-card hover:bg-accent border-border"
+                      ? "bg-primary/10 border-primary"
+                      : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
-                      <h3 className="font-semibold">{event.eventName}</h3>
-                      <p className="text-sm opacity-80 mt-1">
+                      <h3 className="font-semibold text-sm">{event.eventName}</h3>
+                      <p className="text-xs text-muted-foreground mt-1 group-hover:text-accent-foreground/80">
                         {new Date(event.startDate).toLocaleDateString()} -{" "}
                         {new Date(event.endDate).toLocaleDateString()}
                       </p>
                     </div>
-                    <div className="flex gap-1">
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleEditEvent(event)
-                        }}
-                      >
-                        <Edit className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleDeleteEvent(event.eventId)
-                        }}
-                      >
-                        <Trash2 className="h-4 w-4 text-destructive" />
-                      </Button>
-                    </div>
                   </div>
-                </button>
+                </div>
               ))}
             </CardContent>
           </Card>
@@ -394,6 +425,16 @@ export default function EventsPage() {
                             </span>
                           </div>
                         </CardDescription>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" onClick={() => handleEditEvent(selectedEvent)}>
+                          <Edit className="h-4 w-4 mr-2" />
+                          Edit
+                        </Button>
+                        <Button variant="destructive" size="sm" onClick={() => handleDeleteEvent(selectedEvent.eventId)}>
+                          <Trash2 className="h-4 w-4 mr-2" />
+                          Delete
+                        </Button>
                       </div>
                     </div>
                   </CardHeader>
@@ -425,22 +466,20 @@ export default function EventsPage() {
                             </DialogDescription>
                           </DialogHeader>
                           <form onSubmit={handleAddStudent} className="space-y-4 mt-4">
-                            <div>
+                            <div className="grid gap-2">
                               <Label htmlFor="studentId">Select Student</Label>
-                              {/* Using a simple native select for simplicity, but ideally use shadcn Select */}
-                              <select 
-                                id="studentId" 
-                                name="studentId" 
-                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                required
-                              >
-                                <option value="">-- Select a student --</option>
-                                {students.map(s => (
-                                  <option key={s.studentId} value={s.studentId}>
-                                    {s.firstName} {s.lastName} ({s.cne})
-                                  </option>
-                                ))}
-                              </select>
+                              <Select name="studentId" required>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select a student" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {students.map((s) => (
+                                    <SelectItem key={s.studentId} value={s.studentId.toString()}>
+                                      {s.firstName} {s.lastName} ({s.cne})
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
                             </div>
                             <div className="flex gap-2 justify-end">
                               <Button type="button" variant="outline" onClick={() => setIsStudentDialogOpen(false)}>

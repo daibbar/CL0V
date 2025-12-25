@@ -1,29 +1,74 @@
 'use server'
 
 import db from '@/lib/db';
-import { Student, Major } from '@/types/db';
+import { Student, Major, Event, Club, Activity } from '@/types/db';
 import { revalidatePath } from 'next/cache';
 
 // --- HELPER TYPES ---
 // We define this here because the UI usually needs the Major Name, not just the ID
 export type StudentWithMajor = Student & {
   majorName: string | null;
+  clubCount: number;
+  activityCount: number;
+  eventCount: number;
 };
 
 // --- READ ---
 
 export async function getStudents() {
   // We JOIN with majors to get the readable name (e.g., 'IID') instead of just a number
+  // And we include counts for clubs, activities, and events
   const students = db.prepare(`
     SELECT 
       students.*, 
-      majors.majorName 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
     FROM students 
     LEFT JOIN majors ON students.majorId = majors.majorId
     ORDER BY students.lastName ASC
   `).all() as StudentWithMajor[];
   
   return students;
+}
+
+export async function getStudentEvents(studentId: number) {
+  const events = db.prepare(`
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = ?
+    ORDER BY e.startDate DESC
+  `).all(studentId) as Event[];
+  return events;
+}
+
+export async function getStudentClubs(studentId: number) {
+  const clubs = db.prepare(`
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = ?
+    ORDER BY c.clubName ASC
+  `).all(studentId) as Club[];
+  return clubs;
+}
+
+export async function getStudentActivities(studentId: number) {
+  const activities = db.prepare(`
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = ?
+    ORDER BY a.startDate DESC
+  `).all(studentId) as Activity[];
+  return activities;
+}
+
+export async function getTotalActivitiesCount() {
+  const result = db.prepare('SELECT COUNT(*) as count FROM activities').get() as { count: number };
+  return result.count;
 }
 
 // We need this to populate the <Select> dropdown in the Add/Edit form

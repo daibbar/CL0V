@@ -9,14 +9,39 @@ export async function createEvent(formData: FormData) {
   const eventName = formData.get('eventName') as string;
   const startDate = formData.get('startDate') as string;
   const endDate = formData.get('endDate') as string;
+  // clubIds is expected to be a JSON string of numbers, e.g., "[1, 2]"
+  const clubIdsJson = formData.get('clubIds') as string; 
+  let clubIds: number[] = [];
+  
+  if (clubIdsJson) {
+    try {
+      clubIds = JSON.parse(clubIdsJson);
+    } catch (e) {
+      console.error("Invalid clubIds JSON", e);
+    }
+  }
 
   try {
-    const stmt = db.prepare(`
-      INSERT INTO events (eventName, startDate, endDate)
-      VALUES (@eventName, @startDate, @endDate)
-    `);
+    const createTransaction = db.transaction(() => {
+        const stmt = db.prepare(`
+        INSERT INTO events (eventName, startDate, endDate)
+        VALUES (@eventName, @startDate, @endDate)
+        `);
+        const info = stmt.run({ eventName, startDate, endDate });
+        const eventId = info.lastInsertRowid;
 
-    stmt.run({ eventName, startDate, endDate });
+        if (clubIds.length > 0) {
+            const insertOrg = db.prepare(`
+                INSERT INTO eventOrganizers (eventId, clubId) VALUES (?, ?)
+            `);
+            for (const clubId of clubIds) {
+                insertOrg.run(eventId, clubId);
+            }
+        }
+        return eventId;
+    });
+
+    createTransaction();
     
     revalidatePath('/events');
     return { success: true, message: 'Event created successfully' };
@@ -41,17 +66,45 @@ export async function updateEvent(eventId: number, formData: FormData) {
   const eventName = formData.get('eventName') as string;
   const startDate = formData.get('startDate') as string;
   const endDate = formData.get('endDate') as string;
+  const clubIdsJson = formData.get('clubIds') as string;
+  let clubIds: number[] = [];
+
+  if (clubIdsJson) {
+    try {
+      clubIds = JSON.parse(clubIdsJson);
+    } catch (e) {
+      console.error("Invalid clubIds JSON", e);
+    }
+  }
 
   try {
-    const stmt = db.prepare(`
-      UPDATE events 
-      SET eventName = @eventName, 
-          startDate = @startDate, 
-          endDate = @endDate
-      WHERE eventId = @eventId
-    `);
+    const updateTransaction = db.transaction(() => {
+        const stmt = db.prepare(`
+        UPDATE events 
+        SET eventName = @eventName, 
+            startDate = @startDate, 
+            endDate = @endDate
+        WHERE eventId = @eventId
+        `);
+        stmt.run({ eventName, startDate, endDate, eventId });
 
-    stmt.run({ eventName, startDate, endDate, eventId });
+        // Update organizers: delete existing, insert new
+        // Only do this if clubIds was actually passed (even if empty array, meaning clear all)
+        // If undefined/null logic was needed we'd check formData.has('clubIds'), but here we assume it's sent.
+        if (clubIdsJson !== null) { 
+             const deleteOrgs = db.prepare('DELETE FROM eventOrganizers WHERE eventId = ?');
+             deleteOrgs.run(eventId);
+
+             if (clubIds.length > 0) {
+                 const insertOrg = db.prepare('INSERT INTO eventOrganizers (eventId, clubId) VALUES (?, ?)');
+                 for (const clubId of clubIds) {
+                     insertOrg.run(eventId, clubId);
+                 }
+             }
+        }
+    });
+
+    updateTransaction();
 
     revalidatePath('/events');
     return { success: true, message: 'Event updated successfully' };

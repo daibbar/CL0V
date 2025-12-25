@@ -27,10 +27,15 @@ import {
   getActivityRegistrations,
   addStudentToActivity,
   removeStudentFromActivity,
-  getActivityReservations 
+  getActivityReservations,
+  addGuestToActivity,
+  removeGuestFromActivity
 } from "@/actions/activity-actions"
 import { getStudents } from "@/actions/student-actions"
 import { getEvents } from "@/actions/event-actions"
+import { getClubs } from "@/actions/club-actions"
+import { getGuests } from "@/actions/guest-actions"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import type { Activity as DbActivity, Event as DbEvent, Club as DbClub, Guest as DbGuest, GuestRole as DbGuestRole, Reservation as DbReservation, Registration as DbRegistration, Student as DbStudent } from "@/types/db"
 
 // UI activity includes optional relation fields returned by the activity actions
@@ -41,18 +46,23 @@ type Reservation = DbReservation & { resourceName?: string; type?: string }
 type ActivityGuest = DbGuestRole & Partial<DbGuest>
 type RegisteredStudent = DbRegistration & Partial<DbStudent> & { firstName?: string; lastName?: string; cne?: string; email?: string; majorName?: string }
 type Student = DbStudent
+type Guest = DbGuest
 
 export default function ActivitiesPage() {
   const [activities, setActivities] = useState<Activity[]>([])
   const [selectedActivity, setSelectedActivity] = useState<Activity | null>(null)
   const [students, setStudents] = useState<Student[]>([])
+  const [allGuests, setAllGuests] = useState<Guest[]>([])
   const [registeredStudents, setRegisteredStudents] = useState<any[]>([])
   const [activityReservations, setActivityReservations] = useState<Reservation[]>([])
   const [activityGuests, setActivityGuests] = useState<ActivityGuest[]>([])
   const [organizingClub, setOrganizingClub] = useState<Club | null>(null)
   const [events, setEvents] = useState<Event[]>([])
+  const [clubs, setClubs] = useState<Club[]>([])
+  const [organizerType, setOrganizerType] = useState<"event" | "club">("event")
   const [isOpen, setIsOpen] = useState(false)
   const [isStudentDialogOpen, setIsStudentDialogOpen] = useState(false)
+  const [isGuestDialogOpen, setIsGuestDialogOpen] = useState(false)
   const [editingActivity, setEditingActivity] = useState<Activity | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const { toast } = useToast()
@@ -71,14 +81,18 @@ export default function ActivitiesPage() {
     const loadData = async () => {
       setIsLoading(true)
       try {
-        const [activitiesData, studentsData, eventsData] = await Promise.all([
+        const [activitiesData, studentsData, eventsData, clubsData, guestsData] = await Promise.all([
           getActivities(),
           getStudents(),
-          getEvents()
+          getEvents(),
+          getClubs(),
+          getGuests()
         ])
         setActivities(activitiesData)
         setStudents(studentsData)
         setEvents(eventsData)
+        setClubs(clubsData)
+        setAllGuests(guestsData)
         if (activitiesData.length > 0) {
           setSelectedActivity(activitiesData[0])
           loadActivityDetails(activitiesData[0].activityId)
@@ -180,6 +194,11 @@ export default function ActivitiesPage() {
 
   const handleEdit = (activity: Activity) => {
     setEditingActivity(activity)
+    if (activity.clubId) {
+      setOrganizerType("club")
+    } else {
+      setOrganizerType("event")
+    }
     setIsOpen(true)
   }
 
@@ -223,6 +242,43 @@ export default function ActivitiesPage() {
     }
   }
 
+  const handleAddGuest = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    if (!selectedActivity) return
+
+    const formData = new FormData(e.currentTarget)
+    formData.append("activityId", selectedActivity.activityId.toString())
+
+    try {
+      const result = await addGuestToActivity(formData)
+      if (result.success) {
+        toast({ title: result.message })
+        setIsGuestDialogOpen(false)
+        await loadActivityDetails(selectedActivity.activityId)
+      } else {
+        toast({ title: result.message, variant: "destructive" })
+      }
+    } catch (error: any) {
+      toast({ title: error.message || "Failed to add guest", variant: "destructive" })
+    }
+  }
+
+  const handleRemoveGuest = async (guestRoleId: number) => {
+    if (!selectedActivity) return
+
+    try {
+      const result = await removeGuestFromActivity(guestRoleId)
+      if (result.success) {
+        toast({ title: result.message })
+        await loadActivityDetails(selectedActivity.activityId)
+      } else {
+        toast({ title: result.message, variant: "destructive" })
+      }
+    } catch (error: any) {
+      toast({ title: error.message, variant: "destructive" })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b border-border bg-card">
@@ -236,7 +292,7 @@ export default function ActivitiesPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - Activities List */}
           <div className="lg:col-span-1">
-            <Card className="h-full">
+            <Card>
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
                 <div>
                   <CardTitle>All Activities</CardTitle>
@@ -262,7 +318,7 @@ export default function ActivitiesPage() {
                       </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="activityName">Activity Name</Label>
                         <Input
                           id="activityName"
@@ -271,7 +327,7 @@ export default function ActivitiesPage() {
                           required
                         />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="description">Description</Label>
                         <Textarea
                           id="description"
@@ -281,7 +337,7 @@ export default function ActivitiesPage() {
                         />
                       </div>
                       <div className="grid grid-cols-2 gap-4">
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="type">Type</Label>
                           <Select name="type" defaultValue={editingActivity?.type || ""} required>
                             <SelectTrigger>
@@ -295,7 +351,7 @@ export default function ActivitiesPage() {
                             </SelectContent>
                           </Select>
                         </div>
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="maxCapacity">Max Capacity</Label>
                           <Input
                             id="maxCapacity"
@@ -307,23 +363,59 @@ export default function ActivitiesPage() {
                           />
                         </div>
                       </div>
-                      <div>
-                        <Label htmlFor="eventId">Event</Label>
-                        <Select name="eventId" defaultValue={editingActivity?.eventId?.toString() || ""} required>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select event" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {events.map((event) => (
-                              <SelectItem key={event.eventId} value={event.eventId.toString()}>
-                                {event.eventName}
-                              </SelectItem>
-                            ))}
-                          </SelectContent>
-                        </Select>
+                      <div className="grid gap-2">
+                        <Label>Organizer Type</Label>
+                        <RadioGroup 
+                          defaultValue={organizerType} 
+                          onValueChange={(value) => setOrganizerType(value as "event" | "club")}
+                          className="flex flex-row space-x-4"
+                        >
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="event" id="r-event" />
+                            <Label htmlFor="r-event">Event</Label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <RadioGroupItem value="club" id="r-club" />
+                            <Label htmlFor="r-club">Club</Label>
+                          </div>
+                        </RadioGroup>
                       </div>
+
+                      {organizerType === "event" ? (
+                        <div className="grid gap-2">
+                          <Label htmlFor="eventId">Event</Label>
+                          <Select name="eventId" defaultValue={editingActivity?.eventId?.toString() || ""} required>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select event" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {events.map((event) => (
+                                <SelectItem key={event.eventId} value={event.eventId.toString()}>
+                                  {event.eventName}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      ) : (
+                        <div className="grid gap-2">
+                          <Label htmlFor="clubId">Club</Label>
+                          <Select name="clubId" defaultValue={editingActivity?.clubId?.toString() || ""} required>
+                            <SelectTrigger>
+                              <SelectValue placeholder="Select club" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {clubs.map((club) => (
+                                <SelectItem key={club.clubId} value={club.clubId.toString()}>
+                                  {club.clubName}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )}
                       <div className="grid grid-cols-2 gap-4">
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="startDate">Start Date & Time</Label>
                           <Input
                             id="startDate"
@@ -333,7 +425,7 @@ export default function ActivitiesPage() {
                             required
                           />
                         </div>
-                        <div>
+                        <div className="grid gap-2">
                           <Label htmlFor="endDate">End Date & Time</Label>
                           <Input
                             id="endDate"
@@ -354,14 +446,14 @@ export default function ActivitiesPage() {
                   </DialogContent>
                 </Dialog>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-2 max-h-[500px] overflow-y-auto">
                 {activities.map((activity) => (
                   <div
                     key={activity.activityId}
-                    className={`p-4 rounded-lg border cursor-pointer transition-all hover:border-primary/50 ${
+                    className={`p-4 rounded-lg border cursor-pointer transition-all ${
                       selectedActivity?.activityId === activity.activityId
-                        ? "bg-primary/5 border-primary"
-                        : "bg-card border-border"
+                        ? "bg-primary/10 border-primary"
+                        : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
                     }`}
                     onClick={() => handleActivitySelect(activity)}
                   >
@@ -371,7 +463,7 @@ export default function ActivitiesPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7"
+                          className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                           onClick={(e) => {
                             e.stopPropagation()
                             handleEdit(activity)
@@ -382,22 +474,22 @@ export default function ActivitiesPage() {
                         <Button
                           variant="ghost"
                           size="icon"
-                          className="h-7 w-7"
+                          className="h-7 w-7 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
                           onClick={(e) => {
                             e.stopPropagation()
                             handleDelete(activity.activityId)
                           }}
                         >
-                          <Trash2 className="h-3.5 w-3.5 text-destructive" />
+                          <Trash2 className="h-3.5 w-3.5 text-destructive group-hover:text-destructive-foreground" />
                         </Button>
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary">
+                      <span className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium bg-primary/10 text-primary group-hover:bg-white/20 group-hover:text-white">
                         {activity.type}
                       </span>
-                      <p className="text-xs text-muted-foreground line-clamp-2">{activity.description}</p>
-                      <p className="text-xs text-muted-foreground">Capacity: {activity.maxCapacity} participants</p>
+                      <p className="text-xs text-muted-foreground line-clamp-2 group-hover:text-accent-foreground/80">{activity.description}</p>
+                      <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">Capacity: {activity.maxCapacity} participants</p>
                     </div>
                   </div>
                 ))}
@@ -491,13 +583,68 @@ export default function ActivitiesPage() {
                 {/* Guests Card */}
                 <Card>
                   <CardHeader>
-                    <div className="flex items-center gap-2">
-                      <Users className="h-5 w-5 text-primary" />
-                      <div>
-                        <CardTitle className="text-lg">Invited Guests</CardTitle>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Users className="h-5 w-5 text-primary" />
+                        <div>
+                          <CardTitle className="text-lg">Invited Guests</CardTitle>
+                          <CardDescription>External guests invited to this activity</CardDescription>
+                        </div>
                       </div>
+                      <Dialog open={isGuestDialogOpen} onOpenChange={setIsGuestDialogOpen}>
+                        <DialogTrigger asChild>
+                          <Button size="sm" variant="outline">
+                            <UserPlus className="h-4 w-4 mr-2" />
+                            Add Guest
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <DialogTitle>Add Guest to Activity</DialogTitle>
+                            <DialogDescription>
+                              Select a guest and assign a role for {selectedActivity.activityName}.
+                            </DialogDescription>
+                          </DialogHeader>
+                          <form onSubmit={handleAddGuest} className="space-y-4 mt-4">
+                            <div className="grid gap-2">
+                              <Label htmlFor="guestId">Select Guest</Label>
+                              <Select name="guestId" required>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select a guest" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {allGuests.map((g) => (
+                                    <SelectItem key={g.guestId} value={g.guestId.toString()}>
+                                      {g.fullName}
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
+                            </div>
+                            <div className="grid gap-2">
+                              <Label htmlFor="roleDescription">Role Description</Label>
+                              <Input id="roleDescription" name="roleDescription" placeholder="e.g. Speaker, Judge" required />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                              <div className="grid gap-2">
+                                <Label htmlFor="startDate">Start Date & Time</Label>
+                                <Input id="startDate" name="startDate" type="datetime-local" defaultValue={selectedActivity.startDate} required />
+                              </div>
+                              <div className="grid gap-2">
+                                <Label htmlFor="endDate">End Date & Time</Label>
+                                <Input id="endDate" name="endDate" type="datetime-local" defaultValue={selectedActivity.endDate} required />
+                              </div>
+                            </div>
+                            <div className="flex gap-2 justify-end">
+                              <Button type="button" variant="outline" onClick={() => setIsGuestDialogOpen(false)}>
+                                Cancel
+                              </Button>
+                              <Button type="submit">Add Guest</Button>
+                            </div>
+                          </form>
+                        </DialogContent>
+                      </Dialog>
                     </div>
-                    <CardDescription>External guests invited to this activity</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {activityGuests.length > 0 ? (
@@ -505,16 +652,28 @@ export default function ActivitiesPage() {
                         <TableHeader>
                           <TableRow>
                             <TableHead>Name</TableHead>
-                            <TableHead>Email</TableHead>
-                            <TableHead>Phone</TableHead>
+                            <TableHead>Role</TableHead>
+                            <TableHead>Dates</TableHead>
+                            <TableHead className="text-right">Action</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
                           {activityGuests.map((guest) => (
-                            <TableRow key={guest.guestRoleId || guest.guestId}>
+                            <TableRow key={guest.guestRoleId}>
                               <TableCell className="font-medium">{guest.fullName || `${(guest as any).prenom_invite || ''} ${(guest as any).nom_invite || ''}`}</TableCell>
-                              <TableCell>{guest.email || (guest as any).email_invite}</TableCell>
-                              <TableCell>{guest.phone || (guest as any).tel_invite}</TableCell>
+                              <TableCell>{guest.roleDescription}</TableCell>
+                              <TableCell className="text-xs">
+                                {new Date(guest.startDate!).toLocaleDateString()} - {new Date(guest.endDate!).toLocaleDateString()}
+                              </TableCell>
+                              <TableCell className="text-right">
+                                <Button 
+                                  variant="ghost" 
+                                  size="sm" 
+                                  onClick={() => handleRemoveGuest(guest.guestRoleId!)}
+                                >
+                                  <X className="h-4 w-4 text-destructive" />
+                                </Button>
+                              </TableCell>
                             </TableRow>
                           ))}
                         </TableBody>
@@ -551,21 +710,20 @@ export default function ActivitiesPage() {
                             </DialogDescription>
                           </DialogHeader>
                           <form onSubmit={handleAddStudent} className="space-y-4 mt-4">
-                            <div>
+                            <div className="grid gap-2">
                               <Label htmlFor="studentId">Select Student</Label>
-                              <select 
-                                id="studentId" 
-                                name="studentId" 
-                                className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                                required
-                              >
-                                <option value="">-- Select a student --</option>
-                                {students.map(s => (
-                                  <option key={s.studentId} value={s.studentId}>
-                                    {s.firstName} {s.lastName} ({s.cne})
-                                  </option>
-                                ))}
-                              </select>
+                              <Select name="studentId" required>
+                                <SelectTrigger>
+                                  <SelectValue placeholder="Select a student" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                  {students.map((s) => (
+                                    <SelectItem key={s.studentId} value={s.studentId.toString()}>
+                                      {s.firstName} {s.lastName} ({s.cne})
+                                    </SelectItem>
+                                  ))}
+                                </SelectContent>
+                              </Select>
                             </div>
                             <div className="flex gap-2 justify-end">
                               <Button type="button" variant="outline" onClick={() => setIsStudentDialogOpen(false)}>

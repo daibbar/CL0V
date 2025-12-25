@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -15,59 +15,86 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Plus, Trash2, User, Phone, Mail, Calendar } from "lucide-react"
+import { Plus, Trash2, User, Phone, Mail, Calendar, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
-type Guest = {
-  id_guest: number
-  guest_name: string
-  guest_phone: string
-  guest_email: string
-}
-
-type ActivityInvitation = {
-  activity_name: string
-  activity_type: string
-  activity_date: string
-  event_name: string
-  club_name: string
-}
-
-// REMOVED MOCK DATA - Using server actions for real data
+import { Guest } from "@/types/db"
+import { getGuests, createGuest, deleteGuest, getGuestActivities, GuestActivityInvitation } from "@/actions/guest-actions"
 
 export default function GuestsPage() {
   const [guests, setGuests] = useState<Guest[]>([])
   const [selectedGuest, setSelectedGuest] = useState<Guest | null>(null)
+  const [guestActivities, setGuestActivities] = useState<GuestActivityInvitation[]>([])
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const { toast } = useToast()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const loadGuests = async () => {
+    setIsLoading(true)
+    try {
+      const data = await getGuests()
+      setGuests(data)
+    } catch (error) {
+      toast({ title: "Error loading guests", variant: "destructive" })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    loadGuests()
+  }, [])
+
+  useEffect(() => {
+    const fetchActivities = async () => {
+      if (selectedGuest) {
+        try {
+          const activities = await getGuestActivities(selectedGuest.guestId)
+          setGuestActivities(activities)
+        } catch (error) {
+          console.error("Failed to load guest activities", error)
+          setGuestActivities([])
+        }
+      } else {
+        setGuestActivities([])
+      }
+    }
+    fetchActivities()
+  }, [selectedGuest])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
-    const guestData: Guest = {
-      id_guest: Date.now(),
-      guest_name: formData.get("guest_name") as string,
-      guest_phone: formData.get("guest_phone") as string,
-      guest_email: formData.get("guest_email") as string,
+    try {
+      const result = await createGuest(formData)
+      if (result.success) {
+        toast({ title: result.message })
+        await loadGuests()
+        setIsOpen(false)
+      } else {
+        toast({ title: result.message, variant: "destructive" })
+      }
+    } catch (error: any) {
+      toast({ title: error.message || "An error occurred", variant: "destructive" })
     }
-
-    setGuests([...guests, guestData])
-    toast({ title: "Guest created successfully" })
-    setIsOpen(false)
   }
 
-  const handleDelete = (id: number) => {
-    setGuests(guests.filter((g) => g.id_guest !== id))
-    if (selectedGuest?.id_guest === id) {
-      setSelectedGuest(guests[0] || null)
+  const handleDelete = async (id: number) => {
+    try {
+      const result = await deleteGuest(id)
+      if (result.success) {
+        toast({ title: result.message })
+        setGuests(guests.filter((g) => g.guestId !== id))
+        if (selectedGuest?.guestId === id) {
+          setSelectedGuest(null)
+        }
+      } else {
+        toast({ title: result.message, variant: "destructive" })
+      }
+    } catch (error: any) {
+      toast({ title: error.message || "An error occurred", variant: "destructive" })
     }
-    toast({ title: "Guest deleted successfully" })
-  }
-
-  const getGuestActivities = (guestId: number): ActivityInvitation[] => {
-    // TODO: implement server action to fetch activity invitations for a guest
-    return []
   }
 
   return (
@@ -87,7 +114,7 @@ export default function GuestsPage() {
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
                 <div>
                   <CardTitle>All Guests</CardTitle>
-                  <CardDescription>{guests.length} total guests</CardDescription>
+                  <CardDescription>Select to view details</CardDescription>
                 </div>
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                   <DialogTrigger asChild>
@@ -101,15 +128,15 @@ export default function GuestsPage() {
                       <DialogDescription>Add a new guest to the system</DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-                      <div>
-                        <Label htmlFor="guest_name">Guest Name</Label>
+                      <div className="grid gap-2">
+                        <Label htmlFor="guest_name">Full Name</Label>
                         <Input id="guest_name" name="guest_name" placeholder="Dr. John Doe" required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="guest_phone">Phone</Label>
                         <Input id="guest_phone" name="guest_phone" type="tel" placeholder="+212 600 000000" required />
                       </div>
-                      <div>
+                      <div className="grid gap-2">
                         <Label htmlFor="guest_email">Email</Label>
                         <Input
                           id="guest_email"
@@ -129,37 +156,45 @@ export default function GuestsPage() {
                   </DialogContent>
                 </Dialog>
               </CardHeader>
-              <CardContent className="space-y-2">
-                {guests.map((guest) => (
-                  <div
-                    key={guest.id_guest}
-                    onClick={() => setSelectedGuest(guest)}
-                    className={`p-4 rounded-lg border cursor-pointer transition-colors ${
-                      selectedGuest?.id_guest === guest.id_guest
-                        ? "bg-primary/10 border-primary"
-                        : "bg-card hover:bg-accent border-border"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="space-y-1">
-                        <p className="font-medium text-sm">{guest.guest_name}</p>
-                        <p className="text-xs text-muted-foreground">{guest.guest_email}</p>
-                        <p className="text-xs text-muted-foreground">{guest.guest_phone}</p>
-                      </div>
-                      <Button
-                        variant="ghost"
-                        size="icon"
-                        className="h-8 w-8"
-                        onClick={(e) => {
-                          e.stopPropagation()
-                          handleDelete(guest.id_guest)
-                        }}
-                      >
-                        <Trash2 className="h-4 w-4 text-destructive" />
-                      </Button>
-                    </div>
+              <CardContent className="space-y-2 overflow-y-auto max-h-[600px]">
+                {isLoading ? (
+                  <div className="flex justify-center py-8">
+                    <Loader2 className="h-6 w-6 animate-spin text-muted-foreground" />
                   </div>
-                ))}
+                ) : guests.length === 0 ? (
+                  <p className="text-center text-sm text-muted-foreground py-8">No guests found.</p>
+                ) : (
+                  guests.map((guest) => (
+                    <div
+                      key={guest.guestId}
+                      onClick={() => setSelectedGuest(guest)}
+                      className={`p-4 rounded-lg border cursor-pointer transition-all ${
+                        selectedGuest?.guestId === guest.guestId
+                          ? "bg-primary/10 border-primary"
+                          : "group bg-card border-border hover:bg-accent hover:text-accent-foreground hover:border-primary/50"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div className="space-y-1">
+                          <p className="font-medium text-sm">{guest.fullName}</p>
+                          <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{guest.email}</p>
+                          <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">{guest.phone}</p>
+                        </div>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 group-hover:text-accent-foreground group-hover:hover:bg-white/20"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            handleDelete(guest.guestId)
+                          }}
+                        >
+                          <Trash2 className="h-4 w-4 text-destructive group-hover:text-destructive-foreground" />
+                        </Button>
+                      </div>
+                    </div>
+                  ))
+                )}
               </CardContent>
             </Card>
           </div>
@@ -181,20 +216,20 @@ export default function GuestsPage() {
                     <div className="grid grid-cols-1 gap-4">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">Full Name</p>
-                        <p className="text-base font-medium">{selectedGuest.guest_name}</p>
+                        <p className="text-base font-medium">{selectedGuest.fullName}</p>
                       </div>
                       <div className="flex items-center gap-2">
                         <Mail className="h-4 w-4 text-muted-foreground" />
                         <div>
                           <p className="text-sm font-medium text-muted-foreground">Email Address</p>
-                          <p className="text-base font-medium">{selectedGuest.guest_email}</p>
+                          <p className="text-base font-medium">{selectedGuest.email}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">
                         <Phone className="h-4 w-4 text-muted-foreground" />
                         <div>
                           <p className="text-sm font-medium text-muted-foreground">Phone Number</p>
-                          <p className="text-base font-medium">{selectedGuest.guest_phone}</p>
+                          <p className="text-base font-medium">{selectedGuest.phone}</p>
                         </div>
                       </div>
                     </div>
@@ -209,33 +244,33 @@ export default function GuestsPage() {
                       <CardTitle>Activity Invitations</CardTitle>
                     </div>
                     <CardDescription>
-                      Activities where this guest is invited ({getGuestActivities(selectedGuest.id_guest).length})
+                      Activities where this guest is invited ({guestActivities.length})
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    {getGuestActivities(selectedGuest.id_guest).length > 0 ? (
+                    {guestActivities.length > 0 ? (
                       <Table>
                         <TableHeader>
                           <TableRow>
                             <TableHead>Activity Name</TableHead>
                             <TableHead>Type</TableHead>
                             <TableHead>Date</TableHead>
-                            <TableHead>Event</TableHead>
-                            <TableHead>Club</TableHead>
+                            <TableHead>Role</TableHead>
+                            <TableHead>Organizer</TableHead>
                           </TableRow>
                         </TableHeader>
                         <TableBody>
-                          {getGuestActivities(selectedGuest.id_guest).map((invitation, index) => (
+                          {guestActivities.map((invitation, index) => (
                             <TableRow key={index}>
-                              <TableCell className="font-medium">{invitation.activity_name}</TableCell>
+                              <TableCell className="font-medium">{invitation.activityName}</TableCell>
                               <TableCell>
                                 <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary">
-                                  {invitation.activity_type}
+                                  {invitation.activityType}
                                 </span>
                               </TableCell>
-                              <TableCell>{new Date(invitation.activity_date).toLocaleDateString()}</TableCell>
-                              <TableCell>{invitation.event_name}</TableCell>
-                              <TableCell>{invitation.club_name}</TableCell>
+                              <TableCell>{new Date(invitation.startDate).toLocaleDateString()}</TableCell>
+                              <TableCell>{invitation.roleDescription}</TableCell>
+                              <TableCell>{invitation.clubName || invitation.eventName || "N/A"}</TableCell>
                             </TableRow>
                           ))}
                         </TableBody>

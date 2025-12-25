@@ -265,3 +265,47 @@ export async function getActivityGuests(activityId: number) {
     return [];
   }
 }
+
+// --- ADD GUEST TO ACTIVITY ---
+export async function addGuestToActivity(formData: FormData) {
+  const activityId = Number(formData.get('activityId'));
+  const guestId = Number(formData.get('guestId'));
+  const roleDescription = formData.get('roleDescription') as string;
+  const startDate = formData.get('startDate') as string;
+  const endDate = formData.get('endDate') as string;
+
+  if (!activityId || !guestId) {
+    return { success: false, message: 'Invalid Activity or Guest ID' };
+  }
+
+  try {
+    const stmt = db.prepare(`
+      INSERT INTO guestRoles (guestId, activityId, roleDescription, startDate, endDate)
+      VALUES (@guestId, @activityId, @roleDescription, @startDate, @endDate)
+    `);
+
+    stmt.run({ guestId, activityId, roleDescription, startDate, endDate });
+
+    revalidatePath('/activities');
+    return { success: true, message: 'Guest added to activity successfully' };
+  } catch (error: any) {
+    return { success: false, message: error.message };
+  }
+}
+
+// --- REMOVE GUEST FROM ACTIVITY ---
+export async function removeGuestFromActivity(guestRoleId: number) {
+  if (!guestRoleId) {
+    return { success: false, message: 'Invalid Guest Role ID' };
+  }
+
+  try {
+    const stmt = db.prepare('DELETE FROM guestRoles WHERE guestRoleId = ?');
+    stmt.run(guestRoleId);
+
+    revalidatePath('/activities');
+    return { success: true, message: 'Guest removed from activity' };
+  } catch (error: any) {
+    return { success: false, message: error.message };
+  }
+}

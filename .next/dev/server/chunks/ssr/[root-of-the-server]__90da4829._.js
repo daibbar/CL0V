@@ -26,7 +26,7 @@ const __TURBOPACK__default__export__ = db;
 "[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* __next_internal_action_entry_do_not_use__ [{"00545b232253d73c1b611478bd06ced735bf06d28f":"getClubs","00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d":"getClubMemberships","400bc84fe43569a50acb94ceb89e2811b94d78e4d0":"deleteClubMembership","403f314d2770b6d30df991c169ac621c3e542a6a3e":"deleteClub","40937b7d5eb78ccbf3004e0770b399ebe96930477c":"getClubsByEvent","40c977e9523458e7667dbc9361296afbfa11073e61":"createClubMembership","40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12":"createClub","608c092e7574f097374d45ba2f0b8c1a86de07b8f0":"updateClub"},"",""] */ __turbopack_context__.s([
+/* __next_internal_action_entry_do_not_use__ [{"00545b232253d73c1b611478bd06ced735bf06d28f":"getClubs","00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d":"getClubMemberships","4000313a5acbb7e94baad51d8157f0172a109b57f5":"getClubMembers","400bc84fe43569a50acb94ceb89e2811b94d78e4d0":"deleteClubMembership","401e2045fbee811dd001c67288e014f0808a177f35":"getClubEvents","403f314d2770b6d30df991c169ac621c3e542a6a3e":"deleteClub","40937b7d5eb78ccbf3004e0770b399ebe96930477c":"getClubsByEvent","40c977e9523458e7667dbc9361296afbfa11073e61":"createClubMembership","40ebf616928dfb92ae12b9e40f78a4de8020661f1a":"getClubActivities","40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12":"createClub","608c092e7574f097374d45ba2f0b8c1a86de07b8f0":"updateClub"},"",""] */ __turbopack_context__.s([
     "createClub",
     ()=>createClub,
     "createClubMembership",
@@ -35,6 +35,12 @@ const __TURBOPACK__default__export__ = db;
     ()=>deleteClub,
     "deleteClubMembership",
     ()=>deleteClubMembership,
+    "getClubActivities",
+    ()=>getClubActivities,
+    "getClubEvents",
+    ()=>getClubEvents,
+    "getClubMembers",
+    ()=>getClubMembers,
     "getClubMemberships",
     ()=>getClubMemberships,
     "getClubs",
@@ -147,6 +153,49 @@ async function getClubsByEvent(eventId) {
         return [];
     }
 }
+async function getClubMembers(clubId) {
+    try {
+        const members = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT s.*, cm.joinedAt
+      FROM students s
+      JOIN clubMemberships cm ON s.studentId = cm.studentId
+      WHERE cm.clubId = ?
+      ORDER BY cm.joinedAt DESC
+    `).all(clubId);
+        return members;
+    } catch (error) {
+        console.error("Failed to fetch club members:", error);
+        return [];
+    }
+}
+async function getClubEvents(clubId) {
+    try {
+        // Events where the club is an organizer
+        const events = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT e.*
+      FROM events e
+      JOIN eventOrganizers eo ON e.eventId = eo.eventId
+      WHERE eo.clubId = ?
+      ORDER BY e.startDate DESC
+    `).all(clubId);
+        return events;
+    } catch (error) {
+        console.error("Failed to fetch club events:", error);
+        return [];
+    }
+}
+async function getClubActivities(clubId) {
+    try {
+        // Activities owned by the club
+        const activities = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT * FROM activities WHERE clubId = ? ORDER BY startDate DESC
+    `).all(clubId);
+        return activities;
+    } catch (error) {
+        console.error("Failed to fetch club activities:", error);
+        return [];
+    }
+}
 async function getClubMemberships() {
     try {
         const rows = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
@@ -213,6 +262,9 @@ async function deleteClubMembership(membershipId) {
     updateClub,
     deleteClub,
     getClubsByEvent,
+    getClubMembers,
+    getClubEvents,
+    getClubActivities,
     getClubMemberships,
     createClubMembership,
     deleteClubMembership
@@ -222,6 +274,9 @@ async function deleteClubMembership(membershipId) {
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(updateClub, "608c092e7574f097374d45ba2f0b8c1a86de07b8f0", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(deleteClub, "403f314d2770b6d30df991c169ac621c3e542a6a3e", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubsByEvent, "40937b7d5eb78ccbf3004e0770b399ebe96930477c", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubMembers, "4000313a5acbb7e94baad51d8157f0172a109b57f5", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubEvents, "401e2045fbee811dd001c67288e014f0808a177f35", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubActivities, "40ebf616928dfb92ae12b9e40f78a4de8020661f1a", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubMemberships, "00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(createClubMembership, "40c977e9523458e7667dbc9361296afbfa11073e61", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(deleteClubMembership, "400bc84fe43569a50acb94ceb89e2811b94d78e4d0", null);
@@ -235,6 +290,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$a
 ;
 ;
 ;
+;
+;
+;
 }),
 "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -242,8 +300,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$a
 __turbopack_context__.s([
     "00545b232253d73c1b611478bd06ced735bf06d28f",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getClubs"],
+    "4000313a5acbb7e94baad51d8157f0172a109b57f5",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getClubMembers"],
+    "401e2045fbee811dd001c67288e014f0808a177f35",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getClubEvents"],
     "403f314d2770b6d30df991c169ac621c3e542a6a3e",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["deleteClub"],
+    "40ebf616928dfb92ae12b9e40f78a4de8020661f1a",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getClubActivities"],
     "40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createClub"],
     "608c092e7574f097374d45ba2f0b8c1a86de07b8f0",

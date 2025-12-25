@@ -53,16 +53,39 @@ async function createEvent(formData) {
     const eventName = formData.get('eventName');
     const startDate = formData.get('startDate');
     const endDate = formData.get('endDate');
+    // clubIds is expected to be a JSON string of numbers, e.g., "[1, 2]"
+    const clubIdsJson = formData.get('clubIds');
+    let clubIds = [];
+    if (clubIdsJson) {
+        try {
+            clubIds = JSON.parse(clubIdsJson);
+        } catch (e) {
+            console.error("Invalid clubIds JSON", e);
+        }
+    }
     try {
-        const stmt = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
-      INSERT INTO events (eventName, startDate, endDate)
-      VALUES (@eventName, @startDate, @endDate)
-    `);
-        stmt.run({
-            eventName,
-            startDate,
-            endDate
+        const createTransaction = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].transaction(()=>{
+            const stmt = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+        INSERT INTO events (eventName, startDate, endDate)
+        VALUES (@eventName, @startDate, @endDate)
+        `);
+            const info = stmt.run({
+                eventName,
+                startDate,
+                endDate
+            });
+            const eventId = info.lastInsertRowid;
+            if (clubIds.length > 0) {
+                const insertOrg = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+                INSERT INTO eventOrganizers (eventId, clubId) VALUES (?, ?)
+            `);
+                for (const clubId of clubIds){
+                    insertOrg.run(eventId, clubId);
+                }
+            }
+            return eventId;
         });
+        createTransaction();
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/events');
         return {
             success: true,
@@ -88,20 +111,45 @@ async function updateEvent(eventId, formData) {
     const eventName = formData.get('eventName');
     const startDate = formData.get('startDate');
     const endDate = formData.get('endDate');
+    const clubIdsJson = formData.get('clubIds');
+    let clubIds = [];
+    if (clubIdsJson) {
+        try {
+            clubIds = JSON.parse(clubIdsJson);
+        } catch (e) {
+            console.error("Invalid clubIds JSON", e);
+        }
+    }
     try {
-        const stmt = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
-      UPDATE events 
-      SET eventName = @eventName, 
-          startDate = @startDate, 
-          endDate = @endDate
-      WHERE eventId = @eventId
-    `);
-        stmt.run({
-            eventName,
-            startDate,
-            endDate,
-            eventId
+        const updateTransaction = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].transaction(()=>{
+            const stmt = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+        UPDATE events 
+        SET eventName = @eventName, 
+            startDate = @startDate, 
+            endDate = @endDate
+        WHERE eventId = @eventId
+        `);
+            stmt.run({
+                eventName,
+                startDate,
+                endDate,
+                eventId
+            });
+            // Update organizers: delete existing, insert new
+            // Only do this if clubIds was actually passed (even if empty array, meaning clear all)
+            // If undefined/null logic was needed we'd check formData.has('clubIds'), but here we assume it's sent.
+            if (clubIdsJson !== null) {
+                const deleteOrgs = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('DELETE FROM eventOrganizers WHERE eventId = ?');
+                deleteOrgs.run(eventId);
+                if (clubIds.length > 0) {
+                    const insertOrg = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('INSERT INTO eventOrganizers (eventId, clubId) VALUES (?, ?)');
+                    for (const clubId of clubIds){
+                        insertOrg.run(eventId, clubId);
+                    }
+                }
+            }
         });
+        updateTransaction();
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/events');
         return {
             success: true,
@@ -229,15 +277,23 @@ async function getEventParticipants(eventId) {
 "[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* __next_internal_action_entry_do_not_use__ [{"0076e1ee761f3c725f60e6b94644d057cf1652cdf3":"getStudents","00fe3536568a6c117a4b57577e978eb83ea68f419d":"getMajors","405fda7eb3a9b799d827ff4332611a9f0e62f6c74e":"deleteStudent","40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e":"createStudent","60a0ef4ce8b4795ac36b4acc6df890381a47990a1b":"updateStudent"},"",""] */ __turbopack_context__.s([
+/* __next_internal_action_entry_do_not_use__ [{"000c05c8913e8b991c02dcbc9a6588eb11351ad47d":"getTotalActivitiesCount","0076e1ee761f3c725f60e6b94644d057cf1652cdf3":"getStudents","00fe3536568a6c117a4b57577e978eb83ea68f419d":"getMajors","40409b46f825f48fd11d0bbe12e6eb545405bce9bd":"getStudentActivities","405896ee1640fc439a0edc4e76ed44615f302849a8":"getStudentEvents","4058c552c6e5832b78d3ff3972d188e1e2544edc4f":"getStudentClubs","405fda7eb3a9b799d827ff4332611a9f0e62f6c74e":"deleteStudent","40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e":"createStudent","60a0ef4ce8b4795ac36b4acc6df890381a47990a1b":"updateStudent"},"",""] */ __turbopack_context__.s([
     "createStudent",
     ()=>createStudent,
     "deleteStudent",
     ()=>deleteStudent,
     "getMajors",
     ()=>getMajors,
+    "getStudentActivities",
+    ()=>getStudentActivities,
+    "getStudentClubs",
+    ()=>getStudentClubs,
+    "getStudentEvents",
+    ()=>getStudentEvents,
     "getStudents",
     ()=>getStudents,
+    "getTotalActivitiesCount",
+    ()=>getTotalActivitiesCount,
     "updateStudent",
     ()=>updateStudent
 ]);
@@ -250,15 +306,53 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pn
 ;
 async function getStudents() {
     // We JOIN with majors to get the readable name (e.g., 'IID') instead of just a number
+    // And we include counts for clubs, activities, and events
     const students = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
     SELECT 
       students.*, 
-      majors.majorName 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
     FROM students 
     LEFT JOIN majors ON students.majorId = majors.majorId
     ORDER BY students.lastName ASC
   `).all();
     return students;
+}
+async function getStudentEvents(studentId) {
+    const events = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = ?
+    ORDER BY e.startDate DESC
+  `).all(studentId);
+    return events;
+}
+async function getStudentClubs(studentId) {
+    const clubs = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = ?
+    ORDER BY c.clubName ASC
+  `).all(studentId);
+    return clubs;
+}
+async function getStudentActivities(studentId) {
+    const activities = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = ?
+    ORDER BY a.startDate DESC
+  `).all(studentId);
+    return activities;
+}
+async function getTotalActivitiesCount() {
+    const result = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('SELECT COUNT(*) as count FROM activities').get();
+    return result.count;
 }
 async function getMajors() {
     return __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('SELECT * FROM majors ORDER BY majorName ASC').all();
@@ -365,12 +459,20 @@ async function deleteStudent(studentId) {
 ;
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$action$2d$validate$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ensureServerEntryExports"])([
     getStudents,
+    getStudentEvents,
+    getStudentClubs,
+    getStudentActivities,
+    getTotalActivitiesCount,
     getMajors,
     createStudent,
     updateStudent,
     deleteStudent
 ]);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getStudents, "0076e1ee761f3c725f60e6b94644d057cf1652cdf3", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getStudentEvents, "405896ee1640fc439a0edc4e76ed44615f302849a8", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getStudentClubs, "4058c552c6e5832b78d3ff3972d188e1e2544edc4f", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getStudentActivities, "40409b46f825f48fd11d0bbe12e6eb545405bce9bd", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getTotalActivitiesCount, "000c05c8913e8b991c02dcbc9a6588eb11351ad47d", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getMajors, "00fe3536568a6c117a4b57577e978eb83ea68f419d", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(createStudent, "40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(updateStudent, "60a0ef4ce8b4795ac36b4acc6df890381a47990a1b", null);
@@ -713,7 +815,7 @@ async function getActivityGuests(activityId) {
 "[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-/* __next_internal_action_entry_do_not_use__ [{"00545b232253d73c1b611478bd06ced735bf06d28f":"getClubs","00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d":"getClubMemberships","400bc84fe43569a50acb94ceb89e2811b94d78e4d0":"deleteClubMembership","403f314d2770b6d30df991c169ac621c3e542a6a3e":"deleteClub","40937b7d5eb78ccbf3004e0770b399ebe96930477c":"getClubsByEvent","40c977e9523458e7667dbc9361296afbfa11073e61":"createClubMembership","40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12":"createClub","608c092e7574f097374d45ba2f0b8c1a86de07b8f0":"updateClub"},"",""] */ __turbopack_context__.s([
+/* __next_internal_action_entry_do_not_use__ [{"00545b232253d73c1b611478bd06ced735bf06d28f":"getClubs","00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d":"getClubMemberships","4000313a5acbb7e94baad51d8157f0172a109b57f5":"getClubMembers","400bc84fe43569a50acb94ceb89e2811b94d78e4d0":"deleteClubMembership","401e2045fbee811dd001c67288e014f0808a177f35":"getClubEvents","403f314d2770b6d30df991c169ac621c3e542a6a3e":"deleteClub","40937b7d5eb78ccbf3004e0770b399ebe96930477c":"getClubsByEvent","40c977e9523458e7667dbc9361296afbfa11073e61":"createClubMembership","40ebf616928dfb92ae12b9e40f78a4de8020661f1a":"getClubActivities","40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12":"createClub","608c092e7574f097374d45ba2f0b8c1a86de07b8f0":"updateClub"},"",""] */ __turbopack_context__.s([
     "createClub",
     ()=>createClub,
     "createClubMembership",
@@ -722,6 +824,12 @@ async function getActivityGuests(activityId) {
     ()=>deleteClub,
     "deleteClubMembership",
     ()=>deleteClubMembership,
+    "getClubActivities",
+    ()=>getClubActivities,
+    "getClubEvents",
+    ()=>getClubEvents,
+    "getClubMembers",
+    ()=>getClubMembers,
     "getClubMemberships",
     ()=>getClubMemberships,
     "getClubs",
@@ -834,6 +942,49 @@ async function getClubsByEvent(eventId) {
         return [];
     }
 }
+async function getClubMembers(clubId) {
+    try {
+        const members = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT s.*, cm.joinedAt
+      FROM students s
+      JOIN clubMemberships cm ON s.studentId = cm.studentId
+      WHERE cm.clubId = ?
+      ORDER BY cm.joinedAt DESC
+    `).all(clubId);
+        return members;
+    } catch (error) {
+        console.error("Failed to fetch club members:", error);
+        return [];
+    }
+}
+async function getClubEvents(clubId) {
+    try {
+        // Events where the club is an organizer
+        const events = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT e.*
+      FROM events e
+      JOIN eventOrganizers eo ON e.eventId = eo.eventId
+      WHERE eo.clubId = ?
+      ORDER BY e.startDate DESC
+    `).all(clubId);
+        return events;
+    } catch (error) {
+        console.error("Failed to fetch club events:", error);
+        return [];
+    }
+}
+async function getClubActivities(clubId) {
+    try {
+        // Activities owned by the club
+        const activities = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
+      SELECT * FROM activities WHERE clubId = ? ORDER BY startDate DESC
+    `).all(clubId);
+        return activities;
+    } catch (error) {
+        console.error("Failed to fetch club activities:", error);
+        return [];
+    }
+}
 async function getClubMemberships() {
     try {
         const rows = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
@@ -900,6 +1051,9 @@ async function deleteClubMembership(membershipId) {
     updateClub,
     deleteClub,
     getClubsByEvent,
+    getClubMembers,
+    getClubEvents,
+    getClubActivities,
     getClubMemberships,
     createClubMembership,
     deleteClubMembership
@@ -909,6 +1063,9 @@ async function deleteClubMembership(membershipId) {
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(updateClub, "608c092e7574f097374d45ba2f0b8c1a86de07b8f0", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(deleteClub, "403f314d2770b6d30df991c169ac621c3e542a6a3e", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubsByEvent, "40937b7d5eb78ccbf3004e0770b399ebe96930477c", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubMembers, "4000313a5acbb7e94baad51d8157f0172a109b57f5", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubEvents, "401e2045fbee811dd001c67288e014f0808a177f35", null);
+(0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubActivities, "40ebf616928dfb92ae12b9e40f78a4de8020661f1a", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(getClubMemberships, "00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(createClubMembership, "40c977e9523458e7667dbc9361296afbfa11073e61", null);
 (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$build$2f$webpack$2f$loaders$2f$next$2d$flight$2d$loader$2f$server$2d$reference$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerServerReference"])(deleteClubMembership, "400bc84fe43569a50acb94ceb89e2811b94d78e4d0", null);
@@ -933,11 +1090,14 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$a
 ;
 ;
 ;
+;
 }),
 "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
 __turbopack_context__.s([
+    "00545b232253d73c1b611478bd06ced735bf06d28f",
+    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$club$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getClubs"],
     "0076e1ee761f3c725f60e6b94644d057cf1652cdf3",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getStudents"],
     "00b3e34c4e07d70cddec963eb433f89987d4b1ecc1",
