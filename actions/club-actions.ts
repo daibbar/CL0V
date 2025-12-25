@@ -71,3 +71,72 @@ export async function deleteClub(clubId: number) {
     return { success: false, message: error.message };
   }
 }
+
+// --- GET CLUBS BY EVENT ---
+export async function getClubsByEvent(eventId: number) {
+  try {
+    const clubs = db.prepare(`
+      SELECT c.*
+      FROM clubs c
+      JOIN eventOrganizers eo ON c.clubId = eo.clubId
+      WHERE eo.eventId = ?
+    `).all(eventId);
+
+    return clubs || [];
+  } catch (error: any) {
+    console.error("Failed to fetch clubs for event:", error);
+    return [];
+  }
+}
+
+// --- CLUB MEMBERSHIPS ---
+export async function getClubMemberships() {
+  try {
+    const rows = db.prepare(`
+      SELECT cm.membershipId, cm.joinedAt,
+             c.clubName as clubName, c.category as clubCategory,
+             s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
+      FROM clubMemberships cm
+      JOIN clubs c ON cm.clubId = c.clubId
+      JOIN students s ON cm.studentId = s.studentId
+      ORDER BY cm.joinedAt DESC
+    `).all();
+
+    return rows || [];
+  } catch (error: any) {
+    console.error('Failed to fetch club memberships', error);
+    return [];
+  }
+}
+
+export async function createClubMembership(formData: FormData) {
+  const studentId = parseInt(formData.get('studentId') as string);
+  const clubId = parseInt(formData.get('clubId') as string);
+  const joinedAt = (formData.get('joinedAt') as string) || new Date().toISOString();
+
+  try {
+    const stmt = db.prepare(`
+      INSERT INTO clubMemberships (joinedAt, clubId, studentId)
+      VALUES (@joinedAt, @clubId, @studentId)
+    `);
+
+    stmt.run({ joinedAt, clubId, studentId });
+    revalidatePath('/memberships');
+    return { success: true };
+  } catch (error: any) {
+    console.error('Failed to create club membership', error);
+    return { success: false, message: error.message };
+  }
+}
+
+export async function deleteClubMembership(membershipId: number) {
+  try {
+    const stmt = db.prepare('DELETE FROM clubMemberships WHERE membershipId = ?');
+    stmt.run(membershipId);
+    revalidatePath('/memberships');
+    return { success: true };
+  } catch (error: any) {
+    console.error('Failed to delete club membership', error);
+    return { success: false, message: error.message };
+  }
+}

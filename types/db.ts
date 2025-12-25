@@ -61,6 +61,18 @@ export interface ClubMembership {
   studentId: number;
 }
 
+export interface ClubMembershipWithDetails {
+  membershipId: number;
+  joinedAt: string;
+  clubId?: number;
+  studentId: number;
+  clubName: string;
+  clubCategory: string;
+  studentName: string;
+  studentCne: string;
+  studentEmail: string;
+}
+
 export interface Reservation {
   reservationId: number;
   reservationName: string;

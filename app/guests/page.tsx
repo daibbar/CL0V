@@ -33,67 +33,11 @@ type ActivityInvitation = {
   club_name: string
 }
 
-const mockGuests: Guest[] = [
-  {
-    id_guest: 1,
-    guest_name: "Dr. Ahmed Saleh",
-    guest_phone: "+212 600 123456",
-    guest_email: "ahmed.saleh@university.ma",
-  },
-  {
-    id_guest: 2,
-    guest_name: "Prof. Laila Mansouri",
-    guest_phone: "+212 600 654321",
-    guest_email: "laila.mansouri@tech.ma",
-  },
-  {
-    id_guest: 3,
-    guest_name: "Eng. Karim Idrissi",
-    guest_phone: "+212 600 789012",
-    guest_email: "karim.idrissi@startup.ma",
-  },
-]
-
-const mockActivityInvitations: Record<number, ActivityInvitation[]> = {
-  1: [
-    {
-      activity_name: "AI Conference 2024",
-      activity_type: "Conference",
-      activity_date: "2024-07-15T09:00",
-      event_name: "Tech Summit 2024",
-      club_name: "Tech Club",
-    },
-    {
-      activity_name: "Machine Learning Workshop",
-      activity_type: "Workshop",
-      activity_date: "2024-08-10T14:00",
-      event_name: "Tech Summit 2024",
-      club_name: "Tech Club",
-    },
-  ],
-  2: [
-    {
-      activity_name: "Web Development Workshop",
-      activity_type: "Workshop",
-      activity_date: "2024-06-20T14:00",
-      event_name: "Developer Day",
-      club_name: "Tech Club",
-    },
-  ],
-  3: [
-    {
-      activity_name: "Entrepreneurship Seminar",
-      activity_type: "Conference",
-      activity_date: "2024-09-05T10:00",
-      event_name: "Startup Week",
-      club_name: "Entrepreneurship Club",
-    },
-  ],
-}
+// REMOVED MOCK DATA - Using server actions for real data
 
 export default function GuestsPage() {
-  const [guests, setGuests] = useState<Guest[]>(mockGuests)
-  const [selectedGuest, setSelectedGuest] = useState<Guest | null>(mockGuests[0])
+  const [guests, setGuests] = useState<Guest[]>([])
+  const [selectedGuest, setSelectedGuest] = useState<Guest | null>(null)
   const [isOpen, setIsOpen] = useState(false)
   const { toast } = useToast()
 
@@ -122,7 +66,8 @@ export default function GuestsPage() {
   }
 
   const getGuestActivities = (guestId: number): ActivityInvitation[] => {
-    return mockActivityInvitations[guestId] || []
+    // TODO: implement server action to fetch activity invitations for a guest
+    return []
   }
 
   return (

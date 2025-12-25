@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import {
@@ -16,78 +16,60 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Plus, Trash2, Users, Calendar, BookOpen } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
-
-type Membership = {
-  id_adhesion: number
-  date_adhesion: string
-  club_name: string
-  student_name: string
-  student_cne: string
-  student_email: string
-  club_category: string
-}
-
-const mockMemberships: Membership[] = [
-  {
-    id_adhesion: 1,
-    date_adhesion: "2024-02-15",
-    club_name: "Tech Club",
-    student_name: "Sara Alami",
-    student_cne: "R12345678",
-    student_email: "sara.alami@student.edu",
-    club_category: "Technological",
-  },
-  {
-    id_adhesion: 2,
-    date_adhesion: "2024-03-20",
-    club_name: "Sports Association",
-    student_name: "Omar Bennani",
-    student_cne: "R87654321",
-    student_email: "omar.bennani@student.edu",
-    club_category: "Sport",
-  },
-  {
-    id_adhesion: 3,
-    date_adhesion: "2024-01-10",
-    club_name: "Entrepreneurship Club",
-    student_name: "Leila Ziani",
-    student_cne: "R11223344",
-    student_email: "leila.ziani@student.edu",
-    club_category: "Social entrepreneurship",
-  },
-]
+import { getStudents } from "@/actions/student-actions"
+import { getClubs, getClubMemberships, createClubMembership, deleteClubMembership } from "@/actions/club-actions"
+import type { Club, Student, ClubMembershipWithDetails } from "@/types/db"
 
 export default function MembershipsPage() {
-  const [memberships, setMemberships] = useState<Membership[]>(mockMemberships)
-  const [selectedMembership, setSelectedMembership] = useState<Membership | null>(mockMemberships[0])
+  const [memberships, setMemberships] = useState<ClubMembershipWithDetails[]>([])
+  const [selectedMembership, setSelectedMembership] = useState<ClubMembershipWithDetails | null>(null)
+  const [students, setStudents] = useState<Student[]>([])
+  const [clubs, setClubs] = useState<Club[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const { toast } = useToast()
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const s = await getStudents()
+        setStudents(s as Student[])
+        const c = await getClubs()
+        setClubs(c as Club[])
+        const m = await getClubMemberships()
+        setMemberships(m as ClubMembershipWithDetails[])
+        setSelectedMembership((m as ClubMembershipWithDetails[])[0] || null)
+      } catch (err) {
+        console.error(err)
+      }
+    })()
+  }, [])
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
 
-    const membershipData: Membership = {
-      id_adhesion: Date.now(),
-      date_adhesion: formData.get("date_adhesion") as string,
-      club_name: formData.get("club_name") as string,
-      student_name: formData.get("student_name") as string,
-      student_cne: "R" + Math.floor(Math.random() * 100000000),
-      student_email: formData.get("student_email") as string,
-      club_category: "Entertainment",
+    const res = await createClubMembership(formData)
+    if (res?.success) {
+      const m = await getClubMemberships()
+      setMemberships(m as ClubMembershipWithDetails[])
+      setSelectedMembership((m as ClubMembershipWithDetails[])[0] || null)
+      toast({ title: "Membership created successfully" })
+      setIsOpen(false)
+    } else {
+      toast({ title: res?.message || 'Failed to create membership' })
     }
-
-    setMemberships([...memberships, membershipData])
-    toast({ title: "Membership created successfully" })
-    setIsOpen(false)
   }
 
-  const handleDelete = (id: number) => {
-    setMemberships(memberships.filter((m) => m.id_adhesion !== id))
-    if (selectedMembership?.id_adhesion === id) {
-      setSelectedMembership(memberships[0] || null)
+  const handleDelete = async (id: number) => {
+    const res = await deleteClubMembership(id)
+    if (res?.success) {
+      const m = await getClubMemberships()
+      setMemberships(m as ClubMembershipWithDetails[])
+      setSelectedMembership((m as ClubMembershipWithDetails[])[0] || null)
+      toast({ title: "Membership deleted successfully" })
+    } else {
+      toast({ title: res?.message || 'Failed to delete membership' })
     }
-    toast({ title: "Membership deleted successfully" })
   }
 
   return (
@@ -122,28 +104,34 @@ export default function MembershipsPage() {
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
                       <div>
-                        <Label htmlFor="student_name">Student Name</Label>
-                        <Input id="student_name" name="student_name" placeholder="Enter student name" required />
+                        <Label htmlFor="studentId">Student</Label>
+                        <select id="studentId" name="studentId" className="w-full p-2 border rounded" required>
+                          <option value="">Select a student</option>
+                          {students.map((s) => (
+                            <option key={s.studentId} value={s.studentId}>
+                              {s.firstName} {s.lastName} — {s.cne}
+                            </option>
+                          ))}
+                        </select>
                       </div>
+
                       <div>
-                        <Label htmlFor="student_email">Student Email</Label>
+                        <Label htmlFor="clubId">Club</Label>
+                        <select id="clubId" name="clubId" className="w-full p-2 border rounded" required>
+                          <option value="">Select a club</option>
+                          {clubs.map((c) => (
+                            <option key={c.clubId} value={c.clubId}>
+                              {c.clubName} ({c.category})
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <Label htmlFor="joinedAt">Membership Date</Label>
                         <Input
-                          id="student_email"
-                          name="student_email"
-                          type="email"
-                          placeholder="student@edu.ma"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="club_name">Club Name</Label>
-                        <Input id="club_name" name="club_name" placeholder="Enter club name" required />
-                      </div>
-                      <div>
-                        <Label htmlFor="date_adhesion">Membership Date</Label>
-                        <Input
-                          id="date_adhesion"
-                          name="date_adhesion"
+                          id="joinedAt"
+                          name="joinedAt"
                           type="date"
                           defaultValue={new Date().toISOString().split("T")[0]}
                           required
@@ -162,20 +150,20 @@ export default function MembershipsPage() {
               <CardContent className="space-y-2">
                 {memberships.map((membership) => (
                   <div
-                    key={membership.id_adhesion}
+                    key={membership.membershipId}
                     onClick={() => setSelectedMembership(membership)}
                     className={`p-4 rounded-lg border cursor-pointer transition-colors ${
-                      selectedMembership?.id_adhesion === membership.id_adhesion
+                      selectedMembership?.membershipId === membership.membershipId
                         ? "bg-primary/10 border-primary"
                         : "bg-card hover:bg-accent border-border"
                     }`}
                   >
                     <div className="flex items-start justify-between">
                       <div className="space-y-1">
-                        <p className="font-medium text-sm">{membership.student_name}</p>
-                        <p className="text-xs text-muted-foreground">{membership.club_name}</p>
+                        <p className="font-medium text-sm">{membership.studentName}</p>
+                        <p className="text-xs text-muted-foreground">{membership.clubName}</p>
                         <p className="text-xs text-muted-foreground">
-                          {new Date(membership.date_adhesion).toLocaleDateString()}
+                          {new Date(membership.joinedAt).toLocaleDateString()}
                         </p>
                       </div>
                       <Button
@@ -184,7 +172,7 @@ export default function MembershipsPage() {
                         className="h-8 w-8"
                         onClick={(e) => {
                           e.stopPropagation()
-                          handleDelete(membership.id_adhesion)
+                          handleDelete(membership.membershipId)
                         }}
                       >
                         <Trash2 className="h-4 w-4 text-destructive" />
@@ -213,15 +201,15 @@ export default function MembershipsPage() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">Full Name</p>
-                        <p className="text-base font-medium">{selectedMembership.student_name}</p>
+                        <p className="text-base font-medium">{selectedMembership.studentName}</p>
                       </div>
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">CNE</p>
-                        <p className="text-base font-medium">{selectedMembership.student_cne}</p>
+                        <p className="text-base font-medium">{selectedMembership.studentCne}</p>
                       </div>
                       <div className="col-span-2">
                         <p className="text-sm font-medium text-muted-foreground">Email</p>
-                        <p className="text-base font-medium">{selectedMembership.student_email}</p>
+                        <p className="text-base font-medium">{selectedMembership.studentEmail}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -240,12 +228,12 @@ export default function MembershipsPage() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">Club Name</p>
-                        <p className="text-base font-medium">{selectedMembership.club_name}</p>
+                        <p className="text-base font-medium">{selectedMembership.clubName}</p>
                       </div>
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">Category</p>
                         <span className="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium bg-primary/10 text-primary">
-                          {selectedMembership.club_category}
+                          {selectedMembership.clubCategory}
                         </span>
                       </div>
                     </div>
@@ -266,7 +254,7 @@ export default function MembershipsPage() {
                       <div>
                         <p className="text-sm font-medium text-muted-foreground">Registration Date</p>
                         <p className="text-base font-medium">
-                          {new Date(selectedMembership.date_adhesion).toLocaleDateString("en-US", {
+                          {new Date(selectedMembership.joinedAt).toLocaleDateString("en-US", {
                             weekday: "long",
                             year: "numeric",
                             month: "long",
@@ -278,7 +266,7 @@ export default function MembershipsPage() {
                         <p className="text-sm font-medium text-muted-foreground">Membership Duration</p>
                         <p className="text-base font-medium">
                           {Math.floor(
-                            (new Date().getTime() - new Date(selectedMembership.date_adhesion).getTime()) /
+                            (new Date().getTime() - new Date(selectedMembership.joinedAt).getTime()) /
                               (1000 * 60 * 60 * 24),
                           )}{" "}
                           days

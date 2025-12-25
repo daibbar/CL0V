@@ -36,66 +36,12 @@ type Reservation = {
   status: "past" | "upcoming"
 }
 
-const mockResources: Resource[] = [
-  { id_ressource: 1, type_ressource: "salle", nom: "Room A101" },
-  { id_ressource: 2, type_ressource: "Amphitheatre", nom: "Main Amphitheater" },
-  { id_ressource: 3, type_ressource: "terrain", nom: "Football Field" },
-  { id_ressource: 4, type_ressource: "labo", nom: "Computer Lab 1" },
-  { id_ressource: 5, type_ressource: "Bibliotheque", nom: "Central Library" },
-]
-
-const mockReservations: Reservation[] = [
-  {
-    id_reservation: 1,
-    id_ressource: 1,
-    id_activite: 1,
-    activity_name: "Web Development Workshop",
-    date_debut: "2024-12-15T09:00:00",
-    date_fin: "2024-12-15T12:00:00",
-    status: "past",
-  },
-  {
-    id_reservation: 2,
-    id_ressource: 1,
-    id_activite: 2,
-    activity_name: "AI Conference",
-    date_debut: "2025-01-20T10:00:00",
-    date_fin: "2025-01-20T16:00:00",
-    status: "upcoming",
-  },
-  {
-    id_reservation: 3,
-    id_ressource: 1,
-    id_activite: 3,
-    activity_name: "Networking Event",
-    date_debut: "2025-02-10T14:00:00",
-    date_fin: "2025-02-10T18:00:00",
-    status: "upcoming",
-  },
-  {
-    id_reservation: 4,
-    id_ressource: 2,
-    id_activite: 4,
-    activity_name: "Annual Tech Summit",
-    date_debut: "2024-11-20T08:00:00",
-    date_fin: "2024-11-20T17:00:00",
-    status: "past",
-  },
-  {
-    id_reservation: 5,
-    id_ressource: 2,
-    id_activite: 5,
-    activity_name: "Startup Pitch Competition",
-    date_debut: "2025-01-15T09:00:00",
-    date_fin: "2025-01-15T15:00:00",
-    status: "upcoming",
-  },
-]
+// REMOVED MOCK DATA - Using server actions for real data
 
 export default function ResourcesPage() {
-  const [resources, setResources] = useState<Resource[]>(mockResources)
-  const [reservations] = useState<Reservation[]>(mockReservations)
-  const [selectedResource, setSelectedResource] = useState<Resource | null>(mockResources[0])
+  const [resources, setResources] = useState<Resource[]>([])
+  const [reservations] = useState<Reservation[]>([])
+  const [selectedResource, setSelectedResource] = useState<Resource | null>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [editingResource, setEditingResource] = useState<Resource | null>(null)
   const { toast } = useToast()

@@ -30,48 +30,11 @@ type Reservation = {
   club_name: string
 }
 
-const mockReservations: Reservation[] = [
-  {
-    id_reservation: 1,
-    nom: "Workshop Booking",
-    date_debut: "2024-06-20T14:00",
-    date_fin: "2024-06-20T17:00",
-    resource_name: "Room A101",
-    resource_type: "Salle",
-    resource_capacity: 50,
-    activity_name: "Web Development Workshop",
-    activity_type: "Workshop",
-    club_name: "Tech Club",
-  },
-  {
-    id_reservation: 2,
-    nom: "Conference Hall",
-    date_debut: "2024-07-15T09:00",
-    date_fin: "2024-07-15T12:00",
-    resource_name: "Amphitheater B",
-    resource_type: "Amphi",
-    resource_capacity: 200,
-    activity_name: "AI Conference 2024",
-    activity_type: "Conference",
-    club_name: "Tech Club",
-  },
-  {
-    id_reservation: 3,
-    nom: "Sports Field",
-    date_debut: "2024-06-25T16:00",
-    date_fin: "2024-06-25T18:00",
-    resource_name: "Football Field",
-    resource_type: "Terrain",
-    resource_capacity: 100,
-    activity_name: "Inter-Club Tournament",
-    activity_type: "Competition",
-    club_name: "Sports Association",
-  },
-]
+// REMOVED MOCK DATA - Using server actions for real data
 
 export default function ReservationsPage() {
-  const [reservations, setReservations] = useState<Reservation[]>(mockReservations)
-  const [selectedReservation, setSelectedReservation] = useState<Reservation | null>(mockReservations[0])
+  const [reservations, setReservations] = useState<Reservation[]>([])
+  const [selectedReservation, setSelectedReservation] = useState<Reservation | null>(null)
   const [isOpen, setIsOpen] = useState(false)
   const { toast } = useToast()
 

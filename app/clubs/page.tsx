@@ -31,58 +31,7 @@ type Member = Student & {
   joinedAt: string
 }
 
-// --- MOCK DATA FOR DETAILS (To be replaced with real actions later) ---
-// We keep these temporarily so the "Details" view doesn't crash while we build the backend for them.
-const mockMembers: Record<number, Member[]> = {
-  1: [
-    {
-      studentId: 1,
-      cne: "N123456",
-      firstName: "Alice",
-      lastName: "Johnson",
-      email: "alice@student.ma",
-      majorId: 1,
-      joinedAt: "2024-01-20",
-    },
-    {
-      studentId: 2,
-      cne: "N123457",
-      firstName: "Bob",
-      lastName: "Smith",
-      email: "bob@student.ma",
-      majorId: 1,
-      joinedAt: "2024-01-22",
-    },
-  ],
-  2: [],
-  3: [],
-}
-
-const mockEvents: Record<number, Event[]> = {
-  1: [
-    { eventId: 1, eventName: "Tech Summit 2024", startDate: "2024-06-15 09:00", endDate: "2024-06-15 18:00" },
-  ],
-  2: [],
-  3: [],
-}
-
-const mockActivities: Record<number, Activity[]> = {
-  1: [
-    {
-      activityId: 1,
-      activityName: "Intro to Python",
-      description: "Beginner python course",
-      type: "Atelier",
-      startDate: "2024-04-15 10:00",
-      endDate: "2024-04-15 12:00",
-      maxCapacity: 30,
-      clubId: 1,
-      eventId: null,
-    },
-  ],
-  2: [],
-  3: [],
-}
+// --- REMOVED ALL MOCK DATA - USING SERVER ACTIONS FOR REAL DATA ---
 
 export default function ClubsPage() {
   const [clubs, setClubs] = useState<Club[]>([])
@@ -167,10 +116,10 @@ export default function ClubsPage() {
   }
 
   const selectedClubData = clubs.find((c) => c.clubId === selectedClub)
-  // Fallback to mocks for details until we build those actions
-  const clubMembers = selectedClub ? mockMembers[selectedClub] || [] : []
-  const clubEvents = selectedClub ? mockEvents[selectedClub] || [] : []
-  const clubActivities = selectedClub ? mockActivities[selectedClub] || [] : []
+  // TODO: Implement server actions for members/events/activities per-club
+  const clubMembers: Member[] = []
+  const clubEvents: Event[] = []
+  const clubActivities: Activity[] = []
 
   return (
     <div className="min-h-screen bg-background">
