@@ -4,6 +4,8 @@ export interface Admin {
   firstName: string;
   lastName: string;
   email: string;
+  password?: string; // Optional because we might not always return it
+  status: 'pending' | 'accepted' | 'rejected';
 }
 
 export interface Major {

@@ -1,0 +1,19 @@
+{
+  "/(dashboard)/activities/page": "/activities",
+  "/(dashboard)/admins/page": "/admins",
+  "/(dashboard)/clubs/page": "/clubs",
+  "/(dashboard)/dashboard/page": "/dashboard",
+  "/(dashboard)/events/page": "/events",
+  "/(dashboard)/guests/page": "/guests",
+  "/(dashboard)/memberships/page": "/memberships",
+  "/(dashboard)/reservations/page": "/reservations",
+  "/(dashboard)/resources/page": "/resources",
+  "/(dashboard)/students/page": "/students",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/auth/[...nextauth]/route": "/api/auth/[...nextauth]",
+  "/home/page": "/home",
+  "/login/page": "/login",
+  "/page": "/",
+  "/register/page": "/register"
+}

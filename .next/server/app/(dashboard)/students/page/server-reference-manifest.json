@@ -1,0 +1,155 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "00d9aceb431ba52b8dbfaaa55a20c815bf08a93a45": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getStudents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getStudents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "408d8a16dd65eab3a2c2cf1b16b17a43ecc72344cf": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "createStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "createStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "60e243126889f36f9a9b65c200d76716e49b00f85a": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "updateStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "updateStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40d1c9713cde1b9aa52074219535e617ab69d29443": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "deleteStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "deleteStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "006d9c3697adedd4c6ad617895be501712b2a672c2": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getMajors",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getMajors",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40edd7616a956db407e5876c1e4e2561d131617518": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getStudentEvents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getStudentEvents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "4038c1fcdff1fc82b5c9e9705f7933053c2019cc58": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getStudentClubs",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getStudentClubs",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40624e09ca7caf0e861c0b570569dc47cbaa64a66e": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getStudentActivities",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getStudentActivities",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "0031492db042306ed80fdd8cc1ae52f1dd5ce12325": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": 87978,
+          "async": false,
+          "exportedName": "getTotalActivitiesCount",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "exportedName": "getTotalActivitiesCount",
+      "filename": "CL0V/actions/student-actions.ts"
+    }
+  },
+  "edge": {}
+}

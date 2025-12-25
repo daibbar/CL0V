@@ -1,1054 +1,161 @@
 {
   "node": {
-    "4056f4d7605604cd5848f7cac4947d48023e1fa31f": {
+    "60d2d4d1515d63fd07b2479cf393ec2a26e0f9dfce": {
       "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/register/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/register-action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "createActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
+          "exportedName": "registerAdmin",
+          "filename": "CL0V/actions/register-action.ts"
         }
       },
       "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
+        "app/register/page": "action-browser"
       },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "createActivity"
+      "filename": "CL0V/actions/register-action.ts",
+      "exportedName": "registerAdmin"
     },
-    "60e36e300aaa5b3e43b04781cdeded8c39f3d3ebf1": {
+    "601e1e61cf0b81486ecf74c718d8ebec8963627758": {
       "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/login/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "updateActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "updateActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
+          "exportedName": "authenticate",
+          "filename": "CL0V/actions/auth-actions.ts"
         }
       },
       "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
+        "app/login/page": "action-browser"
       },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "updateActivity"
+      "filename": "CL0V/actions/auth-actions.ts",
+      "exportedName": "authenticate"
     },
-    "4056bc820f2c930d8b70f3b8408ed3d51ea16a3d7c": {
+    "002248bac64ab24ef697de83b40bf4e9c7242fef37": {
       "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/admins/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "deleteActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
         },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "deleteActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
         }
       },
       "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
+        "app/(dashboard)/admins/page": "action-browser",
+        "app/(dashboard)/dashboard/page": "action-browser"
       },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "deleteActivity"
-    },
-    "00d7abac122d2009179788ee8ba03e756a794d1668": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivities",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivities",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivities",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivities",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/events/page": "action-browser",
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivities"
-    },
-    "403743946631f84fffc6b2e0cf41a09587cd4e8b15": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityRegistrations",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityRegistrations",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityRegistrations"
-    },
-    "406c87a631657372fe92405ee9aecf16948758609c": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "addStudentToActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "addStudentToActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "addStudentToActivity"
-    },
-    "40937c43e914adda587cb7e80333349a5d18623975": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "removeStudentFromActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "removeStudentFromActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "removeStudentFromActivity"
-    },
-    "40827adc5cb82f88807f3cceaadd9dccb2d352dc4e": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityReservations",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityReservations",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityReservations",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityReservations"
-    },
-    "409adb6a433a49d125091bef8640de663ef5c4575f": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "addGuestToActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "addGuestToActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "addGuestToActivity"
-    },
-    "40baa7f49a0f1af5dd99f51f2bd2fdb805f02b0707": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "removeGuestFromActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "removeGuestFromActivity",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "removeGuestFromActivity"
-    },
-    "0076e1ee761f3c725f60e6b94644d057cf1652cdf3": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        },
-        "app/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        },
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/events/page": "action-browser",
-        "app/memberships/page": "action-browser",
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getStudents"
-    },
-    "00b3e34c4e07d70cddec963eb433f89987d4b1ecc1": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getEvents",
-          "filename": "CL0V/actions/event-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getEvents",
-          "filename": "CL0V/actions/event-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getEvents",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "getEvents"
-    },
-    "00545b232253d73c1b611478bd06ced735bf06d28f": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubs",
-          "filename": "CL0V/actions/club-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubs",
-          "filename": "CL0V/actions/club-actions.ts"
-        },
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubs",
-          "filename": "CL0V/actions/club-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubs",
-          "filename": "CL0V/actions/club-actions.ts"
-        },
-        "app/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubs",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/clubs/page": "action-browser",
-        "app/events/page": "action-browser",
-        "app/memberships/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubs"
-    },
-    "00e69e9be43ac30bcda4dfc8cf4a30ae2e83bf528f": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getGuests",
-          "filename": "CL0V/actions/guest-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getGuests",
-          "filename": "CL0V/actions/guest-actions.ts"
-        },
-        "app/guests/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/guests/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getGuests",
-          "filename": "CL0V/actions/guest-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/guests/page": "action-browser"
-      },
-      "filename": "CL0V/actions/guest-actions.ts",
-      "exportedName": "getGuests"
-    },
-    "40980ed63f3fe1f7d6d7d8c8fe97a163769addb434": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityById",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityById",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityById"
-    },
-    "40fd6fd1a4e486d3084405a2e10a04886aed6dc85b": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityEvent",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityEvent",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityEvent"
-    },
-    "40509477903f07b033aa6707b1fadb9b733c60d2f9": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityClub",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityClub",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityClub"
-    },
-    "402836b906fe1a896e3e13ce8df53cffa7ece3719c": {
-      "workers": {
-        "app/(app)/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(app)/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityGuests",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/activities/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE4 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityGuests",
-          "filename": "CL0V/actions/activity-actions.ts"
-        },
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getActivityGuests",
-          "filename": "CL0V/actions/activity-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(app)/activities/page": "action-browser",
-        "app/activities/page": "action-browser",
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/activity-actions.ts",
-      "exportedName": "getActivityGuests"
+      "filename": "CL0V/actions/auth-actions.ts",
+      "exportedName": "logout"
     },
     "001c8948724c15f0bf67e974033b8c26dfe76b9b38": {
       "workers": {
-        "app/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getDashboardStats",
           "filename": "CL0V/actions/dashboard-actions.ts"
         }
       },
       "layer": {
-        "app/page": "rsc"
+        "app/(dashboard)/dashboard/page": "rsc"
       },
       "filename": "CL0V/actions/dashboard-actions.ts",
       "exportedName": "getDashboardStats"
     },
     "004a8ed2051fca82d01d53736941f7b33f14f0fd33": {
       "workers": {
-        "app/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getRecentActivities",
           "filename": "CL0V/actions/dashboard-actions.ts"
         }
       },
       "layer": {
-        "app/page": "rsc"
+        "app/(dashboard)/dashboard/page": "rsc"
       },
       "filename": "CL0V/actions/dashboard-actions.ts",
       "exportedName": "getRecentActivities"
     },
     "0067eb855490148289330d8a23b7de05c198a7492a": {
       "workers": {
-        "app/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getEngagementMetrics",
           "filename": "CL0V/actions/dashboard-actions.ts"
         }
       },
       "layer": {
-        "app/page": "rsc"
+        "app/(dashboard)/dashboard/page": "rsc"
       },
       "filename": "CL0V/actions/dashboard-actions.ts",
       "exportedName": "getEngagementMetrics"
     },
     "007219098fc91af7513de20fce15e7dc7c6e076dc9": {
       "workers": {
-        "app/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getClubCategoryStats",
           "filename": "CL0V/actions/dashboard-actions.ts"
         }
       },
       "layer": {
-        "app/page": "rsc"
+        "app/(dashboard)/dashboard/page": "rsc"
       },
       "filename": "CL0V/actions/dashboard-actions.ts",
       "exportedName": "getClubCategoryStats"
     },
-    "40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12": {
+    "00ae847ddd7a31698f5db485e620380e3cb4c2d431": {
       "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/admins/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "createClub",
-          "filename": "CL0V/actions/club-actions.ts"
+          "exportedName": "getAdmins",
+          "filename": "CL0V/actions/admin-actions.ts"
         }
       },
       "layer": {
-        "app/clubs/page": "action-browser"
+        "app/(dashboard)/admins/page": "rsc"
       },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "createClub"
+      "filename": "CL0V/actions/admin-actions.ts",
+      "exportedName": "getAdmins"
     },
-    "608c092e7574f097374d45ba2f0b8c1a86de07b8f0": {
+    "40c8db3297f497ab08e6d50767f7beb58a24705845": {
       "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/admins/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "updateClub",
-          "filename": "CL0V/actions/club-actions.ts"
+          "exportedName": "deleteAdmin",
+          "filename": "CL0V/actions/admin-actions.ts"
         }
       },
       "layer": {
-        "app/clubs/page": "action-browser"
+        "app/(dashboard)/admins/page": "action-browser"
       },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "updateClub"
+      "filename": "CL0V/actions/admin-actions.ts",
+      "exportedName": "deleteAdmin"
     },
-    "403f314d2770b6d30df991c169ac621c3e542a6a3e": {
+    "6096f16e644356f5f8e5ed0c147fca3cdc117a0248": {
       "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/admins/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "deleteClub",
-          "filename": "CL0V/actions/club-actions.ts"
+          "exportedName": "updateAdminStatus",
+          "filename": "CL0V/actions/admin-actions.ts"
         }
       },
       "layer": {
-        "app/clubs/page": "action-browser"
+        "app/(dashboard)/admins/page": "action-browser"
       },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "deleteClub"
-    },
-    "4000313a5acbb7e94baad51d8157f0172a109b57f5": {
-      "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubMembers",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/clubs/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubMembers"
-    },
-    "401e2045fbee811dd001c67288e014f0808a177f35": {
-      "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubEvents",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/clubs/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubEvents"
-    },
-    "40ebf616928dfb92ae12b9e40f78a4de8020661f1a": {
-      "workers": {
-        "app/clubs/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/clubs/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubActivities",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/clubs/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubActivities"
-    },
-    "00905ced75f03995e227b455995464dedb302e1ced": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getResources",
-          "filename": "CL0V/actions/resource-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/resource-actions.ts",
-      "exportedName": "getResources"
-    },
-    "40ee5438c8961451bbfb3b0b77f7e9f178c2c524ba": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createResource",
-          "filename": "CL0V/actions/resource-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/resource-actions.ts",
-      "exportedName": "createResource"
-    },
-    "607a8e08b05b1a1ebb58971bc65ba06677a6fe31ae": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "updateResource",
-          "filename": "CL0V/actions/resource-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/resource-actions.ts",
-      "exportedName": "updateResource"
-    },
-    "40396c3f28fed8b5da41699c47aa596277509cfbc9": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteResource",
-          "filename": "CL0V/actions/resource-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/resource-actions.ts",
-      "exportedName": "deleteResource"
-    },
-    "004b16872264b7de30e368c2e395d8c92468b04c65": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getReservations",
-          "filename": "CL0V/actions/reservation-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/reservation-actions.ts",
-      "exportedName": "getReservations"
-    },
-    "40abac75f02495a1afb4eee1758bc3a1a22c59ed7d": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createReservation",
-          "filename": "CL0V/actions/reservation-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/reservation-actions.ts",
-      "exportedName": "createReservation"
-    },
-    "40284b035f4c334da0822a91ad88d37d2186c22267": {
-      "workers": {
-        "app/resources/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/resources/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/resource-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/reservation-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteReservation",
-          "filename": "CL0V/actions/reservation-actions.ts"
-        }
-      },
-      "layer": {
-        "app/resources/page": "action-browser"
-      },
-      "filename": "CL0V/actions/reservation-actions.ts",
-      "exportedName": "deleteReservation"
-    },
-    "00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d": {
-      "workers": {
-        "app/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubMemberships",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/memberships/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubMemberships"
-    },
-    "40c977e9523458e7667dbc9361296afbfa11073e61": {
-      "workers": {
-        "app/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createClubMembership",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/memberships/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "createClubMembership"
-    },
-    "400bc84fe43569a50acb94ceb89e2811b94d78e4d0": {
-      "workers": {
-        "app/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteClubMembership",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/memberships/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "deleteClubMembership"
-    },
-    "40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createStudent",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "createStudent"
-    },
-    "60a0ef4ce8b4795ac36b4acc6df890381a47990a1b": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "updateStudent",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "updateStudent"
-    },
-    "405fda7eb3a9b799d827ff4332611a9f0e62f6c74e": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteStudent",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "deleteStudent"
-    },
-    "00fe3536568a6c117a4b57577e978eb83ea68f419d": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getMajors",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getMajors"
-    },
-    "405896ee1640fc439a0edc4e76ed44615f302849a8": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudentEvents",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getStudentEvents"
-    },
-    "4058c552c6e5832b78d3ff3972d188e1e2544edc4f": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudentClubs",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getStudentClubs"
-    },
-    "40409b46f825f48fd11d0bbe12e6eb545405bce9bd": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudentActivities",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getStudentActivities"
-    },
-    "000c05c8913e8b991c02dcbc9a6588eb11351ad47d": {
-      "workers": {
-        "app/students/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getTotalActivitiesCount",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/students/page": "action-browser"
-      },
-      "filename": "CL0V/actions/student-actions.ts",
-      "exportedName": "getTotalActivitiesCount"
-    },
-    "403e5a982f8755e6b16f59f4809c421466d15886a0": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createEvent",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "createEvent"
-    },
-    "606b7e8b78018ace53376c80e58e5d16cf5092564f": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "updateEvent",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "updateEvent"
-    },
-    "40b9392a185f6ffae43160a7f170e8f4ebbaa456c0": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteEvent",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "deleteEvent"
-    },
-    "405eda02ecdfa76802a6324bc23adc89fb34d879a0": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "addStudentToEvent",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "addStudentToEvent"
-    },
-    "4065cfb9e2b3af6bead2163348801ce68958481d8f": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "removeStudentFromEvent",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "removeStudentFromEvent"
-    },
-    "409f3fef78c4c40ab3c98ef2dadb38b8619061c46d": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getEventParticipants",
-          "filename": "CL0V/actions/event-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/event-actions.ts",
-      "exportedName": "getEventParticipants"
-    },
-    "40937b7d5eb78ccbf3004e0770b399ebe96930477c": {
-      "workers": {
-        "app/events/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/events/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/event-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/activity-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getClubsByEvent",
-          "filename": "CL0V/actions/club-actions.ts"
-        }
-      },
-      "layer": {
-        "app/events/page": "action-browser"
-      },
-      "filename": "CL0V/actions/club-actions.ts",
-      "exportedName": "getClubsByEvent"
-    },
-    "40d4f1dec694bebe37e48b158e80455243f5cafad3": {
-      "workers": {
-        "app/guests/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/guests/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "createGuest",
-          "filename": "CL0V/actions/guest-actions.ts"
-        }
-      },
-      "layer": {
-        "app/guests/page": "action-browser"
-      },
-      "filename": "CL0V/actions/guest-actions.ts",
-      "exportedName": "createGuest"
-    },
-    "4023be28f3b44f52cdc4d146db5116fb013a6585e6": {
-      "workers": {
-        "app/guests/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/guests/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "deleteGuest",
-          "filename": "CL0V/actions/guest-actions.ts"
-        }
-      },
-      "layer": {
-        "app/guests/page": "action-browser"
-      },
-      "filename": "CL0V/actions/guest-actions.ts",
-      "exportedName": "deleteGuest"
-    },
-    "402cd6a23e3e6321ebc5439fe98c57cd0be12c276b": {
-      "workers": {
-        "app/guests/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/guests/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/guest-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getGuestActivities",
-          "filename": "CL0V/actions/guest-actions.ts"
-        }
-      },
-      "layer": {
-        "app/guests/page": "action-browser"
-      },
-      "filename": "CL0V/actions/guest-actions.ts",
-      "exportedName": "getGuestActivities"
+      "filename": "CL0V/actions/admin-actions.ts",
+      "exportedName": "updateAdminStatus"
     }
   },
   "edge": {},

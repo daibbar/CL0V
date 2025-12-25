@@ -1,0 +1,140 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "00e654ceabdc2ef0b3abb64113b50455102b755fa8": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "getResources",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "getResources",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "407f81cec20b4a4841cefb5568a48822a27ad3a5ef": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "createResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "createResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "601411d3b4eab9a02b85129d9bcac63b0a3552b743": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "updateResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "updateResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "40f77f8aeebe4126b29849e4c8e7bfd327abd48476": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "deleteResource",
+          "filename": "CL0V/actions/resource-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "deleteResource",
+      "filename": "CL0V/actions/resource-actions.ts"
+    },
+    "0072b14644364f2ab70443cec4b8a509feedfa6503": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "getReservations",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "getReservations",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "404eebf20e5aa1690ea82ec4e4c684ed18c777e83a": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "createReservation",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "createReservation",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "40d043237f4dbfa7f5cd74ae0594e29d76ac23a32e": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "deleteReservation",
+          "filename": "CL0V/actions/reservation-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "deleteReservation",
+      "filename": "CL0V/actions/reservation-actions.ts"
+    },
+    "0029907054bb533d649e0cb8363cb92ada7167165e": {
+      "workers": {
+        "app/(dashboard)/resources/page": {
+          "moduleId": 73754,
+          "async": false,
+          "exportedName": "getActivities",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/resources/page": "action-browser"
+      },
+      "exportedName": "getActivities",
+      "filename": "CL0V/actions/activity-actions.ts"
+    }
+  },
+  "edge": {}
+}

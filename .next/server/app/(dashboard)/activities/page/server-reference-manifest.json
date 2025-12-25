@@ -1,0 +1,290 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "4093677df15a691f79b9cb9ce3b204c7a80ac2e1f6": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "createActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "createActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "608b8ecf7bcf672259111e83ff9d1fdd254243c838": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "updateActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "updateActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "4059e57844d4ecdbe90674012c6944c857f0d2e812": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "deleteActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "deleteActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "0029907054bb533d649e0cb8363cb92ada7167165e": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivities",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivities",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "406e02b10a7397e5dc5b47a78b613db42fbb599d85": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityRegistrations",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityRegistrations",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "406f178211d76a54e61fe86f5f14c9006f5beb072b": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "addStudentToActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "addStudentToActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "405ec7b88a7417ca9286d6d3f1eb7f5278f5dd0875": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "removeStudentFromActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "removeStudentFromActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40ab32aabd37baaf13619ac786fe6ba3b765614849": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityReservations",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityReservations",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40556636c39d7e57a9b537d18c9d96372cb097778a": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "addGuestToActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "addGuestToActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "4088ca76255c9d7d24cdbac7e2ada697db7876ce7b": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "removeGuestFromActivity",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "removeGuestFromActivity",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "00d9aceb431ba52b8dbfaaa55a20c815bf08a93a45": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getStudents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getStudents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "00c9aac6b33d1d5b8b4a10e4a172d3a9f8ea8c3f92": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getEvents",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getEvents",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "00e1ea61c1c9e73b2b6038b22b957d4558fcf03f9a": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getClubs",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getClubs",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "00f0fbd698796520ff05242b59f678368a7d863381": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getGuests",
+          "filename": "CL0V/actions/guest-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getGuests",
+      "filename": "CL0V/actions/guest-actions.ts"
+    },
+    "40e025b20ccdc23e088c3bf2009f19c7eb055378d3": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityById",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityById",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "408ce5a9f748b35313f03680b86ec2bb0a70ac3bf6": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityEvent",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityEvent",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40dddd9cd1381153508219f86179015b0a89e2f7b6": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityClub",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityClub",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40ccc803938615b356e948a03f53eba1c89b055021": {
+      "workers": {
+        "app/(dashboard)/activities/page": {
+          "moduleId": 5936,
+          "async": false,
+          "exportedName": "getActivityGuests",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/activities/page": "action-browser"
+      },
+      "exportedName": "getActivityGuests",
+      "filename": "CL0V/actions/activity-actions.ts"
+    }
+  },
+  "edge": {}
+}

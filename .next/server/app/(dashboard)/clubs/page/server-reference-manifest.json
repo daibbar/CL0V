@@ -1,0 +1,125 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "40cc7ee1355da82c16e371972e28f7e30849d71969": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "createClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "createClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "60cee25155eb268da38739ba2e407d54bb593b1df7": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "updateClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "updateClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "405b392b39a10b6121ccadaa05f71f247ebe3ed014": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "deleteClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "deleteClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "00e1ea61c1c9e73b2b6038b22b957d4558fcf03f9a": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "getClubs",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "getClubs",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "4093cad3ee0ecc3b0fef2e61956b43f07c74a082a5": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "getClubMembers",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "getClubMembers",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "4067996a687fa4cdbc7335e58587de60a556e5ae59": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "getClubEvents",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "getClubEvents",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "40c8af38a81f3624f6b01079a706aa468b028c92a6": {
+      "workers": {
+        "app/(dashboard)/clubs/page": {
+          "moduleId": 22463,
+          "async": false,
+          "exportedName": "getClubActivities",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/clubs/page": "action-browser"
+      },
+      "exportedName": "getClubActivities",
+      "filename": "CL0V/actions/club-actions.ts"
+    }
+  },
+  "edge": {}
+}

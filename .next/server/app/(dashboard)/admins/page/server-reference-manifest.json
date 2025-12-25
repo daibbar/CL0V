@@ -1,0 +1,65 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/admins/page": {
+          "moduleId": 43523,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admins/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "601474e53724e179c86c8c62cec1b05895105c4d5e": {
+      "workers": {
+        "app/(dashboard)/admins/page": {
+          "moduleId": 43523,
+          "async": false,
+          "exportedName": "updateAdminStatus",
+          "filename": "CL0V/actions/admin-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admins/page": "rsc"
+      },
+      "exportedName": "updateAdminStatus",
+      "filename": "CL0V/actions/admin-actions.ts"
+    },
+    "40d7f221d25811dba513c4a23ef08ce87ffab2f472": {
+      "workers": {
+        "app/(dashboard)/admins/page": {
+          "moduleId": 43523,
+          "async": false,
+          "exportedName": "deleteAdmin",
+          "filename": "CL0V/actions/admin-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admins/page": "rsc"
+      },
+      "exportedName": "deleteAdmin",
+      "filename": "CL0V/actions/admin-actions.ts"
+    },
+    "004b6dd5552313efe4eb04bfd205aa9b07a20ac780": {
+      "workers": {
+        "app/(dashboard)/admins/page": {
+          "moduleId": 43523,
+          "async": false,
+          "exportedName": "getAdmins",
+          "filename": "CL0V/actions/admin-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/admins/page": "rsc"
+      },
+      "exportedName": "getAdmins",
+      "filename": "CL0V/actions/admin-actions.ts"
+    }
+  },
+  "edge": {}
+}

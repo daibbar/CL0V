@@ -1,0 +1,20 @@
+{
+  "node": {
+    "60b6a941ad74c1436b4aa95c01197f3407f4aa3967": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": 45052,
+          "async": false,
+          "exportedName": "authenticate",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      },
+      "exportedName": "authenticate",
+      "filename": "CL0V/actions/auth-actions.ts"
+    }
+  },
+  "edge": {}
+}

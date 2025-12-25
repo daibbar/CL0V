@@ -1,12 +1,9 @@
 {
-  "/(app)/activities/page": "app/(app)/activities/page.js",
+  "/(dashboard)/admins/page": "app/(dashboard)/admins/page.js",
+  "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/activities/page": "app/activities/page.js",
-  "/clubs/page": "app/clubs/page.js",
-  "/events/page": "app/events/page.js",
-  "/guests/page": "app/guests/page.js",
-  "/memberships/page": "app/memberships/page.js",
+  "/home/page": "app/home/page.js",
+  "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/resources/page": "app/resources/page.js",
-  "/students/page": "app/students/page.js"
+  "/register/page": "app/register/page.js"
 }

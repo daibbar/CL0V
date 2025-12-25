@@ -1,0 +1,80 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": 23448,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/dashboard/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "001e92913d8dc0a5a782079b3017fc29dbb70e4a26": {
+      "workers": {
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": 23448,
+          "async": false,
+          "exportedName": "getRecentActivities",
+          "filename": "CL0V/actions/dashboard-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/dashboard/page": "rsc"
+      },
+      "exportedName": "getRecentActivities",
+      "filename": "CL0V/actions/dashboard-actions.ts"
+    },
+    "00b629f1cdf4ae63959a4a881175023ef544019203": {
+      "workers": {
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": 23448,
+          "async": false,
+          "exportedName": "getEngagementMetrics",
+          "filename": "CL0V/actions/dashboard-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/dashboard/page": "rsc"
+      },
+      "exportedName": "getEngagementMetrics",
+      "filename": "CL0V/actions/dashboard-actions.ts"
+    },
+    "00d1489e94ef8ba8128b05079e7eb267852b615fda": {
+      "workers": {
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": 23448,
+          "async": false,
+          "exportedName": "getClubCategoryStats",
+          "filename": "CL0V/actions/dashboard-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/dashboard/page": "rsc"
+      },
+      "exportedName": "getClubCategoryStats",
+      "filename": "CL0V/actions/dashboard-actions.ts"
+    },
+    "00e9313c688735049738066bc40cc0582a72ec7bbb": {
+      "workers": {
+        "app/(dashboard)/dashboard/page": {
+          "moduleId": 23448,
+          "async": false,
+          "exportedName": "getDashboardStats",
+          "filename": "CL0V/actions/dashboard-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/dashboard/page": "rsc"
+      },
+      "exportedName": "getDashboardStats",
+      "filename": "CL0V/actions/dashboard-actions.ts"
+    }
+  },
+  "edge": {}
+}

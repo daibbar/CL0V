@@ -5,7 +5,9 @@ CREATE TABLE IF NOT EXISTS admins (
     adminId INTEGER PRIMARY KEY AUTOINCREMENT,
     firstName TEXT NOT NULL,
     lastName TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    status TEXT CHECK(status IN ('pending', 'accepted', 'rejected')) DEFAULT 'pending' NOT NULL
 );
 
 -- 2. Majors (formerly 'fillieres')

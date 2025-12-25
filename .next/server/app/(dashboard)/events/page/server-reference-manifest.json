@@ -1,0 +1,215 @@
+{
+  "node": {
+    "00f497f1f80dfe93943451c06664f4127784cb3b2c": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "409a62e4825b2a7cc16a8400b989c636c9d61a0221": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "createEvent",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "createEvent",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "60ec2722d7a705cb9400a975958d975a53e7fd74fb": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "updateEvent",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "updateEvent",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "4018a712f12a5cbec5f62bf866d82bfa0827e60e4e": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "deleteEvent",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "deleteEvent",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "40306314807f3bb6334ee871910aa7ed5b76fc8461": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "addStudentToEvent",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "addStudentToEvent",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "402c4ac4da7a996f4c2f1276d2b607f37aa2afc157": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "removeStudentFromEvent",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "removeStudentFromEvent",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "401cbc40149f4dc4929f8138f0d0071b57c8cad766": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getEventParticipants",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getEventParticipants",
+      "filename": "CL0V/actions/event-actions.ts"
+    },
+    "00d9aceb431ba52b8dbfaaa55a20c815bf08a93a45": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getStudents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getStudents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "0029907054bb533d649e0cb8363cb92ada7167165e": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getActivities",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getActivities",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40ccc803938615b356e948a03f53eba1c89b055021": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getActivityGuests",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getActivityGuests",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40ab32aabd37baaf13619ac786fe6ba3b765614849": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getActivityReservations",
+          "filename": "CL0V/actions/activity-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getActivityReservations",
+      "filename": "CL0V/actions/activity-actions.ts"
+    },
+    "40d4a516cb6d9e3cd5c1afb94abab069aeefe610b8": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getClubsByEvent",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getClubsByEvent",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "00e1ea61c1c9e73b2b6038b22b957d4558fcf03f9a": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getClubs",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getClubs",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "00c9aac6b33d1d5b8b4a10e4a172d3a9f8ea8c3f92": {
+      "workers": {
+        "app/(dashboard)/events/page": {
+          "moduleId": 7312,
+          "async": false,
+          "exportedName": "getEvents",
+          "filename": "CL0V/actions/event-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/events/page": "action-browser"
+      },
+      "exportedName": "getEvents",
+      "filename": "CL0V/actions/event-actions.ts"
+    }
+  },
+  "edge": {}
+}
