@@ -12,7 +12,7 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <SidebarProvider defaultOpen={false}>
+    <SidebarProvider defaultOpen={true}>
       <AppSidebar />
       <SidebarInset> 
         <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4 bg-background">
@@ -20,7 +20,7 @@ export default function DashboardLayout({
           <div className="h-4 w-px bg-border mx-2" /> 
           <span className="font-medium text-sm">Dashboard</span>
         </header>
-        <div className="flex-1 p-4 md:p-6">
+        <div className="flex-1 p-4 md:p-6 bg-muted/20">
           {children}
         </div>
       </SidebarInset>

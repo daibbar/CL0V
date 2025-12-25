@@ -1,53 +1,23 @@
 {
   "node": {
-    "60d2d4d1515d63fd07b2479cf393ec2a26e0f9dfce": {
-      "workers": {
-        "app/register/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/register/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/register-action.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "registerAdmin",
-          "filename": "CL0V/actions/register-action.ts"
-        }
-      },
-      "layer": {
-        "app/register/page": "action-browser"
-      },
-      "filename": "CL0V/actions/register-action.ts",
-      "exportedName": "registerAdmin"
-    },
-    "601e1e61cf0b81486ecf74c718d8ebec8963627758": {
-      "workers": {
-        "app/login/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "authenticate",
-          "filename": "CL0V/actions/auth-actions.ts"
-        }
-      },
-      "layer": {
-        "app/login/page": "action-browser"
-      },
-      "filename": "CL0V/actions/auth-actions.ts",
-      "exportedName": "authenticate"
-    },
     "002248bac64ab24ef697de83b40bf4e9c7242fef37": {
       "workers": {
-        "app/(dashboard)/admins/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "logout",
-          "filename": "CL0V/actions/auth-actions.ts"
-        },
         "app/(dashboard)/dashboard/page": {
           "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/dashboard-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "logout",
           "filename": "CL0V/actions/auth-actions.ts"
+        },
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/admins/page": "action-browser",
-        "app/(dashboard)/dashboard/page": "action-browser"
+        "app/(dashboard)/dashboard/page": "action-browser",
+        "app/(dashboard)/students/page": "action-browser"
       },
       "filename": "CL0V/actions/auth-actions.ts",
       "exportedName": "logout"
@@ -112,50 +82,140 @@
       "filename": "CL0V/actions/dashboard-actions.ts",
       "exportedName": "getClubCategoryStats"
     },
-    "00ae847ddd7a31698f5db485e620380e3cb4c2d431": {
+    "0076e1ee761f3c725f60e6b94644d057cf1652cdf3": {
       "workers": {
-        "app/(dashboard)/admins/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "getAdmins",
-          "filename": "CL0V/actions/admin-actions.ts"
+          "exportedName": "getStudents",
+          "filename": "CL0V/actions/student-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/admins/page": "rsc"
+        "app/(dashboard)/students/page": "action-browser"
       },
-      "filename": "CL0V/actions/admin-actions.ts",
-      "exportedName": "getAdmins"
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getStudents"
     },
-    "40c8db3297f497ab08e6d50767f7beb58a24705845": {
+    "40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e": {
       "workers": {
-        "app/(dashboard)/admins/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "deleteAdmin",
-          "filename": "CL0V/actions/admin-actions.ts"
+          "exportedName": "createStudent",
+          "filename": "CL0V/actions/student-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/admins/page": "action-browser"
+        "app/(dashboard)/students/page": "action-browser"
       },
-      "filename": "CL0V/actions/admin-actions.ts",
-      "exportedName": "deleteAdmin"
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "createStudent"
     },
-    "6096f16e644356f5f8e5ed0c147fca3cdc117a0248": {
+    "60a0ef4ce8b4795ac36b4acc6df890381a47990a1b": {
       "workers": {
-        "app/(dashboard)/admins/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/admins/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/admin-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "updateAdminStatus",
-          "filename": "CL0V/actions/admin-actions.ts"
+          "exportedName": "updateStudent",
+          "filename": "CL0V/actions/student-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/admins/page": "action-browser"
+        "app/(dashboard)/students/page": "action-browser"
       },
-      "filename": "CL0V/actions/admin-actions.ts",
-      "exportedName": "updateAdminStatus"
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "updateStudent"
+    },
+    "405fda7eb3a9b799d827ff4332611a9f0e62f6c74e": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "deleteStudent"
+    },
+    "00fe3536568a6c117a4b57577e978eb83ea68f419d": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getMajors",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getMajors"
+    },
+    "405896ee1640fc439a0edc4e76ed44615f302849a8": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentEvents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getStudentEvents"
+    },
+    "4058c552c6e5832b78d3ff3972d188e1e2544edc4f": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentClubs",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getStudentClubs"
+    },
+    "40409b46f825f48fd11d0bbe12e6eb545405bce9bd": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentActivities",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getStudentActivities"
+    },
+    "000c05c8913e8b991c02dcbc9a6588eb11351ad47d": {
+      "workers": {
+        "app/(dashboard)/students/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getTotalActivitiesCount",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/students/page": "action-browser"
+      },
+      "filename": "CL0V/actions/student-actions.ts",
+      "exportedName": "getTotalActivitiesCount"
     }
   },
   "edge": {},
