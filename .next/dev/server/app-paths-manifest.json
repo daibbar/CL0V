@@ -1,5 +1,8 @@
 {
+  "/(dashboard)/activities/page": "app/(dashboard)/activities/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
   "/(dashboard)/students/page": "app/(dashboard)/students/page.js",
-  "/_not-found/page": "app/_not-found/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/home/page": "app/home/page.js",
+  "/page": "app/page.js"
 }

@@ -5,9 +5,6 @@
       --tw-translate-x: 0;
       --tw-translate-y: 0;
       --tw-translate-z: 0;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
       --tw-rotate-x: initial;
       --tw-rotate-y: initial;
       --tw-rotate-z: initial;
@@ -73,6 +70,9 @@
       --tw-backdrop-sepia: initial;
       --tw-duration: initial;
       --tw-ease: initial;
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+      --tw-scale-z: 1;
       --tw-content: "";
       --tw-animation-delay: 0s;
       --tw-animation-direction: normal;
@@ -95,6 +95,7 @@
 
 @layer theme {
   :root, :host {
+    --font-sans: "Geist", "Geist Fallback";
     --color-red-50: #fef2f2;
     --color-red-300: #ffa3a3;
     --color-red-400: #ff6568;
@@ -458,6 +459,9 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
@@ -762,10 +766,6 @@
     margin-block: calc(var(--spacing) * 1);
   }
 
-  .my-2 {
-    margin-block: calc(var(--spacing) * 2);
-  }
-
   .-mt-4 {
     margin-top: calc(var(--spacing) * -4);
   }
@@ -808,10 +808,6 @@
 
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
-  }
-
-  .mr-6 {
-    margin-right: calc(var(--spacing) * 6);
   }
 
   .-mb-16 {
@@ -1258,10 +1254,6 @@
     width: calc(var(--spacing) * 48);
   }
 
-  .w-56 {
-    width: calc(var(--spacing) * 56);
-  }
-
   .w-64 {
     width: calc(var(--spacing) * 64);
   }
@@ -1398,6 +1390,10 @@
     flex-basis: 100%;
   }
 
+  .table-fixed {
+    table-layout: fixed;
+  }
+
   .caption-bottom {
     caption-side: bottom;
   }
@@ -1474,13 +1470,6 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
-  .scale-105 {
-    --tw-scale-x: 105%;
-    --tw-scale-y: 105%;
-    --tw-scale-z: 105%;
-    scale: var(--tw-scale-x) var(--tw-scale-y);
-  }
-
   .rotate-12 {
     rotate: 12deg;
   }
@@ -1495,6 +1484,10 @@
 
   .transform {
     transform: var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
+  }
+
+  .transform-gpu {
+    transform: translateZ(0) var(--tw-rotate-x, ) var(--tw-rotate-y, ) var(--tw-rotate-z, ) var(--tw-skew-x, ) var(--tw-skew-y, );
   }
 
   .animate-caret-blink {
@@ -1673,12 +1666,6 @@
     --tw-space-y-reverse: 0;
     margin-block-start: calc(calc(var(--spacing) * 0) * var(--tw-space-y-reverse));
     margin-block-end: calc(calc(var(--spacing) * 0) * calc(1 - var(--tw-space-y-reverse)));
-  }
-
-  :where(.space-y-0\.5 > :not(:last-child)) {
-    --tw-space-y-reverse: 0;
-    margin-block-start: calc(calc(var(--spacing) * .5) * var(--tw-space-y-reverse));
-    margin-block-end: calc(calc(var(--spacing) * .5) * calc(1 - var(--tw-space-y-reverse)));
   }
 
   :where(.space-y-1 > :not(:last-child)) {
@@ -2188,10 +2175,6 @@
     background-color: var(--sidebar-border);
   }
 
-  .bg-sidebar-primary {
-    background-color: var(--sidebar-primary);
-  }
-
   .bg-transparent {
     background-color: #0000;
   }
@@ -2533,10 +2516,6 @@
 
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
-  }
-
-  .py-2\.5 {
-    padding-block: calc(var(--spacing) * 2.5);
   }
 
   .py-3 {
@@ -2955,10 +2934,6 @@
     }
   }
 
-  .text-sidebar-primary-foreground {
-    color: var(--sidebar-primary-foreground);
-  }
-
   .text-white {
     color: var(--color-white);
   }
@@ -3000,16 +2975,6 @@
   @supports (color: color-mix(in lab, red, red)) {
     .text-white\/60 {
       color: color-mix(in oklab, var(--color-white) 60%, transparent);
-    }
-  }
-
-  .text-white\/70 {
-    color: #ffffffb3;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .text-white\/70 {
-      color: color-mix(in oklab, var(--color-white) 70%, transparent);
     }
   }
 
@@ -3284,6 +3249,11 @@
   .duration-100 {
     --tw-duration: .1s;
     transition-duration: .1s;
+  }
+
+  .duration-150 {
+    --tw-duration: .15s;
+    transition-duration: .15s;
   }
 
   .duration-200 {
@@ -3769,8 +3739,8 @@
     display: inline-flex;
   }
 
-  .file\:h-7::file-selector-button {
-    height: calc(var(--spacing) * 7);
+  .file\:h-8::file-selector-button {
+    height: calc(var(--spacing) * 8);
   }
 
   .file\:border-0::file-selector-button {
@@ -3872,6 +3842,13 @@
 
   .last\:pb-0:last-child {
     padding-bottom: calc(var(--spacing) * 0);
+  }
+
+  @media (hover: hover) {
+    .hover\:-translate-y-1:hover {
+      --tw-translate-y: calc(var(--spacing) * -1);
+      translate: var(--tw-translate-x) var(--tw-translate-y);
+    }
   }
 
   @media (hover: hover) {
@@ -4076,12 +4053,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:opacity-90:hover {
-      opacity: .9;
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:opacity-100:hover {
       opacity: 1;
     }
@@ -4190,16 +4161,6 @@
 
   .focus\:bg-accent:focus {
     background-color: var(--accent);
-  }
-
-  .focus\:bg-destructive\/10:focus {
-    background-color: var(--destructive);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    .focus\:bg-destructive\/10:focus {
-      background-color: color-mix(in oklab, var(--destructive) 10%, transparent);
-    }
   }
 
   .focus\:bg-destructive\/20:focus {
@@ -5107,10 +5068,6 @@
     background-color: var(--secondary);
   }
 
-  .data-\[state\=open\]\:bg-sidebar-accent[data-state="open"] {
-    background-color: var(--sidebar-accent);
-  }
-
   .data-\[state\=open\]\:bg-white\/10[data-state="open"] {
     background-color: #ffffff1a;
   }
@@ -5127,10 +5084,6 @@
 
   .data-\[state\=open\]\:text-muted-foreground[data-state="open"] {
     color: var(--muted-foreground);
-  }
-
-  .data-\[state\=open\]\:text-sidebar-accent-foreground[data-state="open"] {
-    color: var(--sidebar-accent-foreground);
   }
 
   .data-\[state\=open\]\:opacity-100[data-state="open"] {
@@ -5700,18 +5653,6 @@
   }
 
   @media (min-width: 64rem) {
-    .lg\:flex {
-      display: flex;
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .lg\:hidden {
-      display: none;
-    }
-  }
-
-  @media (min-width: 64rem) {
     .lg\:grid-cols-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -6124,9 +6065,23 @@
     border-bottom-width: 1px;
   }
 
+  .\[\&_tr\]\:bg-transparent tr {
+    background-color: #0000;
+  }
+
   .\[\&_tr\:last-child\]\:border-0 tr:last-child {
     border-style: var(--tw-border-style);
     border-width: 0;
+  }
+
+  .\[\&_tr\>th\]\:bg-card tr > th {
+    background-color: var(--card);
+  }
+
+  .\[\&_tr\>th\]\:backdrop-blur-sm tr > th {
+    --tw-backdrop-blur: blur(var(--blur-sm));
+    -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+    backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
   }
 
   .\[\&\+\[data-slot\=item-content\]\]\:flex-none + [data-slot="item-content"] {
@@ -6649,6 +6604,16 @@
   --chart-4: #259cca;
   --chart-5: #3d77d7;
   --radius: .625rem;
+  --radius-xl: 1rem;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --shadow-sm: 0 1px 2px #1018280d;
+  --shadow-md: 0 6px 18px #10182814;
+  --shadow-lg: 0 20px 40px #1018281f;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   --sidebar: #03409c;
   --sidebar-foreground: #f8f8f8;
   --sidebar-primary: #f8f8f8;
@@ -6784,24 +6749,6 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
-}
-
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
 }
 
 @property --tw-rotate-x {
@@ -7148,6 +7095,24 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false
+}
+
+@property --tw-scale-x {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --tw-scale-y {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
+}
+
+@property --tw-scale-z {
+  syntax: "*";
+  inherits: false;
+  initial-value: 1;
 }
 
 @property --tw-content {
