@@ -1,8 +1,8 @@
-[00:00:02.685] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:03.279] Server  LOG      ✓ Ready in 2.9s
-[00:00:06.533] Server  LOG      ○ Compiling / ...
-[00:00:12.347] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:12.769] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:01.713] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:01.896] Server  LOG      ✓ Ready in 1523ms
+[00:00:08.623] Server  LOG      ○ Compiling / ...
+[00:00:12.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:12.602] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -42,7 +42,7 @@ It can also happen if the client has a browser extension installed which messes 
                         <html lang="en" suppressHydrationWarning={true}>
                           <body
                             className="geist_a8fa0c1a-module__MXp6vq__variable geist_mono_d6617093-module__z61v7q__var..."
--                           __processed_d7a497fa-d633-4ea4-8a3d-83288e4213a4__="true"
+-                           __processed_b9a303aa-8fba-40c9-9ca1-3ebe2aa3bde8__="true"
 -                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6InBwaGdkYmdsZGxtaWNmZGtob25kbGFma2lv..."
                           >
                             ...
@@ -227,43 +227,104 @@ It can also happen if the client has a browser extension installed which messes 
                             ...
                   ...
 
-[00:00:12.769] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:12.769] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
-[00:00:12.769] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766776496699}
-[00:00:16.766] Server  LOG     PRAGMA foreign_keys = ON
-[00:00:16.842] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:16.843] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:00:16.843] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:16.843] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:00:16.844] Server  LOG     
+[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
+[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019268418}
+[00:00:15.088] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019270894}
+[00:00:50.417] Server  LOG     PRAGMA foreign_keys = ON
+[00:00:50.433] Server  LOG     SELECT * FROM admins WHERE email = 'liniverse@gmail.com'
+[00:00:51.781] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:00:51.781] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:00:51.788] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:00:51.788] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:00:51.789] Server  LOG     
       SELECT activityName as name, type, startDate as time
       FROM activities 
       ORDER BY startDate DESC 
       LIMIT 5
     
-[00:00:16.886] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:16.887] Server  LOG     
+[00:00:51.808] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:00:51.808] Server  LOG     
       SELECT category, COUNT(*) as count
       FROM clubs
       GROUP BY category
     
-[00:00:16.888] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:00:16.888] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:16.889] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:00:17.388] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766776501332}
-[00:00:30.685] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:31.183] Server  LOG     
-    SELECT 
-      students.*, 
-      majors.majorName,
-      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
-      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
-      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
-    FROM students 
-    LEFT JOIN majors ON students.majorId = majors.majorId
-    ORDER BY students.lastName ASC
-  
-[00:00:31.196] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:51.808] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:00:51.809] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:00:51.809] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:00:56.181] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019311995}
+[00:00:57.298] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:00:57.299] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:00:57.299] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:00:57.299] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:00:57.299] Server  LOG     
+      SELECT activityName as name, type, startDate as time
+      FROM activities 
+      ORDER BY startDate DESC 
+      LIMIT 5
+    
+[00:00:57.300] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:00:57.300] Server  LOG     
+      SELECT category, COUNT(*) as count
+      FROM clubs
+      GROUP BY category
+    
+[00:00:57.301] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:00:57.301] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:00:57.301] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:00:57.571] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019313339}
+[00:01:03.216] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019319019}
+[00:01:05.044] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:01:05.045] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:01:05.045] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:01:05.045] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:01:05.046] Server  LOG     
+      SELECT activityName as name, type, startDate as time
+      FROM activities 
+      ORDER BY startDate DESC 
+      LIMIT 5
+    
+[00:01:05.046] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:01:05.047] Server  LOG     
+      SELECT category, COUNT(*) as count
+      FROM clubs
+      GROUP BY category
+    
+[00:01:05.047] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:01:05.047] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:01:05.047] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:01:05.294] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019321091}
+[00:01:09.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019324908}
+[00:01:21.110] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/register color: rgb(120, 120, 120) color: inherit {"dp":"/register","o":"http://localhost:3000/register","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019336912}
+[00:01:51.330] Server  LOG     SELECT 1 FROM admins WHERE email = 'yahya@gmail.com'
+[00:01:51.331] Server  LOG     
+      INSERT INTO admins (firstName, lastName, email, password, status)
+      VALUES ('study', 'dey', 'yahya@gmail.com', '$2b$10$Bd4GW9hWHQo6bIo62aYyG.3Ds'/*+28 bytes*/, 'pending')
+    
+[00:01:51.543] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019367352}
+[00:01:52.867] Server  LOG     SELECT * FROM admins WHERE email = 'liniverse@gmail.com'
+[00:01:53.001] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:01:53.001] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:01:53.002] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:01:53.002] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:01:53.002] Server  LOG     
+      SELECT activityName as name, type, startDate as time
+      FROM activities 
+      ORDER BY startDate DESC 
+      LIMIT 5
+    
+[00:01:53.003] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:01:53.003] Server  LOG     
+      SELECT category, COUNT(*) as count
+      FROM clubs
+      GROUP BY category
+    
+[00:01:53.003] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:01:53.003] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:01:53.004] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:01:57.133] Server  LOG     SELECT * FROM admins ORDER BY adminId DESC
+[00:01:57.828] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:58.582] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -281,7 +342,7 @@ It can also happen if the client has a browser extension installed which messes 
         <ReplaySsrOnlyErrors>
         <DevRootHTTPAccessFallbackBoundary>
           <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/students" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+            <HTTPAccessFallbackErrorBoundary pathname="/admins" notFound={<NotAllowedRootHTTPFallbackError>} ...>
               <RedirectBoundary>
                 <RedirectErrorBoundary router={{...}}>
                   <Head>
@@ -296,7 +357,7 @@ It can also happen if the client has a browser extension installed which messes 
                         <html lang="en" suppressHydrationWarning={true}>
                           <body
                             className="geist_a8fa0c1a-module__MXp6vq__variable geist_mono_d6617093-module__z61v7q__var..."
--                           __processed_8fc86027-4d95-4c19-aace-c0cc62d7baf3__="true"
+-                           __processed_dfb40f10-123a-4b07-a32c-fce1d7e2a49c__="true"
 -                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6InBwaGdkYmdsZGxtaWNmZGtob25kbGFma2lv..."
                           >
                             ...
@@ -344,180 +405,54 @@ It can also happen if the client has a browser extension installed which messes 
                                       ...
                                         <SegmentViewNode type="page" pagePath="/CL0V/app/...">
                                           <SegmentTrieNode>
-                                          <ClientPageRoot Component={function StudentsPage} serverProvidedParams={{...}}>
-                                            <StudentsPage params={Promise} searchParams={Promise}>
+                                          <AdminsPage>
+                                            <div
+                                              className="space-y-6"
+-                                             bis_skin_checked="1"
+                                            >
                                               <div
-                                                className="min-h-screen bg-background"
 -                                               bis_skin_checked="1"
                                               >
-                                                <header className="border-b b...">
+                                              <AdminList initialAdmins={[...]}>
+                                                <Card>
                                                   <div
-                                                    className="px-8 py-6"
+                                                    data-slot="card"
+                                                    className="bg-card text-card-foreground flex flex-col gap-6 rounde..."
 -                                                   bis_skin_checked="1"
                                                   >
-                                                <main className="px-8 py-6">
-                                                  <div
-                                                    className="grid grid-cols-1 lg:grid-cols-3 gap-6"
--                                                   bis_skin_checked="1"
-                                                  >
-                                                    <div
-                                                      className="lg:col-span-1 space-y-6"
--                                                     bis_skin_checked="1"
-                                                    >
+                                                    <CardHeader>
                                                       <div
-                                                        className="grid grid-cols-2 gap-4"
+                                                        data-slot="card-header"
+                                                        className="@container/card-header grid auto-rows-min grid-rows..."
 -                                                       bis_skin_checked="1"
                                                       >
-                                                        <Card>
+                                                        <CardTitle>
                                                           <div
-                                                            data-slot="card"
-                                                            className="bg-card text-card-foreground flex flex-col gap-..."
+                                                            data-slot="card-title"
+                                                            className="leading-none font-semibold"
 -                                                           bis_skin_checked="1"
                                                           >
-                                                            <CardHeader className="pb-3">
-                                                              <div
-                                                                data-slot="card-header"
-                                                                className="@container/card-header grid auto-rows-min g..."
--                                                               bis_skin_checked="1"
-                                                              >
-                                                                <div
-                                                                  className="flex items-center gap-2"
--                                                                 bis_skin_checked="1"
-                                                                >
-                                                                  <Users>
-                                                                  <CardTitle className="text-sm">
-                                                                    <div
-                                                                      data-slot="card-title"
-                                                                      className="font-semibold text-sm"
--                                                                     bis_skin_checked="1"
-                                                                    >
-+                                                                     Total Students
-                                                            <CardContent>
-                                                              <div
-                                                                data-slot="card-content"
-                                                                className="px-6"
--                                                               bis_skin_checked="1"
-                                                              >
-                                                        <Card>
++                                                           Admin Management
+                                                        <CardDescription>
                                                           <div
-                                                            data-slot="card"
-                                                            className="bg-card text-card-foreground flex flex-col gap-..."
+                                                            data-slot="card-description"
+                                                            className="text-muted-foreground text-sm"
 -                                                           bis_skin_checked="1"
                                                           >
-                                                            <CardHeader className="pb-3">
-                                                              <div
-                                                                data-slot="card-header"
-                                                                className="@container/card-header grid auto-rows-min g..."
--                                                               bis_skin_checked="1"
-                                                              >
-                                                                <div
-                                                                  className="flex items-center gap-2"
--                                                                 bis_skin_checked="1"
-                                                                >
-                                                                  <Award>
-                                                                  <CardTitle className="text-sm">
-                                                                    <div
-                                                                      data-slot="card-title"
-                                                                      className="font-semibold text-sm"
--                                                                     bis_skin_checked="1"
-                                                                    >
-+                                                                     Activities
-                                                            <CardContent>
-                                                              <div
-                                                                data-slot="card-content"
-                                                                className="px-6"
--                                                               bis_skin_checked="1"
-                                                              >
-                                                        <Card className="col-span-2">
++                                                           Manage admin accounts and access requests.
+                                                    <CardContent>
+                                                      <div
+                                                        data-slot="card-content"
+                                                        className="px-6"
+-                                                       bis_skin_checked="1"
+                                                      >
+                                                        <Table>
                                                           <div
-                                                            data-slot="card"
-                                                            className="bg-card text-card-foreground flex flex-col gap-..."
+                                                            data-slot="table-container"
+                                                            className="relative w-full overflow-x-auto rounded-lg bg-c..."
 -                                                           bis_skin_checked="1"
                                                           >
-                                                            <CardHeader className="pb-3">
-                                                              <div
-                                                                data-slot="card-header"
-                                                                className="@container/card-header grid auto-rows-min g..."
--                                                               bis_skin_checked="1"
-                                                              >
-                                                                <div
-                                                                  className="flex items-center gap-2"
--                                                                 bis_skin_checked="1"
-                                                                >
-                                                                  <TrendingUp>
-                                                                  <CardTitle className="text-sm">
-                                                                    <div
-                                                                      data-slot="card-title"
-                                                                      className="font-semibold text-sm"
--                                                                     bis_skin_checked="1"
-                                                                    >
-+                                                                     Students per Major
-                                                            <CardContent>
-                                                              <div
-                                                                data-slot="card-content"
-                                                                className="px-6"
--                                                               bis_skin_checked="1"
-                                                              >
-                                                                <div
-                                                                  className="space-y-1"
--                                                                 bis_skin_checked="1"
-                                                                >
-                                                      <Card className="h-full max...">
-                                                        <div
-                                                          data-slot="card"
-                                                          className="bg-card text-card-foreground gap-6 rounded-2xl bo..."
--                                                         bis_skin_checked="1"
-                                                        >
-                                                          <CardHeader className="flex flex-...">
-                                                            <div
-                                                              data-slot="card-header"
-                                                              className="@container/card-header auto-rows-min grid-row..."
--                                                             bis_skin_checked="1"
-                                                            >
-                                                              <div
--                                                               bis_skin_checked="1"
-                                                              >
-                                                                <CardTitle>
-                                                                  <div
-                                                                    data-slot="card-title"
-                                                                    className="leading-none font-semibold"
--                                                                   bis_skin_checked="1"
-                                                                  >
-+                                                                   All Students
-                                                                <CardDescription className="text-xs">
-                                                                  <div
-                                                                    data-slot="card-description"
-                                                                    className="text-muted-foreground text-xs"
--                                                                   bis_skin_checked="1"
-                                                                  >
-+                                                                   Select to view participation
-                                                              ...
-                                                          <CardContent className="space-y-2 ...">
-                                                            <div
-                                                              data-slot="card-content"
-                                                              className="px-6 space-y-2 overflow-y-auto"
--                                                             bis_skin_checked="1"
-                                                            >
-                                                              <div
-                                                                className="flex justify-center py-8"
--                                                               bis_skin_checked="1"
-                                                              >
-                                                    <div
-                                                      className="lg:col-span-2"
--                                                     bis_skin_checked="1"
-                                                    >
-                                                      <Card className="h-full fle...">
-                                                        <div
-                                                          data-slot="card"
-                                                          className="bg-card text-card-foreground flex-col gap-6 round..."
--                                                         bis_skin_checked="1"
-                                                        >
-                                                          <CardContent className="text-cente...">
-                                                            <div
-                                                              data-slot="card-content"
-                                                              className="px-6 text-center py-12"
--                                                             bis_skin_checked="1"
-                                                            >
+                                        ...
                             ...
                               <ToastViewport ref={null} className="fixed top-...">
                                 <DismissableLayerBranch ref={{current:null}} role="region" aria-label="Notificati..." ...>
@@ -533,124 +468,8 @@ It can also happen if the client has a browser extension installed which messes 
                             ...
                   ...
 
-[00:00:31.507] Server  LOG     SELECT * FROM majors ORDER BY majorName ASC
-[00:00:31.607] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:00:31.692] Server  LOG     
-    SELECT e.* 
-    FROM events e
-    JOIN eventParticipants ep ON e.eventId = ep.eventId
-    WHERE ep.studentId = 3.0
-    ORDER BY e.startDate DESC
-  
-[00:00:31.735] Server  LOG     
-    SELECT c.* 
-    FROM clubs c
-    JOIN clubMemberships cm ON c.clubId = cm.clubId
-    WHERE cm.studentId = 3.0
-    ORDER BY c.clubName ASC
-  
-[00:00:31.792] Server  LOG     
-    SELECT a.* 
-    FROM activities a
-    JOIN registrations r ON a.activityId = r.activityId
-    WHERE r.studentId = 3.0
-    ORDER BY a.startDate DESC
-  
-[00:00:31.935] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:31.935] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/students","route":"/students"}
-[00:00:31.935] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/students color: rgb(120, 120, 120) color: inherit {"dp":"/students","o":"http://localhost:3000/students","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766776515911}
-[00:00:45.451] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:45.676] Server  LOG     
-      SELECT 
-        a.*,
-        e.eventName,
-        c.clubName
-      FROM activities a
-      LEFT JOIN events e ON a.eventId = e.eventId
-      LEFT JOIN clubs c ON a.clubId = c.clubId
-      ORDER BY a.startDate DESC
-    
-[00:00:45.701] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/activities" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/CL0V/app/...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en" suppressHydrationWarning={true}>
-                          <body
-                            className="geist_a8fa0c1a-module__MXp6vq__variable geist_mono_d6617093-module__z61v7q__var..."
--                           __processed_a4f9d974-66cb-45a4-b781-65399f371b3d__="true"
--                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6InBwaGdkYmdsZGxtaWNmZGtob25kbGFma2lv..."
-                          >
-                  ...
-
-[00:00:45.831] Server  LOG     
-    SELECT 
-      students.*, 
-      majors.majorName,
-      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
-      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
-      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
-    FROM students 
-    LEFT JOIN majors ON students.majorId = majors.majorId
-    ORDER BY students.lastName ASC
-  
-[00:00:45.877] Server  LOG     SELECT * FROM events ORDER BY startDate DESC
-[00:00:45.925] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
-[00:00:45.968] Server  LOG     SELECT * FROM guests ORDER BY fullName ASC
-[00:00:46.045] Server  LOG     
-      SELECT 
-        r.*,
-        s.firstName,
-        s.lastName,
-        s.cne,
-        s.email
-      FROM registrations r
-      JOIN students s ON r.studentId = s.studentId
-      WHERE r.activityId = 16.0
-      ORDER BY s.lastName ASC
-    
-[00:00:46.092] Server  LOG     
-      SELECT 
-        res.*,
-        r.resourceName,
-        r.type
-      FROM reservations res
-      JOIN resources r ON res.resourceId = r.resourceId
-      WHERE res.activityId = 16.0
-      ORDER BY res.startDate ASC
-    
-[00:00:46.188] Server  LOG     
-      SELECT gr.*, g.fullName, g.email, g.phone
-      FROM guestRoles gr
-      JOIN guests g ON gr.guestId = g.guestId
-      WHERE gr.activityId = 16.0
-      ORDER BY gr.startDate ASC
-    
-[00:00:46.339] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:46.339] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/activities","route":"/activities"}
-[00:00:46.339] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/activities color: rgb(120, 120, 120) color: inherit {"dp":"/activities","o":"http://localhost:3000/activities","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1766776530316}
+[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admins","route":"/admins"}
+[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admins color: rgb(120, 120, 120) color: inherit {"dp":"/admins","o":"http://localhost:3000/admins","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019374436}
+[00:02:00.764] Server  LOG     UPDATE admins SET status = 'accepted' WHERE adminId = 5.0
+[00:02:00.786] Server  LOG     SELECT * FROM admins ORDER BY adminId DESC
