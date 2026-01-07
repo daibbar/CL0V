@@ -45,11 +45,7 @@ export async function getRecentActivities() {
       LIMIT 5
     `).all() as { name: string, type: string, time: string }[];
     
-    return activities.map(a => ({
-        ...a,
-        // Format the date for display
-        time: new Date(a.time).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })
-    }));
+    return activities;
   } catch (error) {
     console.error("Failed to fetch recent activities:", error);
     return [];

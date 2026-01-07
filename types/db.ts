@@ -40,6 +40,7 @@ export interface Student {
   lastName: string;
   cne: string;
   email: string;
+  password?: string;
   majorId: number | null;
 }
 
@@ -61,6 +62,7 @@ export interface ClubMembership {
   joinedAt: string;
   clubId: number;
   studentId: number;
+  status: 'pending' | 'accepted' | 'rejected';
 }
 
 export interface ClubMembershipWithDetails {

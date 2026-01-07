@@ -16,7 +16,7 @@ export default function LoginPage() {
         <div className="bg-primary text-primary-foreground p-2 rounded-lg">
           <Trophy className="h-6 w-6" />
         </div>
-        <span className="text-2xl font-bold tracking-tight">slak ajmi</span>
+        <span className="text-2xl font-bold tracking-tight">CL0V</span>
       </Link>
       <LoginForm />
     </div>

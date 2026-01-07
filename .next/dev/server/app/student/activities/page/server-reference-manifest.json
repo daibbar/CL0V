@@ -1,0 +1,170 @@
+{
+  "node": {
+    "002248bac64ab24ef697de83b40bf4e9c7242fef37": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "logout",
+          "filename": "CL0V/actions/auth-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "logout",
+      "filename": "CL0V/actions/auth-actions.ts"
+    },
+    "0003a2251e10145f1ad727f8826393d4104156f05c": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getAllActivitiesForStudent",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "rsc"
+      },
+      "exportedName": "getAllActivitiesForStudent",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "006e2ee10c482947dc39eeccef4577f2aad83ba306": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getAllEventsForStudent",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "rsc"
+      },
+      "exportedName": "getAllEventsForStudent",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "00cf8f8dbf05024e46fa07a0b32f187f13ba01a040": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getAllClubsForStudent",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "rsc"
+      },
+      "exportedName": "getAllClubsForStudent",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "4033beccb9c98d8f1db665c4cf76141f0dc94249f9": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "registerForActivity",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "registerForActivity",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "404397fa9efbdd2ddcad5ad8a297c4974316f63738": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "unregisterFromEvent",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "unregisterFromEvent",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "407e11f5fe5d42be312f2ec88e4181383125224c9d": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "joinClub",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "joinClub",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "409838616881d662fd0406e414a0c2a371ac33213b": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "changePassword",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "rsc"
+      },
+      "exportedName": "changePassword",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "40a4208f0ee462841e716b7693868d243a472c3375": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "unregisterFromActivity",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "unregisterFromActivity",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "40a687c45b3fc03c00ca174396c52e1b21ff092aa3": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "registerForEvent",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "registerForEvent",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    },
+    "40af6c7c079a3be09fa4a248b23dec95ce5d4d44d2": {
+      "workers": {
+        "app/student/activities/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/student/activities/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-portal-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "leaveClub",
+          "filename": "CL0V/actions/student-portal-actions.ts"
+        }
+      },
+      "layer": {
+        "app/student/activities/page": "action-browser"
+      },
+      "exportedName": "leaveClub",
+      "filename": "CL0V/actions/student-portal-actions.ts"
+    }
+  },
+  "edge": {}
+}

@@ -1,6 +1,7 @@
 import db from '../lib/db';
+import bcrypt from 'bcryptjs';
 
-const seed = () => {
+const seed = async () => {
   try {
     console.log('🧹 Cleaning old data...');
     // Delete in order to respect Foreign Keys
@@ -66,9 +67,10 @@ const seed = () => {
 
     // 4. Students
     console.log('🌱 Seeding Students...');
+    const hashedPassword = await bcrypt.hash('123456', 10);
     const insertStudent = db.prepare(`
-      INSERT INTO students (firstName, lastName, cne, email, majorId) 
-      VALUES (@firstName, @lastName, @cne, @email, @majorId)
+      INSERT INTO students (firstName, lastName, cne, email, password, majorId) 
+      VALUES (@firstName, @lastName, @cne, @email, @password, @majorId)
     `);
     
     // Get major ID for 'IID' (Assuming it's ID 1 because we inserted it first)
@@ -77,6 +79,7 @@ const seed = () => {
       lastName: 'Benali',
       cne: 'D1300001',
       email: 'ahmed.benali@student.ma',
+      password: hashedPassword,
       majorId: 1
     });
 
@@ -119,6 +122,21 @@ const seed = () => {
     const insertResource = db.prepare('INSERT INTO resources (resourceName, type) VALUES (?, ?)');
     insertResource.run('Amphi A', 'Amphitheatre');
     insertResource.run('Salle 12', 'Salle');
+
+    // 7. Admins
+    console.log('🌱 Seeding Admins...');
+    const insertAdmin = db.prepare(`
+      INSERT INTO admins (firstName, lastName, email, password, status)
+      VALUES (@firstName, @lastName, @email, @password, @status)
+    `);
+
+    insertAdmin.run({
+      firstName: 'Admin',
+      lastName: 'User',
+      email: 'admin@cl0v.com',
+      password: hashedPassword, // Reuse the hash for simplicity
+      status: 'accepted'
+    });
 
     console.log('✅ Database seeded successfully!');
 

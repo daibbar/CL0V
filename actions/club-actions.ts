@@ -80,7 +80,7 @@ export async function getClubsByEvent(eventId: number) {
       FROM clubs c
       JOIN eventOrganizers eo ON c.clubId = eo.clubId
       WHERE eo.eventId = ?
-    `).all(eventId);
+    `).all(eventId) as Club[];
 
     return clubs || [];
   } catch (error: any) {
@@ -140,13 +140,15 @@ export async function getClubActivities(clubId: number) {
 export async function getClubMemberships() {
   try {
     const rows = db.prepare(`
-      SELECT cm.membershipId, cm.joinedAt,
+      SELECT cm.membershipId, cm.joinedAt, cm.status,
              c.clubName as clubName, c.category as clubCategory,
              s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
       FROM clubMemberships cm
       JOIN clubs c ON cm.clubId = c.clubId
       JOIN students s ON cm.studentId = s.studentId
-      ORDER BY cm.joinedAt DESC
+      ORDER BY 
+        CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
+        cm.joinedAt DESC
     `).all();
 
     return rows || [];

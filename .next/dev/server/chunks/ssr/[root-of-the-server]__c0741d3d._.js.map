@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["file:///home/daibbar/projects/CL0V/actions/auth-actions.ts"],"sourcesContent":["'use server';\n\nimport { signIn, signOut } from '@/auth';\nimport { AuthError } from 'next-auth';\n\nexport async function authenticate(\n  prevState: string | undefined,\n  formData: FormData,\n) {\n  try {\n    await signIn('credentials', formData);\n  } catch (error) {\n    if (error instanceof AuthError) {\n      switch (error.type) {\n        case 'CredentialsSignin':\n          return 'Invalid credentials.';\n        default:\n          return 'Something went wrong.';\n      }\n    }\n    throw error;\n  }\n}\n\nexport async function logout() {\n  await signOut({ redirectTo: '/login' });\n}\n"],"names":[],"mappings":";;;;;;;AAEA;AACA;AAAA;;;;;AAEO,eAAe,aACpB,SAA6B,EAC7B,QAAkB;IAElB,IAAI;QACF,MAAM,IAAA,sHAAM,EAAC,eAAe;IAC9B,EAAE,OAAO,OAAO;QACd,IAAI,iBAAiB,yNAAS,EAAE;YAC9B,OAAQ,MAAM,IAAI;gBAChB,KAAK;oBACH,OAAO;gBACT;oBACE,OAAO;YACX;QACF;QACA,MAAM;IACR;AACF;AAEO,eAAe;IACpB,MAAM,IAAA,uHAAO,EAAC;QAAE,YAAY;IAAS;AACvC;;;IArBsB;IAmBA;;AAnBA,uXAAA;AAmBA,uXAAA"}},
+    {"offset": {"line": 61, "column": 0}, "map": {"version":3,"sources":["file:///home/daibbar/projects/CL0V/.next-internal/server/app/login/page/actions.js%20%28server%20actions%20loader%29"],"sourcesContent":["export {authenticate as '601e1e61cf0b81486ecf74c718d8ebec8963627758'} from 'ACTIONS_MODULE0'\n"],"names":[],"mappings":";AAAA"}}]
+}

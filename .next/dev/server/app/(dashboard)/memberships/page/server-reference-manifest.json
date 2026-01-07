@@ -3,7 +3,7 @@
     "002248bac64ab24ef697de83b40bf4e9c7242fef37": {
       "workers": {
         "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "logout",
           "filename": "CL0V/actions/auth-actions.ts"
@@ -15,32 +15,17 @@
       "exportedName": "logout",
       "filename": "CL0V/actions/auth-actions.ts"
     },
-    "0076e1ee761f3c725f60e6b94644d057cf1652cdf3": {
-      "workers": {
-        "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
-          "async": false,
-          "exportedName": "getStudents",
-          "filename": "CL0V/actions/student-actions.ts"
-        }
-      },
-      "layer": {
-        "app/(dashboard)/memberships/page": "action-browser"
-      },
-      "exportedName": "getStudents",
-      "filename": "CL0V/actions/student-actions.ts"
-    },
     "00545b232253d73c1b611478bd06ced735bf06d28f": {
       "workers": {
         "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getClubs",
           "filename": "CL0V/actions/club-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/memberships/page": "action-browser"
+        "app/(dashboard)/memberships/page": "rsc"
       },
       "exportedName": "getClubs",
       "filename": "CL0V/actions/club-actions.ts"
@@ -48,22 +33,97 @@
     "00ff9a47e4ba82e70e55d1e7f6cc89cce14b6f5f4d": {
       "workers": {
         "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "getClubMemberships",
           "filename": "CL0V/actions/club-actions.ts"
         }
       },
       "layer": {
-        "app/(dashboard)/memberships/page": "action-browser"
+        "app/(dashboard)/memberships/page": "rsc"
       },
       "exportedName": "getClubMemberships",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "4000313a5acbb7e94baad51d8157f0172a109b57f5": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getClubMembers",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getClubMembers",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "400bc84fe43569a50acb94ceb89e2811b94d78e4d0": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteClubMembership",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "action-browser"
+      },
+      "exportedName": "deleteClubMembership",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "401e2045fbee811dd001c67288e014f0808a177f35": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getClubEvents",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getClubEvents",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "403f314d2770b6d30df991c169ac621c3e542a6a3e": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "deleteClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "40937b7d5eb78ccbf3004e0770b399ebe96930477c": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getClubsByEvent",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getClubsByEvent",
       "filename": "CL0V/actions/club-actions.ts"
     },
     "40c977e9523458e7667dbc9361296afbfa11073e61": {
       "workers": {
         "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
           "exportedName": "createClubMembership",
           "filename": "CL0V/actions/club-actions.ts"
@@ -75,20 +135,215 @@
       "exportedName": "createClubMembership",
       "filename": "CL0V/actions/club-actions.ts"
     },
-    "400bc84fe43569a50acb94ceb89e2811b94d78e4d0": {
+    "40ebf616928dfb92ae12b9e40f78a4de8020661f1a": {
       "workers": {
         "app/(dashboard)/memberships/page": {
-          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
           "async": false,
-          "exportedName": "deleteClubMembership",
+          "exportedName": "getClubActivities",
           "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getClubActivities",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "40fb1239fe5dab8c81aa1a6c6a4e3d3dff68362a12": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "createClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "608c092e7574f097374d45ba2f0b8c1a86de07b8f0": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateClub",
+          "filename": "CL0V/actions/club-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "updateClub",
+      "filename": "CL0V/actions/club-actions.ts"
+    },
+    "000c05c8913e8b991c02dcbc9a6588eb11351ad47d": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getTotalActivitiesCount",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getTotalActivitiesCount",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "0076e1ee761f3c725f60e6b94644d057cf1652cdf3": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getStudents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "00fe3536568a6c117a4b57577e978eb83ea68f419d": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getMajors",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getMajors",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40409b46f825f48fd11d0bbe12e6eb545405bce9bd": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentActivities",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getStudentActivities",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "405896ee1640fc439a0edc4e76ed44615f302849a8": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentEvents",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getStudentEvents",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "4058c552c6e5832b78d3ff3972d188e1e2544edc4f": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "getStudentClubs",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "getStudentClubs",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "405fda7eb3a9b799d827ff4332611a9f0e62f6c74e": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "deleteStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "deleteStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "createStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "createStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "60a0ef4ce8b4795ac36b4acc6df890381a47990a1b": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "updateStudent",
+          "filename": "CL0V/actions/student-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "rsc"
+      },
+      "exportedName": "updateStudent",
+      "filename": "CL0V/actions/student-actions.ts"
+    },
+    "4067d4c9e96e46101f9964e35c8cc3251060175c5d": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "approveMembership",
+          "filename": "CL0V/actions/membership-actions.ts"
         }
       },
       "layer": {
         "app/(dashboard)/memberships/page": "action-browser"
       },
-      "exportedName": "deleteClubMembership",
-      "filename": "CL0V/actions/club-actions.ts"
+      "exportedName": "approveMembership",
+      "filename": "CL0V/actions/membership-actions.ts"
+    },
+    "40407a8193d245073dbbd73bd532546f5c77c6ec15": {
+      "workers": {
+        "app/(dashboard)/memberships/page": {
+          "moduleId": "[project]/CL0V/.next-internal/server/app/(dashboard)/memberships/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/club-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE2 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE3 => \"[project]/CL0V/actions/membership-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "rejectMembership",
+          "filename": "CL0V/actions/membership-actions.ts"
+        }
+      },
+      "layer": {
+        "app/(dashboard)/memberships/page": "action-browser"
+      },
+      "exportedName": "rejectMembership",
+      "filename": "CL0V/actions/membership-actions.ts"
     }
   },
   "edge": {}

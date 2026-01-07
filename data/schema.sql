@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS students (
     lastName TEXT NOT NULL,
     cne TEXT UNIQUE NOT NULL,
     email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
     majorId INTEGER,
     FOREIGN KEY (majorId) REFERENCES majors(majorId)
 );
@@ -77,6 +78,7 @@ CREATE TABLE IF NOT EXISTS clubMemberships (
     joinedAt DATE DEFAULT CURRENT_DATE,
     clubId INTEGER NOT NULL,
     studentId INTEGER NOT NULL,
+    status TEXT CHECK(status IN ('pending', 'accepted', 'rejected')) DEFAULT 'pending' NOT NULL,
     FOREIGN KEY (clubId) REFERENCES clubs(clubId) ON DELETE CASCADE,
     FOREIGN KEY (studentId) REFERENCES students(studentId) ON DELETE CASCADE,
     UNIQUE(clubId, studentId)    
@@ -91,7 +93,8 @@ CREATE TABLE IF NOT EXISTS reservations (
     activityId INTEGER NOT NULL,
     FOREIGN KEY (resourceId) REFERENCES resources(resourceId) ON DELETE CASCADE,
     FOREIGN KEY (activityId) REFERENCES activities(activityId) ON DELETE CASCADE,
-    CHECK (endDate >= startDate)
+    CHECK (endDate >= startDate),
+    CHECK (startDate >= CURRENT_DATE)
 );
 
 CREATE TABLE IF NOT EXISTS eventOrganizers (

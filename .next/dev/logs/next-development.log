@@ -1,8 +1,280 @@
-[00:00:01.713] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:01.896] Server  LOG      ✓ Ready in 1523ms
-[00:00:08.623] Server  LOG      ○ Compiling / ...
-[00:00:12.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:12.602] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:00:02.062] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:02.247] Server  LOG      ✓ Ready in 1830ms
+[00:00:58.778] Server  LOG      ○ Compiling / ...
+[00:01:08.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:10.153] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:10.154] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
+[00:01:10.154] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797433731}
+[00:01:18.978] Server  LOG      ○ Compiling /login ...
+[00:01:22.187] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797445727}
+[00:01:27.260] Server  LOG     PRAGMA foreign_keys = ON
+[00:01:27.309] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:01:27.313] Server  LOG     Invalid credentials
+[00:01:27.315] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:27.318] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+    at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
+    at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
+    at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
+    at async authenticate (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/[root-of-the-server]__1aa5c967._.js:216:9)
+    at async executeActionAndPrepareForRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:3143)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:958
+    at async handleAction (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:34:23875)
+    at async renderToHTMLOrFlightImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:41:41714)
+    at async doRender (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:8929:28)
+    at async AppPageRouteModule.handleResponse (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:43:63162)
+    at async handleResponse (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9135:32)
+    at async handler (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9506:20)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1413:9)
+    at async DevServer.renderPageComponent (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1465:24)
+    at async DevServer.renderToResponseImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1515:32)
+    at async DevServer.pipeImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1021:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/next-server.js:394:17)
+    at async DevServer.handleRequestImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:912:17)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:382:20
+    at async Span.traceAsyncFn (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:378:24)
+    at async invokeRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:240:21)
+    at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
+    at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
+    at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
+[00:01:32.087] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/register color: rgb(120, 120, 120) color: inherit {"dp":"/register","o":"http://localhost:3000/register","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797455651}
+[00:01:51.472] Server  LOG     SELECT 1 FROM students WHERE email = 'universe@gmail.com' OR cne = 'D135481446'
+[00:01:51.473] Server  LOG     
+          INSERT INTO students (firstName, lastName, email, password, cne, majorId)
+          VALUES ('daibbar', 'mohamed', 'universe@gmail.com', '$2b$10$oV9h0hnWXpBXpXMl3LN0Cuz8v'/*+28 bytes*/, 'D135481446', NULL)
+        
+[00:01:51.682] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797475256}
+[00:01:57.822] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:01:57.908] Server  LOG     Invalid credentials
+[00:01:57.909] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:57.909] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+    at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
+    at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
+    at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
+    at async authenticate (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/[root-of-the-server]__1aa5c967._.js:216:9)
+    at async executeActionAndPrepareForRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:3143)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:958
+    at async handleAction (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:34:23875)
+    at async renderToHTMLOrFlightImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:41:41714)
+    at async doRender (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:8929:28)
+    at async AppPageRouteModule.handleResponse (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:43:63162)
+    at async handleResponse (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9135:32)
+    at async handler (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9506:20)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1413:9)
+    at async DevServer.renderPageComponent (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1465:24)
+    at async DevServer.renderToResponseImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1515:32)
+    at async DevServer.pipeImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1021:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/next-server.js:394:17)
+    at async DevServer.handleRequestImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:912:17)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:382:20
+    at async Span.traceAsyncFn (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:378:24)
+    at async invokeRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:240:21)
+    at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
+    at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
+    at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
+[00:02:04.388] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:02:06.045] Server  LOG     
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = 5.0
+    ORDER BY e.startDate DESC
+  
+[00:02:06.045] Server  LOG     
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = 5.0
+    ORDER BY c.clubName ASC
+  
+[00:02:06.046] Server  LOG     
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = 5.0
+    ORDER BY a.startDate DESC
+  
+[00:02:15.179] Server  LOG     
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = 5.0
+    ORDER BY e.startDate DESC
+  
+[00:02:15.179] Server  LOG     
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = 5.0
+    ORDER BY c.clubName ASC
+  
+[00:02:15.179] Server  LOG     
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = 5.0
+    ORDER BY a.startDate DESC
+  
+[00:02:15.590] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/dashboard","route":"/student/dashboard"}
+[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/student/dashboard","o":"http://localhost:3000/student/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797499373}
+[00:02:19.267] Server  LOG     
+      SELECT c.*, 
+        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
+        cm.status as membershipStatus
+      FROM clubs c
+      LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
+      ORDER BY c.clubName ASC
+    
+[00:02:19.544] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
+[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797503346}
+[00:02:21.460] Server  LOG     INSERT INTO clubMemberships (clubId, studentId, status) VALUES (1.0, 5.0, 'pending')
+[00:02:21.551] Server  LOG     
+      SELECT c.*, 
+        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
+        cm.status as membershipStatus
+      FROM clubs c
+      LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
+      ORDER BY c.clubName ASC
+    
+[00:02:29.014] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797512591}
+[00:02:42.369] Server  LOG     SELECT * FROM admins WHERE email = 'admin@cl0v.com'
+[00:02:43.207] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:02:43.207] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:02:43.208] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:02:43.208] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:02:43.215] Server  LOG     
+      SELECT activityName as name, type, startDate as time
+      FROM activities 
+      ORDER BY startDate DESC 
+      LIMIT 5
+    
+[00:02:43.216] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:02:43.217] Server  LOG     
+      SELECT category, COUNT(*) as count
+      FROM clubs
+      GROUP BY category
+    
+[00:02:43.217] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:02:43.218] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:02:43.218] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:02:50.895] Server  LOG     
+      SELECT cm.membershipId, cm.joinedAt, cm.status,
+             c.clubName as clubName, c.category as clubCategory,
+             s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
+      FROM clubMemberships cm
+      JOIN clubs c ON cm.clubId = c.clubId
+      JOIN students s ON cm.studentId = s.studentId
+      ORDER BY 
+        CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
+        cm.joinedAt DESC
+    
+[00:02:50.896] Server  LOG     
+    SELECT 
+      students.*, 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
+    FROM students 
+    LEFT JOIN majors ON students.majorId = majors.majorId
+    ORDER BY students.lastName ASC
+  
+[00:02:50.896] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:02:51.385] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/memberships","route":"/memberships"}
+[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/memberships color: rgb(120, 120, 120) color: inherit {"dp":"/memberships","o":"http://localhost:3000/memberships","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797535200}
+[00:02:53.758] Server  LOG     UPDATE clubMemberships SET status = 'accepted' WHERE membershipId = 3.0
+[00:02:53.808] Server  LOG     
+      SELECT cm.membershipId, cm.joinedAt, cm.status,
+             c.clubName as clubName, c.category as clubCategory,
+             s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
+      FROM clubMemberships cm
+      JOIN clubs c ON cm.clubId = c.clubId
+      JOIN students s ON cm.studentId = s.studentId
+      ORDER BY 
+        CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
+        cm.joinedAt DESC
+    
+[00:02:53.808] Server  LOG     
+    SELECT 
+      students.*, 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
+    FROM students 
+    LEFT JOIN majors ON students.majorId = majors.majorId
+    ORDER BY students.lastName ASC
+  
+[00:02:53.809] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:01.305] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797544882}
+[00:03:15.617] Server  LOG     SELECT * FROM students WHERE email = 'daibbarmohamed@gmail.com'
+[00:03:15.617] Server  LOG     Invalid credentials
+[00:03:15.618] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:03:15.618] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+    at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
+    at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
+    at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
+    at async authenticate (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/[root-of-the-server]__1aa5c967._.js:216:9)
+    at async executeActionAndPrepareForRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:3143)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:958
+    at async handleAction (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:34:23875)
+    at async renderToHTMLOrFlightImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:41:41714)
+    at async doRender (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:8929:28)
+    at async AppPageRouteModule.handleResponse (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:43:63162)
+    at async handleResponse (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9135:32)
+    at async handler (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9506:20)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1413:9)
+    at async DevServer.renderPageComponent (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1465:24)
+    at async DevServer.renderToResponseImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1515:32)
+    at async DevServer.pipeImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1021:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/next-server.js:394:17)
+    at async DevServer.handleRequestImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:912:17)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:382:20
+    at async Span.traceAsyncFn (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:378:24)
+    at async invokeRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:240:21)
+    at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
+    at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
+    at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
+[00:03:23.331] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:03:23.506] Server  LOG     
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = 5.0
+    ORDER BY e.startDate DESC
+  
+[00:03:23.506] Server  LOG     
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = 5.0
+    ORDER BY c.clubName ASC
+  
+[00:03:23.506] Server  LOG     
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = 5.0
+    ORDER BY a.startDate DESC
+  
+[00:03:27.031] Server  LOG     
+      SELECT c.*, 
+        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
+        cm.status as membershipStatus
+      FROM clubs c
+      LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
+      ORDER BY c.clubName ASC
+    
+[00:03:27.333] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:27.608] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -15,461 +287,40 @@ It can also happen if the client has a browser extension installed which messes 
 %s%s https://react.dev/link/hydration-mismatch 
 
   ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/home" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head headCacheNode={{lazyData:null, ...}}>
-                    <__next_viewport_boundary__>
-                    <Next.Metadata>
-                      <div
-                        hidden={true}
--                       bis_skin_checked="1"
-                      >
-                    ...
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/CL0V/app/...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en" suppressHydrationWarning={true}>
-                          <body
-                            className="geist_a8fa0c1a-module__MXp6vq__variable geist_mono_d6617093-module__z61v7q__var..."
--                           __processed_b9a303aa-8fba-40c9-9ca1-3ebe2aa3bde8__="true"
--                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6InBwaGdkYmdsZGxtaWNmZGtob25kbGFma2lv..."
-                          >
-                            ...
-                              <SegmentViewNode type="page" pagePath="/CL0V/app/...">
-                                <SegmentTrieNode>
-                                <LandingPage>
-                                  <div
-                                    className="flex flex-col min-h-screen bg-background"
--                                   bis_skin_checked="1"
-                                  >
-                                    <header className="px-4 lg:px...">
-                                      <LinkComponent>
-                                        <LinkComponent className="flex items..." href="/home">
-                                          <a className="flex items..." ref={function} onClick={function onClick} ...>
-                                            <div
-                                              className="bg-primary text-primary-foreground p-1.5 rounded-lg mr-2"
--                                             bis_skin_checked="1"
-                                            >
-                                            ...
-                                      ...
-                                    <main className="flex-1">
-                                      <section className="w-full py-...">
-                                        <div
-                                          className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent -z-10"
--                                         bis_skin_checked="1"
-                                        >
-                                        <div
-                                          className="container px-4 md:px-6 mx-auto relative"
--                                         bis_skin_checked="1"
-                                        >
-                                          <div
-                                            className="flex flex-col items-center space-y-4 text-center"
--                                           bis_skin_checked="1"
-                                          >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                              <div
-                                                className="inline-block rounded-lg bg-primary/10 px-3 py-1 text-sm tex..."
--                                               bis_skin_checked="1"
-                                              >
-+                                               Welcome to the Future of Campus Management
-                                              ...
-                                            <div
-                                              className="space-x-4 pt-4"
--                                             bis_skin_checked="1"
-                                            >
-                                      <section id="features" className="w-full py-...">
-                                        <div
-                                          className="container px-4 md:px-6 mx-auto"
--                                         bis_skin_checked="1"
-                                        >
-                                          <div
-                                            className="flex flex-col items-center justify-center space-y-4 text-center..."
--                                           bis_skin_checked="1"
-                                          >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                          <div
-                                            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
--                                           bis_skin_checked="1"
-                                          >
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                            <FeatureCard>
-                                              <div
-                                                className="flex flex-col items-center p-6 bg-background rounded-xl bor..."
--                                               bis_skin_checked="1"
-                                              >
-                                                <div
-                                                  className="p-3 rounded-2xl bg-primary/5 text-primary group-hover:bg-..."
--                                                 bis_skin_checked="1"
-                                                >
-                                                ...
-                                      <section className="w-full py-...">
-                                        <div
-                                          className="container px-4 md:px-6 mx-auto"
--                                         bis_skin_checked="1"
-                                        >
-                                          <div
-                                            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
--                                           bis_skin_checked="1"
-                                          >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                      <section className="w-full py-...">
-                                        <div
-                                          className="container px-4 md:px-6 mx-auto"
--                                         bis_skin_checked="1"
-                                        >
-                                          <div
-                                            className="flex flex-col items-center justify-center space-y-4 text-center"
--                                           bis_skin_checked="1"
-                                          >
-                                            <div
-                                              className="space-y-2"
--                                             bis_skin_checked="1"
-                                            >
-                                            <div
-                                              className="w-full max-w-sm space-y-2 mt-6"
--                                             bis_skin_checked="1"
-                                            >
-                                    ...
-                              ...
-                            ...
-                              <ToastViewport ref={null} className="fixed top-...">
-                                <DismissableLayerBranch ref={{current:null}} role="region" aria-label="Notificati..." ...>
-                                  <Primitive.div role="region" aria-label="Notificati..." tabIndex={-1} style={{...}} ...>
-                                    <div
-                                      role="region"
-                                      aria-label="Notifications (F8)"
-                                      tabIndex={-1}
-                                      style={{pointerEvents:"none"}}
-                                      ref={function}
--                                     bis_skin_checked="1"
-                                    >
-                            ...
-                  ...
+    <MenuProvider scope={{Menu:[...], ...}} open={false} onOpenChange={function useCallbackRef.useMemo} content={null} ...>
+      <MenuProvider scope={{Menu:[...], ...}} onClose={function Menu.useCallback} isUsingKeyboardRef={{current:false}} ...>
+        <DropdownMenuTrigger asChild={true}>
+          <DropdownMenuTrigger data-slot="dropdown-m..." asChild={true}>
+            <MenuAnchor asChild={true} __scopeMenu={{Menu:[...], ...}}>
+              <PopperAnchor __scopePopper={{Menu:[...], ...}} asChild={true} ref={null}>
+                <Primitive.div asChild={true} ref={function}>
+                  <Slot ref={function}>
+                    <SlotClone ref={function}>
+                      <Primitive.button type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
+                        <Slot type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
+                          <SlotClone type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
+                            <SidebarMenuButton size="lg" className="rounded-xl..." type="button" id="radix-_R_e..." ...>
+                              <button
+                                data-slot="dropdown-menu-trigger"
+                                data-sidebar="menu-button"
+                                data-size="lg"
+                                data-active={false}
+                                className={"peer/menu-button flex w-full items-center gap-2 overflow-hidden p-2 text-..."}
+                                type="button"
++                               id="radix-_R_ecndlb_"
+-                               id="radix-_R_1pkndlb_"
+                                aria-haspopup="menu"
+                                aria-expanded={false}
+                                aria-controls={undefined}
+                                data-state="closed"
+                                data-disabled={undefined}
+                                disabled={false}
+                                onPointerDown={function handleEvent}
+                                onKeyDown={function handleEvent}
+                                ref={function}
+                              >
+        ...
 
-[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
-[00:00:12.602] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019268418}
-[00:00:15.088] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019270894}
-[00:00:50.417] Server  LOG     PRAGMA foreign_keys = ON
-[00:00:50.433] Server  LOG     SELECT * FROM admins WHERE email = 'liniverse@gmail.com'
-[00:00:51.781] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:51.781] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:00:51.788] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:51.788] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:00:51.789] Server  LOG     
-      SELECT activityName as name, type, startDate as time
-      FROM activities 
-      ORDER BY startDate DESC 
-      LIMIT 5
-    
-[00:00:51.808] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:51.808] Server  LOG     
-      SELECT category, COUNT(*) as count
-      FROM clubs
-      GROUP BY category
-    
-[00:00:51.808] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:00:51.809] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:51.809] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:00:56.181] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019311995}
-[00:00:57.298] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:57.299] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:00:57.299] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:57.299] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:00:57.299] Server  LOG     
-      SELECT activityName as name, type, startDate as time
-      FROM activities 
-      ORDER BY startDate DESC 
-      LIMIT 5
-    
-[00:00:57.300] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:00:57.300] Server  LOG     
-      SELECT category, COUNT(*) as count
-      FROM clubs
-      GROUP BY category
-    
-[00:00:57.301] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:00:57.301] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:00:57.301] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:00:57.571] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019313339}
-[00:01:03.216] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019319019}
-[00:01:05.044] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:01:05.045] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:01:05.045] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:01:05.045] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:01:05.046] Server  LOG     
-      SELECT activityName as name, type, startDate as time
-      FROM activities 
-      ORDER BY startDate DESC 
-      LIMIT 5
-    
-[00:01:05.046] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:01:05.047] Server  LOG     
-      SELECT category, COUNT(*) as count
-      FROM clubs
-      GROUP BY category
-    
-[00:01:05.047] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:01:05.047] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:01:05.047] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:01:05.294] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/dashboard","o":"http://localhost:3000/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019321091}
-[00:01:09.105] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019324908}
-[00:01:21.110] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/register color: rgb(120, 120, 120) color: inherit {"dp":"/register","o":"http://localhost:3000/register","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019336912}
-[00:01:51.330] Server  LOG     SELECT 1 FROM admins WHERE email = 'yahya@gmail.com'
-[00:01:51.331] Server  LOG     
-      INSERT INTO admins (firstName, lastName, email, password, status)
-      VALUES ('study', 'dey', 'yahya@gmail.com', '$2b$10$Bd4GW9hWHQo6bIo62aYyG.3Ds'/*+28 bytes*/, 'pending')
-    
-[00:01:51.543] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019367352}
-[00:01:52.867] Server  LOG     SELECT * FROM admins WHERE email = 'liniverse@gmail.com'
-[00:01:53.001] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:01:53.001] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:01:53.002] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:01:53.002] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:01:53.002] Server  LOG     
-      SELECT activityName as name, type, startDate as time
-      FROM activities 
-      ORDER BY startDate DESC 
-      LIMIT 5
-    
-[00:01:53.003] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:01:53.003] Server  LOG     
-      SELECT category, COUNT(*) as count
-      FROM clubs
-      GROUP BY category
-    
-[00:01:53.003] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:01:53.003] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:01:53.004] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:01:57.133] Server  LOG     SELECT * FROM admins ORDER BY adminId DESC
-[00:01:57.828] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:58.582] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
-      <AppDevOverlayErrorBoundary globalError={[...]}>
-        <ReplaySsrOnlyErrors>
-        <DevRootHTTPAccessFallbackBoundary>
-          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
-            <HTTPAccessFallbackErrorBoundary pathname="/admins" notFound={<NotAllowedRootHTTPFallbackError>} ...>
-              <RedirectBoundary>
-                <RedirectErrorBoundary router={{...}}>
-                  <Head>
-                  <__next_root_layout_boundary__>
-                    <SegmentViewNode type="layout" pagePath="/CL0V/app/...">
-                      <SegmentTrieNode>
-                      <link>
-                      <script>
-                      <script>
-                      <script>
-                      <RootLayout>
-                        <html lang="en" suppressHydrationWarning={true}>
-                          <body
-                            className="geist_a8fa0c1a-module__MXp6vq__variable geist_mono_d6617093-module__z61v7q__var..."
--                           __processed_dfb40f10-123a-4b07-a32c-fce1d7e2a49c__="true"
--                           bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6InBwaGdkYmdsZGxtaWNmZGtob25kbGFma2lv..."
-                          >
-                            ...
-                              <div data-slot="sidebar-wr..." style={{...}} className="group/side...">
-                                ...
-                                  <div data-slot="sidebar-co..." className="fixed inse...">
-                                    <div data-sidebar="sidebar" data-slot="sidebar-inner" className="bg-sidebar...">
-                                      <SidebarHeader>
-                                      <SidebarContent>
-                                      <SidebarFooter className="p-4 group-...">
-                                        <div
-                                          data-slot="sidebar-footer"
-                                          data-sidebar="footer"
-                                          className="flex flex-col gap-2 p-4 group-data-[collapsible=icon]:p-1"
--                                         bis_skin_checked="1"
-                                        >
-                                          <div
-                                            className="rounded-2xl bg-white/5 border border-white/5 p-1 group-data-[co..."
--                                           bis_skin_checked="1"
-                                          >
-                                            ...
-                                              <SlotClone type="button" id="radix-_R_1..." aria-haspopup="menu" ...>
-                                                <SidebarMenuButton size="lg" className="rounded-xl..." type="button" ...>
-                                                  <button data-slot="dropdown-m..." data-sidebar="menu-button" ...>
-                                                    <Avatar>
-                                                    <div
-                                                      className="grid flex-1 text-left text-sm leading-tight ml-1 grou..."
--                                                     bis_skin_checked="1"
-                                                    >
-                                                    ...
-                                      ...
-                                <SidebarInset>
-                                  <main data-slot="sidebar-inset" className="bg-backgro...">
-                                    <header className="flex h-16 ...">
-                                      <SidebarTrigger>
-                                      <div
-                                        className="h-4 w-px bg-border mx-2"
--                                       bis_skin_checked="1"
-                                      >
-                                      ...
-                                    <div
-                                      className="flex-1 p-4 md:p-6 bg-muted/20"
--                                     bis_skin_checked="1"
-                                    >
-                                      ...
-                                        <SegmentViewNode type="page" pagePath="/CL0V/app/...">
-                                          <SegmentTrieNode>
-                                          <AdminsPage>
-                                            <div
-                                              className="space-y-6"
--                                             bis_skin_checked="1"
-                                            >
-                                              <div
--                                               bis_skin_checked="1"
-                                              >
-                                              <AdminList initialAdmins={[...]}>
-                                                <Card>
-                                                  <div
-                                                    data-slot="card"
-                                                    className="bg-card text-card-foreground flex flex-col gap-6 rounde..."
--                                                   bis_skin_checked="1"
-                                                  >
-                                                    <CardHeader>
-                                                      <div
-                                                        data-slot="card-header"
-                                                        className="@container/card-header grid auto-rows-min grid-rows..."
--                                                       bis_skin_checked="1"
-                                                      >
-                                                        <CardTitle>
-                                                          <div
-                                                            data-slot="card-title"
-                                                            className="leading-none font-semibold"
--                                                           bis_skin_checked="1"
-                                                          >
-+                                                           Admin Management
-                                                        <CardDescription>
-                                                          <div
-                                                            data-slot="card-description"
-                                                            className="text-muted-foreground text-sm"
--                                                           bis_skin_checked="1"
-                                                          >
-+                                                           Manage admin accounts and access requests.
-                                                    <CardContent>
-                                                      <div
-                                                        data-slot="card-content"
-                                                        className="px-6"
--                                                       bis_skin_checked="1"
-                                                      >
-                                                        <Table>
-                                                          <div
-                                                            data-slot="table-container"
-                                                            className="relative w-full overflow-x-auto rounded-lg bg-c..."
--                                                           bis_skin_checked="1"
-                                                          >
-                                        ...
-                            ...
-                              <ToastViewport ref={null} className="fixed top-...">
-                                <DismissableLayerBranch ref={{current:null}} role="region" aria-label="Notificati..." ...>
-                                  <Primitive.div role="region" aria-label="Notificati..." tabIndex={-1} style={{...}} ...>
-                                    <div
-                                      role="region"
-                                      aria-label="Notifications (F8)"
-                                      tabIndex={-1}
-                                      style={{pointerEvents:"none"}}
-                                      ref={function}
--                                     bis_skin_checked="1"
-                                    >
-                            ...
-                  ...
-
-[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/admins","route":"/admins"}
-[00:01:58.629] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/admins color: rgb(120, 120, 120) color: inherit {"dp":"/admins","o":"http://localhost:3000/admins","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767019374436}
-[00:02:00.764] Server  LOG     UPDATE admins SET status = 'accepted' WHERE adminId = 5.0
-[00:02:00.786] Server  LOG     SELECT * FROM admins ORDER BY adminId DESC
+[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
+[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797571127}
