@@ -1,0 +1,310 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{geometry}
+\usepackage{listings}
+\lstset{
+    language=SQL,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    breaklines=true,
+    frame=single,
+    captionpos=b,
+    showstringspaces=false
+}
+\geometry{margin=2.5cm}
+
+% \title{Rapport de Projet : CL0V}
+% \author{Daibbar Mohamed, Deroui Mouad}
+% \date{\today}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    % Logo ENSA
+    \includegraphics[width=0.3\textwidth]{ensa_logo.png}\\[2cm]
+
+    % Title
+    {\Large \textbf{Rapport de Projet}}\\[0.5cm]
+    {\huge \textbf{CL0V}}\\[2cm]
+
+    % Authors
+    {\large Réalisé par :}\\[0.3cm]
+    {\large \textbf{Daibbar Mohamed}}\\
+    {\large \textbf{Deroui Mouad}}\\[1.5cm]
+
+    % Professor
+    {\large Encadré par :}\\[0.3cm]
+    {\large \textbf{Pr. Yasser Rochd}}\\[2cm]
+
+    \vfill
+
+    % Optional: school name
+    {\large École Nationale des Sciences Appliquées}\\
+    {\large ENSA Khouribga}
+
+\end{titlepage}
+
+
+% \maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction générale}
+De nos jours, le développement d'applications web modernes est devenu incontournable pour répondre aux besoins croissants de digitalisation. Le projet intitulé \textbf{CL0V} s'inscrit dans cette dynamique, visant à concevoir et réaliser une solution informatique complète. Ce rapport détaille l'ensemble du processus de développement, de l'analyse des besoins à l'implémentation technique.
+
+\subsection{Contexte du projet}
+L'évolution rapide des technologies web offre de nouvelles opportunités pour résoudre des problèmes complexes de gestion et de communication. Le projet CL0V naît d'un besoin spécifique : \textit{faciliter la gestion des activités parascolaires de l'ENSAK}.
+
+Ce projet a été réalisé pour mettre en pratique des compétences avancées en ingénierie logicielle, en s'appuyant sur des technologies actuelles telles que Next.js pour le frontend et une base de données relationnelle SQL.
+
+\subsection{Objectifs du projet}
+L'objectif principal est de développer une application web fonctionnelle. Les objectifs spécifiques du projet se déclinent comme suit :
+
+\begin{itemize}
+    \item Concevoir le système d'information à travers les modèles conceptuel, logique et physique de données (MCD, MLD, MPD).
+    \item Développer une interface utilisateur réactive et intuitive avec Next.js.
+    \item Implémenter une logique métier robuste et une gestion efficace des données.
+    \item Assurer la qualité du code et la sécurité de l'application.
+\end{itemize}
+
+
+
+\section{Conception du système d’information}
+\subsection{Modèle Conceptuel de Données (MCD)}
+Le Modèle Conceptuel de Données (MCD) permet de représenter de manière formelle les données qui seront utilisées dans le système d'information. Voici le schéma du MCD pour le projet CL0V :
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{mcd.png}
+    \caption{Modèle Conceptuel de Données - Projet CL0V}
+    \label{fig:mcd_cl0v}
+\end{figure}
+
+\subsection{Modèle Logique de Données (MLD)}
+Le Modèle Logique de Données suivant détaille la structure des tables, les clés primaires (soulignées) et les clés étrangères (précédées d'un \#).
+
+\begin{description}
+    \item[ADMINS] (\underline{adminId}, firstName, lastName, email, password, status)
+    \item[MAJORS] (\underline{majorId}, majorName)
+    \item[CLUBS] (\underline{clubId}, clubName, category, description, createdAt)
+    \item[EVENTS] (\underline{eventId}, eventName, startDate, endDate)
+    \item[RESOURCES] (\underline{resourceId}, resourceName, type)
+    \item[GUESTS] (\underline{guestId}, fullName, phone, email)
+    
+    \item[STUDENTS] (\underline{studentId}, firstName, lastName, cne, email, password, \textit{\#majorId})
+    \item[ACTIVITIES] (\underline{activityId}, activityName, description, type, maxCapacity, startDate, endDate, \textit{\#clubId}, \textit{\#eventId})
+    
+    \item[CLUBMEMBERSHIPS] (\underline{membershipId}, joinedAt, status, \textit{\#clubId}, \textit{\#studentId})
+    \item[RESERVATIONS] (\underline{reservationId}, reservationName, startDate, endDate, \textit{\#resourceId}, \textit{\#activityId})
+    \item[REGISTRATIONS] (\underline{registrationId}, registeredAt, \textit{\#studentId}, \textit{\#activityId})
+    \item[GUESTROLES] (\underline{guestRoleId}, roleDescription, startDate, endDate, \textit{\#guestId}, \textit{\#activityId})
+    
+    \item[EVENTORGANIZERS] (\underline{\textit{\#eventId}, \textit{\#clubId}})
+    \item[EVENTPARTICIPANTS] (\underline{\textit{\#studentId}, \textit{\#eventId}})
+\end{description}
+\subsection{Modèle Physique de Données (MPD)}
+
+Le Modèle Physique de Données (MPD) représente l'implémentation concrète de la base de données SQLite pour le projet CL0V. Il définit les types de données, les contraintes d'intégrité et les relations entre les tables.
+
+\subsubsection{Dictionnaire de données}
+
+\subsection{Implémentation Physique (MPD)}
+
+Le script SQL suivant constitue le Modèle Physique de Données. Il définit la structure exacte des tables, les types de données SQLite et les contraintes métier (Clés Primaires, Étrangères et clauses \texttt{CHECK}).
+
+\begin{lstlisting}[caption={Script SQL de création de la base de données CL0V}]
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE IF NOT EXISTS admins (
+    adminId INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    status TEXT CHECK(status IN ('pending', 'accepted', 'rejected')) DEFAULT 'pending' NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS majors (
+    majorId INTEGER PRIMARY KEY AUTOINCREMENT,
+    majorName TEXT CHECK (majorName IN ('IID', 'GI', 'IRIC', 'GE', 'GPEE', 'MGSI')) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS clubs (
+    clubId INTEGER PRIMARY KEY AUTOINCREMENT,
+    clubName TEXT NOT NULL UNIQUE,
+    category TEXT CHECK(category IN ('art et culture', 'sport', 'technologie', 'entrepreneuriat social')) NOT NULL,
+    description TEXT,
+    createdAt DATETIME NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS events (
+    eventId INTEGER PRIMARY KEY AUTOINCREMENT,
+    eventName TEXT NOT NULL,
+    startDate DATETIME NOT NULL,
+    endDate DATETIME NOT NULL,
+    CHECK (endDate >= startDate)
+);
+
+CREATE TABLE IF NOT EXISTS resources (
+    resourceId INTEGER PRIMARY KEY AUTOINCREMENT,
+    resourceName TEXT NOT NULL,
+    type TEXT CHECK (type IN ('Salle', 'Amphitheatre', 'Buvette', 'Bibliotheque', 'Terrain', 'Labo')) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS students (
+    studentId INTEGER PRIMARY KEY AUTOINCREMENT,
+    firstName TEXT NOT NULL,
+    lastName TEXT NOT NULL,
+    cne TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    majorId INTEGER,
+    FOREIGN KEY (majorId) REFERENCES majors(majorId)
+);
+
+CREATE TABLE IF NOT EXISTS activities (
+    activityId INTEGER PRIMARY KEY AUTOINCREMENT,
+    activityName TEXT NOT NULL,
+    description TEXT,
+    type TEXT CHECK(type IN ('Voyage', 'Atelier', 'Conference', 'Competition') NOT NULL),
+    maxCapacity INTEGER CHECK(maxCapacity > 0),
+    startDate TIMESTAMP NOT NULL,
+    endDate TIMESTAMP NOT NULL,
+    clubId INTEGER,
+    eventId INTEGER,
+
+    FOREIGN KEY (clubId) REFERENCES clubs(clubId) ON DELETE CASCADE,
+    FOREIGN KEY (eventId) REFERENCES events(eventId) ON DELETE CASCADE,
+    
+    CONSTRAINT checkOwner CHECK (
+        (clubId IS NULL AND eventId IS NOT NULL) OR 
+        (clubId IS NOT NULL AND eventId IS NULL)
+    ),
+    CHECK (endDate >= startDate)
+);
+
+CREATE TABLE IF NOT EXISTS clubMemberships (
+    membershipId INTEGER PRIMARY KEY AUTOINCREMENT,
+    joinedAt DATE DEFAULT CURRENT_DATE,
+    clubId INTEGER NOT NULL,
+    studentId INTEGER NOT NULL,
+    status TEXT CHECK(status IN ('pending', 'accepted', 'rejected')) DEFAULT 'pending' NOT NULL,
+    FOREIGN KEY (clubId) REFERENCES clubs(clubId) ON DELETE CASCADE,
+    FOREIGN KEY (studentId) REFERENCES students(studentId) ON DELETE CASCADE,
+    UNIQUE(clubId, studentId)    
+);
+
+CREATE TABLE IF NOT EXISTS reservations (
+    reservationId INTEGER PRIMARY KEY AUTOINCREMENT,
+    reservationName TEXT NOT NULL,
+    startDate DATETIME NOT NULL,
+    endDate DATETIME NOT NULL,
+    resourceId INTEGER NOT NULL,
+    activityId INTEGER NOT NULL,
+    FOREIGN KEY (resourceId) REFERENCES resources(resourceId) ON DELETE CASCADE,
+    FOREIGN KEY (activityId) REFERENCES activities(activityId) ON DELETE CASCADE,
+    CHECK (endDate >= startDate),
+    CHECK (startDate >= CURRENT_DATE)
+);
+
+CREATE TABLE IF NOT EXISTS eventOrganizers (
+    eventId INTEGER NOT NULL,
+    clubId INTEGER NOT NULL,
+    FOREIGN KEY (eventId) REFERENCES events(eventId) ON DELETE CASCADE,
+    FOREIGN KEY (clubId) REFERENCES clubs(clubId) ON DELETE CASCADE,
+    UNIQUE(eventId, clubId)
+);
+
+CREATE TABLE IF NOT EXISTS eventParticipants (
+    eventId INTEGER NOT NULL,
+    studentId INTEGER NOT NULL, 
+    FOREIGN KEY (studentId) REFERENCES students(studentId) ON DELETE CASCADE,
+    FOREIGN KEY (eventId) REFERENCES events(eventId) ON DELETE CASCADE,
+    UNIQUE(studentId, eventId)
+);
+
+CREATE TABLE IF NOT EXISTS registrations (
+    registrationId INTEGER PRIMARY KEY AUTOINCREMENT,
+    registeredAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    studentId INTEGER NOT NULL,
+    activityId INTEGER NOT NULL,
+    FOREIGN KEY (studentId) REFERENCES students(studentId) ON DELETE CASCADE,
+    FOREIGN KEY (activityId) REFERENCES activities(activityId) ON DELETE CASCADE,
+    UNIQUE(studentId, activityId)
+);
+
+CREATE TABLE IF NOT EXISTS guests (
+    guestId INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullName TEXT NOT NULL,
+    phone TEXT NOT NULL,
+    email TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS guestRoles (
+    guestRoleId INTEGER PRIMARY KEY AUTOINCREMENT,
+    guestId INTEGER NOT NULL,
+    activityId INTEGER NOT NULL,
+    roleDescription TEXT NOT NULL,
+    startDate TIMESTAMP NOT NULL,
+    endDate TIMESTAMP NOT NULL,
+    FOREIGN KEY (guestId) REFERENCES guests(guestId) ON DELETE CASCADE,
+    FOREIGN KEY (activityId) REFERENCES activities(activityId) ON DELETE CASCADE,
+    CHECK (endDate >= startDate)
+);
+\end{lstlisting}
+
+\subsubsection{Contraintes d'intégrité et de performance}
+
+L'implémentation physique repose sur plusieurs piliers pour assurer la robustesse du système d'information :
+
+\begin{itemize}
+    \item \textbf{Intégrité Référentielle :} Activation systématique des clés étrangères via \texttt{PRAGMA foreign\_keys = ON} et utilisation de \texttt{ON DELETE CASCADE} pour éviter les données orphelines.
+    \item \textbf{Validation Métier :} Utilisation de clauses \texttt{CHECK} au niveau du SGBD pour valider les domaines de valeurs (catégories, statuts) et la cohérence temporelle (dates).
+    \item \textbf{Unicité :} Garantir qu'un étudiant ne peut pas s'inscrire deux fois à la même activité via une contrainte \texttt{UNIQUE(studentId, activityId)}.
+\end{itemize}
+\section{Choix technologiques}
+\subsection{Frontend (Next.js)}
+\subsection{Backend}
+Pour le développement du backend, nous avons tiré profit des capacités de Next.js, notamment en utilisant le \textbf{Server Side Rendering (SSR)} pour les requêtes CRUD simples vers la base de données. Cette approche permet d'améliorer les performances et le référencement (SEO) en préparant les données côté serveur avant de les envoyer au client.
+\subsection{Base de données SQL}
+Pour la persistance des données, nous avons opté pour \textbf{SQLite}. C'est un moteur de base de données relationnelle léger, rapide et autonome. Contrairement aux systèmes client-serveur traditionnels (comme PostgreSQL ou MySQL), SQLite est intégré directement dans l'application. Ce choix simplifie grandement le déploiement et la gestion, tout en offrant une fiabilité robuste et le support complet du langage SQL, ce qui est idéal pour la structure et l'échelle de notre projet.
+\subsection{Autres outils et bibliothèques}
+En complément de Next.js, notre stack technique s'appuie sur plusieurs technologies clés :
+
+\begin{itemize}
+    \item \textbf{TypeScript :} Un sur-ensemble typé de JavaScript qui apporte la sécurité du typage statique. Cela permet de détecter les erreurs en amont, d'améliorer la maintenabilité du code et d'offrir une meilleure expérience de développement grâce à l'autocomplétion.
+    \item \textbf{Tailwind CSS :} Un framework CSS "utility-first" qui permet de concevoir des interfaces utilisateur modernes et réactives directement depuis le code HTML/JSX. Il accélère le développement en évitant de changer de contexte entre les fichiers CSS et les composants.
+    \item \textbf{JSX (JavaScript XML) :} Une extension de syntaxe pour JavaScript qui permet d'écrire des structures de type HTML à l'intérieur du code JavaScript. C'est le langage standard pour décrire l'interface utilisateur dans l'écosystème React.
+\end{itemize}
+
+\section{Architecture et structure du projet}
+\subsection{Architecture globale}
+\subsection{Structure des dossiers du projet}
+Le projet suit l'architecture recommandée par Next.js (App Router), organisée de la manière suivante :
+
+\begin{itemize}
+    \item \texttt{app/} : Cœur de l'application, ce dossier contient les routes (pages), les layouts et l'API. Chaque sous-dossier correspond à une route de l'URL.
+    \item \texttt{components/} : Regroupe les composants React réutilisables (boutons, formulaires, cartes, etc.) pour assurer une cohérence visuelle et fonctionnelle.
+    \item \texttt{lib/} : Contient les utilitaires partagés, notamment la configuration de la base de données (\texttt{db.ts}) et les fonctions d'aide (\texttt{utils.ts}).
+    \item \texttt{actions/} : Héberge les "Server Actions", des fonctions asynchrones exécutées côté serveur pour gérer la logique métier et les interactions sécurisées avec la base de données.
+    \item \texttt{data/} : Dossier destiné à stocker le fichier de base de données SQLite (\texttt{cl0v.db}) et les scripts SQL d'initialisation.
+    \item \texttt{types/} : Définit les interfaces et types TypeScript pour garantir la cohérence des données à travers l'application.
+\end{itemize}
+\section{Conclusion générale}
+Ce projet nous a permis de concevoir et de développer une application web complète, baptisée \textbf{CL0V}, répondant aux besoins de gestion des activités parascolaires. En partant de l'analyse des besoins jusqu'à l'implémentation technique avec Next.js et SQLite, nous avons pu mettre en pratique les concepts fondamentaux du génie logiciel.
+
+L'application réalisée est fonctionnelle, sécurisée et offre une interface utilisateur moderne. Ce travail a été une excellente opportunité pour approfondir nos compétences en développement full-stack et en gestion de base de données. À l'avenir, le projet pourrait être enrichi par de nouvelles fonctionnalités, telles qu'un système de notifications en temps réel ou une application mobile dédiée, pour améliorer encore l'expérience des utilisateurs.
+
+\end{document}
+
+\end{document}

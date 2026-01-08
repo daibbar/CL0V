@@ -1,0 +1,20 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Introduction générale}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Contexte du projet}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Objectifs du projet}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Conception du système d’information}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Modèle Conceptuel de Données (MCD)}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Modèle Logique de Données (MLD)}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Modèle Physique de Données (MPD)}{4}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Dictionnaire de données}{4}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Implémentation Physique (MPD)}{4}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Contraintes d'intégrité et de performance}{7}{subsubsection.2.4.1}%
+\contentsline {section}{\numberline {3}Choix technologiques}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Frontend (Next.js)}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Backend}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Base de données SQL}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Autres outils et bibliothèques}{8}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Architecture et structure du projet}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Architecture globale}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Structure des dossiers du projet}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion générale}{9}{section.5}%

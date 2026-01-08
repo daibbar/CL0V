@@ -88,9 +88,12 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$2
 ;
 ;
 const dbPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'data', 'cl0v.db');
-const db = new __TURBOPACK__imported__module__$5b$externals$5d2f$better$2d$sqlite3__$5b$external$5d$__$28$better$2d$sqlite3$2c$__cjs$29$__["default"](dbPath, {
+// Prevent multiple instances of better-sqlite3 in development
+const globalForDb = /*TURBOPACK member replacement*/ __turbopack_context__.g;
+const db = globalForDb.db || new __TURBOPACK__imported__module__$5b$externals$5d2f$better$2d$sqlite3__$5b$external$5d$__$28$better$2d$sqlite3$2c$__cjs$29$__["default"](dbPath, {
     verbose: console.log
 });
+if ("TURBOPACK compile-time truthy", 1) globalForDb.db = db;
 db.pragma('foreign_keys = ON');
 const __TURBOPACK__default__export__ = db;
 }),
@@ -145,37 +148,42 @@ const { auth, signIn, signOut, handlers } = (0, __TURBOPACK__imported__module__$
             async authorize (credentials) {
                 const parsedCredentials = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].object({
                     email: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().email(),
-                    password: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().min(6)
+                    password: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().min(6),
+                    role: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().optional()
                 }).safeParse(credentials);
                 if (parsedCredentials.success) {
-                    const { email, password } = parsedCredentials.data;
-                    // Check Admin first
-                    const admin = await getAdmin(email);
-                    if (admin) {
-                        if (!admin.password) return null;
-                        if (admin.status !== 'accepted') return null;
-                        const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, admin.password);
-                        if (passwordsMatch) {
-                            return {
-                                id: String(admin.adminId),
-                                name: `${admin.firstName} ${admin.lastName}`,
-                                email: admin.email,
-                                role: 'admin'
-                            };
+                    const { email, password, role } = parsedCredentials.data;
+                    // If role is 'admin' or unspecified, check Admin
+                    if (!role || role === 'admin') {
+                        const admin = await getAdmin(email);
+                        if (admin) {
+                            if (!admin.password) return null;
+                            if (admin.status !== 'accepted') return null;
+                            const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, admin.password);
+                            if (passwordsMatch) {
+                                return {
+                                    id: String(admin.adminId),
+                                    name: `${admin.firstName} ${admin.lastName}`,
+                                    email: admin.email,
+                                    role: 'admin'
+                                };
+                            }
                         }
                     }
-                    // Check Student
-                    const student = await getStudent(email);
-                    if (student) {
-                        if (!student.password) return null;
-                        const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, student.password);
-                        if (passwordsMatch) {
-                            return {
-                                id: String(student.studentId),
-                                name: `${student.firstName} ${student.lastName}`,
-                                email: student.email,
-                                role: 'student'
-                            };
+                    // If role is 'student' or unspecified, check Student
+                    if (!role || role === 'student') {
+                        const student = await getStudent(email);
+                        if (student) {
+                            if (!student.password) return null;
+                            const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, student.password);
+                            if (passwordsMatch) {
+                                return {
+                                    id: String(student.studentId),
+                                    name: `${student.firstName} ${student.lastName}`,
+                                    email: student.email,
+                                    role: 'student'
+                                };
+                            }
                         }
                     }
                 }
@@ -296,7 +304,8 @@ async function getAllClubsForStudent() {
     try {
         const clubs = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
       SELECT c.*, 
-        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember
+        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
+        cm.status as membershipStatus
       FROM clubs c
       LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = ?
       ORDER BY c.clubName ASC
@@ -360,12 +369,12 @@ async function unregisterFromEvent(eventId) {
 async function joinClub(clubId) {
     const studentId = await getStudentId();
     try {
-        __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('INSERT INTO clubMemberships (clubId, studentId) VALUES (?, ?)').run(clubId, studentId);
+        __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('INSERT INTO clubMemberships (clubId, studentId, status) VALUES (?, ?, ?)').run(clubId, studentId, 'pending');
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/student/clubs');
         (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$cache$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["revalidatePath"])('/student/dashboard');
         return {
             success: true,
-            message: 'Joined club successfully'
+            message: 'Request to join club sent. Awaiting approval.'
         };
     } catch (error) {
         return {

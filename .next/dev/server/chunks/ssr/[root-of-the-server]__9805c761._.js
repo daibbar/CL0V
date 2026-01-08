@@ -17,25 +17,53 @@ const authConfig = {
         signIn: '/login'
     },
     callbacks: {
+        async jwt ({ token, user }) {
+            if (user) {
+                token.role = user.role;
+                token.id = user.id;
+            }
+            return token;
+        },
+        async session ({ session, token }) {
+            if (token && session.user) {
+                session.user.role = token.role;
+                session.user.id = token.id;
+            }
+            return session;
+        },
         authorized ({ auth, request: { nextUrl } }) {
             const isLoggedIn = !!auth?.user;
-            const isOnDashboard = nextUrl.pathname.startsWith('/dashboard') || nextUrl.pathname.startsWith('/students') || nextUrl.pathname.startsWith('/clubs') || nextUrl.pathname.startsWith('/events') || nextUrl.pathname.startsWith('/activities') || nextUrl.pathname.startsWith('/memberships') || nextUrl.pathname.startsWith('/resources') || nextUrl.pathname.startsWith('/guests') || nextUrl.pathname.startsWith('/reservations');
+            const role = auth?.user?.role;
+            const isOnAdminDashboard = nextUrl.pathname.startsWith('/dashboard') || nextUrl.pathname.startsWith('/students') || nextUrl.pathname.startsWith('/clubs') || nextUrl.pathname.startsWith('/events') || nextUrl.pathname.startsWith('/activities') || nextUrl.pathname.startsWith('/memberships') || nextUrl.pathname.startsWith('/resources') || nextUrl.pathname.startsWith('/guests') || nextUrl.pathname.startsWith('/reservations');
+            const isOnStudentDashboard = nextUrl.pathname.startsWith('/student');
             const isOnLogin = nextUrl.pathname.startsWith('/login');
             const isOnRegister = nextUrl.pathname.startsWith('/register');
             const isOnHome = nextUrl.pathname.startsWith('/home') || nextUrl.pathname === '/';
-            // Allow access to home, login, and register pages
-            if (isOnHome || isOnLogin || isOnRegister) {
-                if (isLoggedIn && (isOnLogin || isOnRegister)) {
-                    return Response.redirect(new URL('/dashboard', nextUrl)); // Redirect logged-in users to dashboard
+            // Redirect logic for logged-in users trying to access public pages
+            if (isLoggedIn && (isOnLogin || isOnRegister || isOnHome)) {
+                if (role === 'student') {
+                    return Response.redirect(new URL('/student/dashboard', nextUrl));
+                } else {
+                    return Response.redirect(new URL('/dashboard', nextUrl));
+                }
+            }
+            // Protect Admin Routes
+            if (isOnAdminDashboard) {
+                if (!isLoggedIn) return false;
+                if (role !== 'admin') {
+                    return Response.redirect(new URL('/student/dashboard', nextUrl));
                 }
                 return true;
             }
-            // Protect dashboard routes
-            if (isOnDashboard) {
-                if (isLoggedIn) return true;
-                return false; // Redirect unauthenticated users to login page
+            // Protect Student Routes
+            if (isOnStudentDashboard) {
+                if (!isLoggedIn) return false;
+                if (role !== 'student') {
+                    // Optionally allow admins to view student dashboard or redirect them back
+                    return Response.redirect(new URL('/dashboard', nextUrl));
+                }
+                return true;
             }
-            // Default allow for other routes (like api, _next, static files)
             return true;
         }
     },
@@ -60,9 +88,12 @@ var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$2
 ;
 ;
 const dbPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'data', 'cl0v.db');
-const db = new __TURBOPACK__imported__module__$5b$externals$5d2f$better$2d$sqlite3__$5b$external$5d$__$28$better$2d$sqlite3$2c$__cjs$29$__["default"](dbPath, {
+// Prevent multiple instances of better-sqlite3 in development
+const globalForDb = /*TURBOPACK member replacement*/ __turbopack_context__.g;
+const db = globalForDb.db || new __TURBOPACK__imported__module__$5b$externals$5d2f$better$2d$sqlite3__$5b$external$5d$__$28$better$2d$sqlite3$2c$__cjs$29$__["default"](dbPath, {
     verbose: console.log
 });
+if ("TURBOPACK compile-time truthy", 1) globalForDb.db = db;
 db.pragma('foreign_keys = ON');
 const __TURBOPACK__default__export__ = db;
 }),
@@ -101,6 +132,15 @@ async function getAdmin(email) {
         throw new Error('Failed to fetch admin.');
     }
 }
+async function getStudent(email) {
+    try {
+        const student = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare('SELECT * FROM students WHERE email = ?').get(email);
+        return student;
+    } catch (error) {
+        console.error('Failed to fetch student:', error);
+        throw new Error('Failed to fetch student.');
+    }
+}
 const { auth, signIn, signOut, handlers } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$2d$auth$40$5$2e$0$2e$0$2d$beta$2e$30_next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2d$auth$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$locals$3e$__["default"])({
     ...__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$auth$2e$config$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["authConfig"],
     providers: [
@@ -108,22 +148,44 @@ const { auth, signIn, signOut, handlers } = (0, __TURBOPACK__imported__module__$
             async authorize (credentials) {
                 const parsedCredentials = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].object({
                     email: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().email(),
-                    password: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().min(6)
+                    password: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().min(6),
+                    role: __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$zod$40$3$2e$25$2e$76$2f$node_modules$2f$zod$2f$v3$2f$external$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__$2a$__as__z$3e$__["z"].string().optional()
                 }).safeParse(credentials);
                 if (parsedCredentials.success) {
-                    const { email, password } = parsedCredentials.data;
-                    const admin = await getAdmin(email);
-                    if (!admin) return null;
-                    // If admin has no password set (from migration), allowing login might be risky.
-                    // But for now, we assume migration added a default or empty password.
-                    // We must check if password matches.
-                    if (!admin.password) return null;
-                    if (admin.status !== 'accepted') {
-                        console.log('Account not active');
-                        return null;
+                    const { email, password, role } = parsedCredentials.data;
+                    // If role is 'admin' or unspecified, check Admin
+                    if (!role || role === 'admin') {
+                        const admin = await getAdmin(email);
+                        if (admin) {
+                            if (!admin.password) return null;
+                            if (admin.status !== 'accepted') return null;
+                            const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, admin.password);
+                            if (passwordsMatch) {
+                                return {
+                                    id: String(admin.adminId),
+                                    name: `${admin.firstName} ${admin.lastName}`,
+                                    email: admin.email,
+                                    role: 'admin'
+                                };
+                            }
+                        }
                     }
-                    const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, admin.password);
-                    if (passwordsMatch) return admin;
+                    // If role is 'student' or unspecified, check Student
+                    if (!role || role === 'student') {
+                        const student = await getStudent(email);
+                        if (student) {
+                            if (!student.password) return null;
+                            const passwordsMatch = await __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$bcryptjs$40$3$2e$0$2e$3$2f$node_modules$2f$bcryptjs$2f$index$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].compare(password, student.password);
+                            if (passwordsMatch) {
+                                return {
+                                    id: String(student.studentId),
+                                    name: `${student.firstName} ${student.lastName}`,
+                                    email: student.email,
+                                    role: 'student'
+                                };
+                            }
+                        }
+                    }
                 }
                 console.log('Invalid credentials');
                 return null;
@@ -750,9 +812,6 @@ async function deleteStudent(studentId) {
             message: 'Student deleted successfully'
         };
     } catch (error) {
-        // SQLITE_CONSTRAINT_FOREIGNKEY happens if you try to delete a student 
-        // who is arguably an "Organizer" of an event or has critical linked data.
-        // (Though usually, ON DELETE CASCADE handles this, it's good to be safe)
         return {
             success: false,
             message: error.message
@@ -1208,13 +1267,15 @@ async function getClubActivities(clubId) {
 async function getClubMemberships() {
     try {
         const rows = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
-      SELECT cm.membershipId, cm.joinedAt,
+      SELECT cm.membershipId, cm.joinedAt, cm.status,
              c.clubName as clubName, c.category as clubCategory,
              s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
       FROM clubMemberships cm
       JOIN clubs c ON cm.clubId = c.clubId
       JOIN students s ON cm.studentId = s.studentId
-      ORDER BY cm.joinedAt DESC
+      ORDER BY 
+        CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
+        cm.joinedAt DESC
     `).all();
         return rows || [];
     } catch (error) {

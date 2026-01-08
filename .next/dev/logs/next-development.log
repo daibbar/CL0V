@@ -1,17 +1,16 @@
-[00:00:02.062] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.247] Server  LOG      ✓ Ready in 1830ms
-[00:00:58.778] Server  LOG      ○ Compiling / ...
-[00:01:08.437] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:01:10.153] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:01:10.154] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
-[00:01:10.154] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797433731}
-[00:01:18.978] Server  LOG      ○ Compiling /login ...
-[00:01:22.187] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797445727}
-[00:01:27.260] Server  LOG     PRAGMA foreign_keys = ON
-[00:01:27.309] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
-[00:01:27.313] Server  LOG     Invalid credentials
-[00:01:27.315] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
-[00:01:27.318] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+[00:00:06.065] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:07.210] Server  LOG      ✓ Ready in 6.1s
+[00:00:17.637] Server  LOG      ○ Compiling / ...
+[00:00:35.165] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:36.646] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:00:36.646] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/home","route":"/home"}
+[00:00:36.646] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","r":"","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911181594}
+[00:01:04.690] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911209631}
+[00:01:08.649] Server  LOG     PRAGMA foreign_keys = ON
+[00:01:08.678] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:01:08.831] Server  LOG     Invalid credentials
+[00:01:08.832] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:08.834] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
     at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
     at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
     at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
@@ -37,17 +36,10 @@
     at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
     at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
     at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
-[00:01:32.087] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/register color: rgb(120, 120, 120) color: inherit {"dp":"/register","o":"http://localhost:3000/register","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797455651}
-[00:01:51.472] Server  LOG     SELECT 1 FROM students WHERE email = 'universe@gmail.com' OR cne = 'D135481446'
-[00:01:51.473] Server  LOG     
-          INSERT INTO students (firstName, lastName, email, password, cne, majorId)
-          VALUES ('daibbar', 'mohamed', 'universe@gmail.com', '$2b$10$oV9h0hnWXpBXpXMl3LN0Cuz8v'/*+28 bytes*/, 'D135481446', NULL)
-        
-[00:01:51.682] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797475256}
-[00:01:57.822] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
-[00:01:57.908] Server  LOG     Invalid credentials
-[00:01:57.909] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
-[00:01:57.909] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+[00:01:12.680] Server  LOG     SELECT * FROM students WHERE email = 'daibbarido@gmail.com'
+[00:01:12.681] Server  LOG     Invalid credentials
+[00:01:12.682] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:12.683] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
     at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
     at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
     at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
@@ -73,54 +65,77 @@
     at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
     at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
     at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
-[00:02:04.388] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
-[00:02:06.045] Server  LOG     
+[00:01:21.544] Server  LOG     SELECT * FROM students WHERE email = 'daibbarido@gmail.com'
+[00:01:21.545] Server  LOG     Invalid credentials
+[00:01:21.546] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
+[00:01:21.547] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
+    at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
+    at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
+    at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
+    at async authenticate (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/[root-of-the-server]__1aa5c967._.js:216:9)
+    at async executeActionAndPrepareForRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:3143)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:958
+    at async handleAction (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:34:23875)
+    at async renderToHTMLOrFlightImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:41:41714)
+    at async doRender (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:8929:28)
+    at async AppPageRouteModule.handleResponse (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:43:63162)
+    at async handleResponse (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9135:32)
+    at async handler (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9506:20)
+    at async DevServer.renderToResponseWithComponentsImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1413:9)
+    at async DevServer.renderPageComponent (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1465:24)
+    at async DevServer.renderToResponseImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1515:32)
+    at async DevServer.pipeImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1021:25)
+    at async NextNodeServer.handleCatchallRenderRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/next-server.js:394:17)
+    at async DevServer.handleRequestImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:912:17)
+    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:382:20
+    at async Span.traceAsyncFn (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/trace/trace.js:157:20)
+    at async DevServer.handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:378:24)
+    at async invokeRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:240:21)
+    at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
+    at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
+    at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
+[00:01:33.287] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:01:36.815] Server  LOG     
     SELECT e.* 
     FROM events e
     JOIN eventParticipants ep ON e.eventId = ep.eventId
     WHERE ep.studentId = 5.0
     ORDER BY e.startDate DESC
   
-[00:02:06.045] Server  LOG     
+[00:01:36.818] Server  LOG     
     SELECT c.* 
     FROM clubs c
     JOIN clubMemberships cm ON c.clubId = cm.clubId
     WHERE cm.studentId = 5.0
     ORDER BY c.clubName ASC
   
-[00:02:06.046] Server  LOG     
+[00:01:36.820] Server  LOG     
     SELECT a.* 
     FROM activities a
     JOIN registrations r ON a.activityId = r.activityId
     WHERE r.studentId = 5.0
     ORDER BY a.startDate DESC
   
-[00:02:15.179] Server  LOG     
-    SELECT e.* 
-    FROM events e
-    JOIN eventParticipants ep ON e.eventId = ep.eventId
-    WHERE ep.studentId = 5.0
-    ORDER BY e.startDate DESC
-  
-[00:02:15.179] Server  LOG     
-    SELECT c.* 
-    FROM clubs c
-    JOIN clubMemberships cm ON c.clubId = cm.clubId
-    WHERE cm.studentId = 5.0
-    ORDER BY c.clubName ASC
-  
-[00:02:15.179] Server  LOG     
-    SELECT a.* 
-    FROM activities a
-    JOIN registrations r ON a.activityId = r.activityId
-    WHERE r.studentId = 5.0
-    ORDER BY a.startDate DESC
-  
-[00:02:15.590] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/dashboard","route":"/student/dashboard"}
-[00:02:15.794] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/student/dashboard","o":"http://localhost:3000/student/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797499373}
-[00:02:19.267] Server  LOG     
+[00:01:47.294] Server  LOG     
+      SELECT e.*, 
+        CASE WHEN ep.studentId IS NOT NULL THEN 1 ELSE 0 END as isRegistered
+      FROM events e
+      LEFT JOIN eventParticipants ep ON e.eventId = ep.eventId AND ep.studentId = 5.0
+      ORDER BY e.startDate DESC
+    
+[00:01:47.944] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:48.465] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:48.466] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/events","route":"/student/events"}
+[00:01:48.466] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/events color: rgb(120, 120, 120) color: inherit {"dp":"/student/events","o":"http://localhost:3000/student/events","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911253342}
+[00:01:50.282] Server  LOG     INSERT INTO eventParticipants (eventId, studentId) VALUES (1.0, 5.0)
+[00:01:50.379] Server  LOG     
+      SELECT e.*, 
+        CASE WHEN ep.studentId IS NOT NULL THEN 1 ELSE 0 END as isRegistered
+      FROM events e
+      LEFT JOIN eventParticipants ep ON e.eventId = ep.eventId AND ep.studentId = 5.0
+      ORDER BY e.startDate DESC
+    
+[00:01:53.178] Server  LOG     
       SELECT c.*, 
         CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
         cm.status as membershipStatus
@@ -128,41 +143,32 @@
       LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
       ORDER BY c.clubName ASC
     
-[00:02:19.544] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
-[00:02:19.766] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797503346}
-[00:02:21.460] Server  LOG     INSERT INTO clubMemberships (clubId, studentId, status) VALUES (1.0, 5.0, 'pending')
-[00:02:21.551] Server  LOG     
-      SELECT c.*, 
-        CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
-        cm.status as membershipStatus
-      FROM clubs c
-      LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
-      ORDER BY c.clubName ASC
-    
-[00:02:29.014] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797512591}
-[00:02:42.369] Server  LOG     SELECT * FROM admins WHERE email = 'admin@cl0v.com'
-[00:02:43.207] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:02:43.207] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
-[00:02:43.208] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:02:43.208] Server  LOG     SELECT COUNT(*) as count FROM activities
-[00:02:43.215] Server  LOG     
+[00:01:53.776] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:54.148] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:01:54.148] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
+[00:01:54.148] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911259091}
+[00:02:17.515] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911282455}
+[00:02:42.998] Server  LOG     SELECT * FROM admins WHERE email = 'admin@cl0v.com'
+[00:02:44.618] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:02:44.619] Server  LOG     SELECT COUNT(*) as count FROM events WHERE startDate >= date('now')
+[00:02:44.620] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:02:44.621] Server  LOG     SELECT COUNT(*) as count FROM activities
+[00:02:44.623] Server  LOG     
       SELECT activityName as name, type, startDate as time
       FROM activities 
       ORDER BY startDate DESC 
       LIMIT 5
     
-[00:02:43.216] Server  LOG     SELECT COUNT(*) as count FROM clubs
-[00:02:43.217] Server  LOG     
+[00:02:44.624] Server  LOG     SELECT COUNT(*) as count FROM clubs
+[00:02:44.625] Server  LOG     
       SELECT category, COUNT(*) as count
       FROM clubs
       GROUP BY category
     
-[00:02:43.217] Server  LOG     SELECT COUNT(*) as count FROM students
-[00:02:43.218] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
-[00:02:43.218] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
-[00:02:50.895] Server  LOG     
+[00:02:44.626] Server  LOG     SELECT COUNT(*) as count FROM students
+[00:02:44.628] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM clubMemberships
+[00:02:44.629] Server  LOG     SELECT COUNT(DISTINCT studentId) as count FROM eventParticipants
+[00:03:01.035] Server  LOG     
       SELECT cm.membershipId, cm.joinedAt, cm.status,
              c.clubName as clubName, c.category as clubCategory,
              s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
@@ -173,7 +179,7 @@
         CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
         cm.joinedAt DESC
     
-[00:02:50.896] Server  LOG     
+[00:03:01.039] Server  LOG     
     SELECT 
       students.*, 
       majors.majorName,
@@ -184,13 +190,13 @@
     LEFT JOIN majors ON students.majorId = majors.majorId
     ORDER BY students.lastName ASC
   
-[00:02:50.896] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
-[00:02:51.385] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/memberships","route":"/memberships"}
-[00:02:51.621] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/memberships color: rgb(120, 120, 120) color: inherit {"dp":"/memberships","o":"http://localhost:3000/memberships","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797535200}
-[00:02:53.758] Server  LOG     UPDATE clubMemberships SET status = 'accepted' WHERE membershipId = 3.0
-[00:02:53.808] Server  LOG     
+[00:03:01.041] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:01.879] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:02.444] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:02.444] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/memberships","route":"/memberships"}
+[00:03:02.444] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/memberships color: rgb(120, 120, 120) color: inherit {"dp":"/memberships","o":"http://localhost:3000/memberships","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911327386}
+[00:03:07.361] Server  LOG     UPDATE clubMemberships SET status = 'accepted' WHERE membershipId = 4.0
+[00:03:07.402] Server  LOG     
       SELECT cm.membershipId, cm.joinedAt, cm.status,
              c.clubName as clubName, c.category as clubCategory,
              s.studentId, s.firstName || ' ' || s.lastName as studentName, s.cne as studentCne, s.email as studentEmail
@@ -201,7 +207,7 @@
         CASE WHEN cm.status = 'pending' THEN 0 ELSE 1 END,
         cm.joinedAt DESC
     
-[00:02:53.808] Server  LOG     
+[00:03:07.403] Server  LOG     
     SELECT 
       students.*, 
       majors.majorName,
@@ -212,60 +218,227 @@
     LEFT JOIN majors ON students.majorId = majors.majorId
     ORDER BY students.lastName ASC
   
-[00:02:53.809] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
-[00:03:01.305] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797544882}
-[00:03:15.617] Server  LOG     SELECT * FROM students WHERE email = 'daibbarmohamed@gmail.com'
-[00:03:15.617] Server  LOG     Invalid credentials
-[00:03:15.618] Server  ERROR   [auth][error] CredentialsSignin: Read more at https://errors.authjs.dev#credentialssignin
-[00:03:15.618] Server  ERROR       at Module.callback (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:4314:30)
-    at async AuthInternal (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5148:24)
-    at async Auth (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/1bb5f_@auth_core_a09970ca._.js:5370:34)
-    at async signIn (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_5f5f57ef._.js:4163:17)
-    at async authenticate (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/[root-of-the-server]__1aa5c967._.js:216:9)
-    at async executeActionAndPrepareForRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:3143)
-    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:36:958
-    at async handleAction (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:34:23875)
-    at async renderToHTMLOrFlightImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:41:41714)
-    at async doRender (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:8929:28)
-    at async AppPageRouteModule.handleResponse (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js:43:63162)
-    at async handleResponse (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9135:32)
-    at async handler (/home/daibbar/projects/CL0V/.next/dev/server/chunks/ssr/e89c4__pnpm_1b8cbf90._.js:9506:20)
-    at async DevServer.renderToResponseWithComponentsImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1413:9)
-    at async DevServer.renderPageComponent (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1465:24)
-    at async DevServer.renderToResponseImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1515:32)
-    at async DevServer.pipeImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:1021:25)
-    at async NextNodeServer.handleCatchallRenderRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/next-server.js:394:17)
-    at async DevServer.handleRequestImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/base-server.js:912:17)
-    at async /home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:382:20
-    at async Span.traceAsyncFn (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/trace/trace.js:157:20)
-    at async DevServer.handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/dev/next-dev-server.js:378:24)
-    at async invokeRender (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:240:21)
-    at async handleRequest (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:436:24)
-    at async requestHandlerImpl (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/router-server.js:484:13)
-    at async Server.requestListener (/home/daibbar/projects/CL0V/node_modules/.pnpm/next@16.0.10_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/lib/start-server.js:226:13)
-[00:03:23.331] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
-[00:03:23.506] Server  LOG     
+[00:03:07.404] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:15.959] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:16.445] Server  LOG     SELECT * FROM events ORDER BY startDate DESC
+[00:03:16.726] Server  LOG     
+    SELECT 
+      students.*, 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
+    FROM students 
+    LEFT JOIN majors ON students.majorId = majors.majorId
+    ORDER BY students.lastName ASC
+  
+[00:03:16.803] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:17.052] Server  LOG     
+      SELECT s.*
+      FROM eventParticipants ep
+      JOIN students s ON ep.studentId = s.studentId
+      WHERE ep.eventId = 1.0
+      ORDER BY s.lastName ASC
+    
+[00:03:17.217] Server  LOG     
+      SELECT s.*
+      FROM eventParticipants ep
+      JOIN students s ON ep.studentId = s.studentId
+      WHERE ep.eventId = 1.0
+      ORDER BY s.lastName ASC
+    
+[00:03:17.340] Server  LOG     
+      SELECT 
+        a.*,
+        e.eventName,
+        c.clubName
+      FROM activities a
+      LEFT JOIN events e ON a.eventId = e.eventId
+      LEFT JOIN clubs c ON a.clubId = c.clubId
+      ORDER BY a.startDate DESC
+    
+[00:03:17.456] Server  LOG     
+      SELECT gr.*, g.fullName, g.email, g.phone
+      FROM guestRoles gr
+      JOIN guests g ON gr.guestId = g.guestId
+      WHERE gr.activityId = 2.0
+      ORDER BY gr.startDate ASC
+    
+[00:03:17.584] Server  LOG     
+      SELECT 
+        res.*,
+        r.resourceName,
+        r.type
+      FROM reservations res
+      JOIN resources r ON res.resourceId = r.resourceId
+      WHERE res.activityId = 2.0
+      ORDER BY res.startDate ASC
+    
+[00:03:17.915] Server  LOG     
+      SELECT c.*
+      FROM clubs c
+      JOIN eventOrganizers eo ON c.clubId = eo.clubId
+      WHERE eo.eventId = 1.0
+    
+[00:03:18.112] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:18.112] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/events","route":"/events"}
+[00:03:18.112] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/events color: rgb(120, 120, 120) color: inherit {"dp":"/events","o":"http://localhost:3000/events","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911343060}
+[00:03:28.080] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:28.505] Server  LOG     
+      SELECT 
+        a.*,
+        e.eventName,
+        c.clubName
+      FROM activities a
+      LEFT JOIN events e ON a.eventId = e.eventId
+      LEFT JOIN clubs c ON a.clubId = c.clubId
+      ORDER BY a.startDate DESC
+    
+[00:03:28.750] Server  LOG     
+    SELECT 
+      students.*, 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
+    FROM students 
+    LEFT JOIN majors ON students.majorId = majors.majorId
+    ORDER BY students.lastName ASC
+  
+[00:03:28.830] Server  LOG     SELECT * FROM events ORDER BY startDate DESC
+[00:03:28.938] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:29.020] Server  LOG     SELECT * FROM guests ORDER BY fullName ASC
+[00:03:29.166] Server  LOG     
+      SELECT 
+        r.*,
+        s.firstName,
+        s.lastName,
+        s.cne,
+        s.email
+      FROM registrations r
+      JOIN students s ON r.studentId = s.studentId
+      WHERE r.activityId = 2.0
+      ORDER BY s.lastName ASC
+    
+[00:03:29.317] Server  LOG     
+      SELECT 
+        res.*,
+        r.resourceName,
+        r.type
+      FROM reservations res
+      JOIN resources r ON res.resourceId = r.resourceId
+      WHERE res.activityId = 2.0
+      ORDER BY res.startDate ASC
+    
+[00:03:29.569] Server  LOG     
+      SELECT gr.*, g.fullName, g.email, g.phone
+      FROM guestRoles gr
+      JOIN guests g ON gr.guestId = g.guestId
+      WHERE gr.activityId = 2.0
+      ORDER BY gr.startDate ASC
+    
+[00:03:29.754] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:29.754] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/activities","route":"/activities"}
+[00:03:29.754] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/activities color: rgb(120, 120, 120) color: inherit {"dp":"/activities","o":"http://localhost:3000/activities","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911354703}
+[00:03:40.101] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:40.455] Server  LOG     SELECT * FROM events ORDER BY startDate DESC
+[00:03:40.633] Server  LOG     
+    SELECT 
+      students.*, 
+      majors.majorName,
+      (SELECT COUNT(*) FROM clubMemberships WHERE clubMemberships.studentId = students.studentId) as clubCount,
+      (SELECT COUNT(*) FROM registrations WHERE registrations.studentId = students.studentId) as activityCount,
+      (SELECT COUNT(*) FROM eventParticipants WHERE eventParticipants.studentId = students.studentId) as eventCount
+    FROM students 
+    LEFT JOIN majors ON students.majorId = majors.majorId
+    ORDER BY students.lastName ASC
+  
+[00:03:40.730] Server  LOG     SELECT * FROM clubs ORDER BY createdAt DESC
+[00:03:40.869] Server  LOG     
+      SELECT s.*
+      FROM eventParticipants ep
+      JOIN students s ON ep.studentId = s.studentId
+      WHERE ep.eventId = 1.0
+      ORDER BY s.lastName ASC
+    
+[00:03:40.988] Server  LOG     
+      SELECT s.*
+      FROM eventParticipants ep
+      JOIN students s ON ep.studentId = s.studentId
+      WHERE ep.eventId = 1.0
+      ORDER BY s.lastName ASC
+    
+[00:03:41.080] Server  LOG     
+      SELECT 
+        a.*,
+        e.eventName,
+        c.clubName
+      FROM activities a
+      LEFT JOIN events e ON a.eventId = e.eventId
+      LEFT JOIN clubs c ON a.clubId = c.clubId
+      ORDER BY a.startDate DESC
+    
+[00:03:41.190] Server  LOG     
+      SELECT gr.*, g.fullName, g.email, g.phone
+      FROM guestRoles gr
+      JOIN guests g ON gr.guestId = g.guestId
+      WHERE gr.activityId = 2.0
+      ORDER BY gr.startDate ASC
+    
+[00:03:41.262] Server  LOG     
+      SELECT 
+        res.*,
+        r.resourceName,
+        r.type
+      FROM reservations res
+      JOIN resources r ON res.resourceId = r.resourceId
+      WHERE res.activityId = 2.0
+      ORDER BY res.startDate ASC
+    
+[00:03:41.372] Server  LOG     
+      SELECT c.*
+      FROM clubs c
+      JOIN eventOrganizers eo ON c.clubId = eo.clubId
+      WHERE eo.eventId = 1.0
+    
+[00:03:41.549] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:41.549] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/events","route":"/events"}
+[00:03:41.549] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/events color: rgb(120, 120, 120) color: inherit {"dp":"/events","o":"http://localhost:3000/events","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911366497}
+[00:03:46.758] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911371693}
+[00:03:54.123] Server  LOG     SELECT * FROM students WHERE email = 'universe@gmail.com'
+[00:03:54.571] Server  LOG     
     SELECT e.* 
     FROM events e
     JOIN eventParticipants ep ON e.eventId = ep.eventId
     WHERE ep.studentId = 5.0
     ORDER BY e.startDate DESC
   
-[00:03:23.506] Server  LOG     
+[00:03:54.573] Server  LOG     
     SELECT c.* 
     FROM clubs c
     JOIN clubMemberships cm ON c.clubId = cm.clubId
     WHERE cm.studentId = 5.0
     ORDER BY c.clubName ASC
   
-[00:03:23.506] Server  LOG     
+[00:03:54.574] Server  LOG     
     SELECT a.* 
     FROM activities a
     JOIN registrations r ON a.activityId = r.activityId
     WHERE r.studentId = 5.0
     ORDER BY a.startDate DESC
   
-[00:03:27.031] Server  LOG     
+[00:03:58.378] Server  LOG     
+      SELECT e.*, 
+        CASE WHEN ep.studentId IS NOT NULL THEN 1 ELSE 0 END as isRegistered
+      FROM events e
+      LEFT JOIN eventParticipants ep ON e.eventId = ep.eventId AND ep.studentId = 5.0
+      ORDER BY e.startDate DESC
+    
+[00:03:58.941] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:03:59.280] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:03:59.280] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/events","route":"/student/events"}
+[00:03:59.280] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/events color: rgb(120, 120, 120) color: inherit {"dp":"/student/events","o":"http://localhost:3000/student/events","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911384218}
+[00:04:08.704] Server  LOG     
       SELECT c.*, 
         CASE WHEN cm.studentId IS NOT NULL THEN 1 ELSE 0 END as isMember,
         cm.status as membershipStatus
@@ -273,54 +446,40 @@
       LEFT JOIN clubMemberships cm ON c.clubId = cm.clubId AND cm.studentId = 5.0
       ORDER BY c.clubName ASC
     
-[00:03:27.333] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:03:27.608] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
-
-- A server/client branch `if (typeof window !== 'undefined')`.
-- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
-- Date formatting in a user's locale which doesn't match the server.
-- External changing data without sending a snapshot of it along with the HTML.
-- Invalid HTML tag nesting.
-
-It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
-
-%s%s https://react.dev/link/hydration-mismatch 
-
-  ...
-    <MenuProvider scope={{Menu:[...], ...}} open={false} onOpenChange={function useCallbackRef.useMemo} content={null} ...>
-      <MenuProvider scope={{Menu:[...], ...}} onClose={function Menu.useCallback} isUsingKeyboardRef={{current:false}} ...>
-        <DropdownMenuTrigger asChild={true}>
-          <DropdownMenuTrigger data-slot="dropdown-m..." asChild={true}>
-            <MenuAnchor asChild={true} __scopeMenu={{Menu:[...], ...}}>
-              <PopperAnchor __scopePopper={{Menu:[...], ...}} asChild={true} ref={null}>
-                <Primitive.div asChild={true} ref={function}>
-                  <Slot ref={function}>
-                    <SlotClone ref={function}>
-                      <Primitive.button type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
-                        <Slot type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
-                          <SlotClone type="button" id="radix-_R_e..." aria-haspopup="menu" aria-expanded={false} ...>
-                            <SidebarMenuButton size="lg" className="rounded-xl..." type="button" id="radix-_R_e..." ...>
-                              <button
-                                data-slot="dropdown-menu-trigger"
-                                data-sidebar="menu-button"
-                                data-size="lg"
-                                data-active={false}
-                                className={"peer/menu-button flex w-full items-center gap-2 overflow-hidden p-2 text-..."}
-                                type="button"
-+                               id="radix-_R_ecndlb_"
--                               id="radix-_R_1pkndlb_"
-                                aria-haspopup="menu"
-                                aria-expanded={false}
-                                aria-controls={undefined}
-                                data-state="closed"
-                                data-disabled={undefined}
-                                disabled={false}
-                                onPointerDown={function handleEvent}
-                                onKeyDown={function handleEvent}
-                                ref={function}
-                              >
-        ...
-
-[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
-[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
-[00:03:27.608] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767797571127}
+[00:04:09.244] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:09.551] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:09.551] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/clubs","route":"/student/clubs"}
+[00:04:09.551] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/clubs color: rgb(120, 120, 120) color: inherit {"dp":"/student/clubs","o":"http://localhost:3000/student/clubs","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911394499}
+[00:04:11.649] Server  LOG     
+    SELECT e.* 
+    FROM events e
+    JOIN eventParticipants ep ON e.eventId = ep.eventId
+    WHERE ep.studentId = 5.0
+    ORDER BY e.startDate DESC
+  
+[00:04:11.650] Server  LOG     
+    SELECT c.* 
+    FROM clubs c
+    JOIN clubMemberships cm ON c.clubId = cm.clubId
+    WHERE cm.studentId = 5.0
+    ORDER BY c.clubName ASC
+  
+[00:04:11.651] Server  LOG     
+    SELECT a.* 
+    FROM activities a
+    JOIN registrations r ON a.activityId = r.activityId
+    WHERE r.studentId = 5.0
+    ORDER BY a.startDate DESC
+  
+[00:04:12.389] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:12.754] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:12.755] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/dashboard","route":"/student/dashboard"}
+[00:04:12.755] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/dashboard color: rgb(120, 120, 120) color: inherit {"dp":"/student/dashboard","o":"http://localhost:3000/student/dashboard","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911397659}
+[00:04:15.753] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:04:16.160] Browser LOG     %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit
+[00:04:16.160] Browser LOG     %c[Vercel Web Analytics]%c Running queued event color: rgb(120, 120, 120) color: inherit pageview {"path":"/student/profile","route":"/student/profile"}
+[00:04:16.160] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/student/profile color: rgb(120, 120, 120) color: inherit {"dp":"/student/profile","o":"http://localhost:3000/student/profile","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911401074}
+[00:04:21.517] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/login color: rgb(120, 120, 120) color: inherit {"dp":"/login","o":"http://localhost:3000/login","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911406455}
+[00:04:23.462] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911408405}
+[00:04:36.227] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/register color: rgb(120, 120, 120) color: inherit {"dp":"/register","o":"http://localhost:3000/register","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911421165}
+[00:05:06.050] Browser LOG     %c[Vercel Web Analytics]%c [pageview] http://localhost:3000/home color: rgb(120, 120, 120) color: inherit {"dp":"/home","o":"http://localhost:3000/home","sdkn":"@vercel/analytics/next","sdkv":"1.3.1","sv":"0.1.3","ts":1767911450993}

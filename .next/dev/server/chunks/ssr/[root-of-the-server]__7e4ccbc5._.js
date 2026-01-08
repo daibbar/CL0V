@@ -412,9 +412,6 @@ async function deleteStudent(studentId) {
             message: 'Student deleted successfully'
         };
     } catch (error) {
-        // SQLITE_CONSTRAINT_FOREIGNKEY happens if you try to delete a student 
-        // who is arguably an "Organizer" of an event or has critical linked data.
-        // (Though usually, ON DELETE CASCADE handles this, it's good to be safe)
         return {
             success: false,
             message: error.message
