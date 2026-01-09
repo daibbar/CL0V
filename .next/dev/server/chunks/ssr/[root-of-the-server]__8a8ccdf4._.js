@@ -135,7 +135,7 @@ function LandingPage() {
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-2xl font-black tracking-tight bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent",
-                                children: "CL0V"
+                                children: "Campus Manger"
                             }, void 0, false, {
                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                 lineNumber: 29,
@@ -153,7 +153,7 @@ function LandingPage() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                 className: "text-sm font-semibold hover:text-blue-300 transition-colors hidden sm:block",
                                 href: "#features",
-                                children: "Features"
+                                children: "Fonctionnalités"
                             }, void 0, false, {
                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                 lineNumber: 32,
@@ -162,7 +162,7 @@ function LandingPage() {
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                 className: "text-sm font-semibold hover:text-blue-300 transition-colors hidden sm:block",
                                 href: "#stats",
-                                children: "Why CL0V"
+                                children: "Pourquoi Campus Manger"
                             }, void 0, false, {
                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                 lineNumber: 35,
@@ -175,7 +175,7 @@ function LandingPage() {
                                 className: "hover:bg-white/10 text-white",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/login",
-                                    children: "Log in"
+                                    children: "Connexion"
                                 }, void 0, false, {
                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                     lineNumber: 39,
@@ -192,7 +192,7 @@ function LandingPage() {
                                 className: "bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white shadow-lg shadow-blue-500/30 border-0",
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                     href: "/register",
-                                    children: "Get Started"
+                                    children: "Commencer"
                                 }, void 0, false, {
                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                     lineNumber: 44,
@@ -277,7 +277,7 @@ function LandingPage() {
                                             className: "text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "bg-gradient-to-r from-blue-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent animate-gradient",
-                                                children: "CL0V"
+                                                children: "Campus Manger"
                                             }, void 0, false, {
                                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                                 lineNumber: 69,
@@ -290,7 +290,7 @@ function LandingPage() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-xl md:text-2xl text-blue-100/80 max-w-3xl leading-relaxed font-light",
-                                            children: "The central hub for club management and parascolaire activities at École Nationale des Sciences Appliquées de Khouribga."
+                                            children: "Le hub central pour la gestion des clubs et des activités parascolaires à l'École Nationale des Sciences Appliquées de Khouribga."
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                             lineNumber: 74,
@@ -306,7 +306,7 @@ function LandingPage() {
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                         href: "/register",
                                                         children: [
-                                                            "Student Sign Up",
+                                                            "Inscription Étudiant",
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$right$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowRight$3e$__["ArrowRight"], {
                                                                 className: "ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform"
                                                             }, void 0, false, {
@@ -332,7 +332,7 @@ function LandingPage() {
                                                     asChild: true,
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                         href: "/login",
-                                                        children: "Login"
+                                                        children: "Se connecter"
                                                     }, void 0, false, {
                                                         fileName: "[project]/CL0V/app/home/page.tsx",
                                                         lineNumber: 86,
@@ -363,7 +363,7 @@ function LandingPage() {
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: "For ENSA Students & Admins"
+                                                            children: "Pour les étudiants et administrateurs de l'ENSA"
                                                         }, void 0, false, {
                                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                                             lineNumber: 94,
@@ -386,7 +386,7 @@ function LandingPage() {
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: "Manage Clubs & Events"
+                                                            children: "Gérer les clubs et les événements"
                                                         }, void 0, false, {
                                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                                             lineNumber: 98,
@@ -409,7 +409,7 @@ function LandingPage() {
                                                             columnNumber: 19
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                            children: "Track Your Activities"
+                                                            children: "Suivez vos activités"
                                                         }, void 0, false, {
                                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                                             lineNumber: 102,
@@ -463,7 +463,7 @@ function LandingPage() {
                                                     lineNumber: 114,
                                                     columnNumber: 17
                                                 }, this),
-                                                "Powerful Features"
+                                                "Fonctionnalités Puissantes"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -472,7 +472,7 @@ function LandingPage() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             className: "text-4xl md:text-5xl font-black tracking-tight",
-                                            children: "Everything You Need"
+                                            children: "Tout ce dont vous avez besoin"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                             lineNumber: 117,
@@ -480,7 +480,7 @@ function LandingPage() {
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "max-w-2xl text-lg text-blue-100/70",
-                                            children: "Everything you need to manage parascolaire activities at ENSA Khouribga."
+                                            children: "Tout ce dont vous avez besoin pour gérer les activités parascolaires à l'ENSA Khouribga."
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
                                             lineNumber: 118,
@@ -503,8 +503,8 @@ function LandingPage() {
                                                 lineNumber: 125,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Club Management",
-                                            description: "Create, manage, and grow campus clubs. Handle memberships, roles, and approval workflows seamlessly.",
+                                            title: "Gestion des Clubs",
+                                            description: "Créez, gérez et développez les clubs du campus. Gérez les adhésions, les rôles et les flux d'approbation en toute transparence.",
                                             gradient: "from-blue-500 to-cyan-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -519,8 +519,8 @@ function LandingPage() {
                                                 lineNumber: 131,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Event Orchestration",
-                                            description: "Plan campus-wide events with multi-club collaboration. Track attendance and manage registrations effortlessly.",
+                                            title: "Orchestration d'Événements",
+                                            description: "Planifiez des événements à l'échelle du campus avec une collaboration inter-clubs. Suivez la présence et gérez les inscriptions sans effort.",
                                             gradient: "from-purple-500 to-pink-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -535,8 +535,8 @@ function LandingPage() {
                                                 lineNumber: 137,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Activity Tracking",
-                                            description: "Monitor workshops, keynotes, and sessions. Students can register for specific activities they love.",
+                                            title: "Suivi d'Activité",
+                                            description: "Surveillez les ateliers, les conférences et les sessions. Les étudiants peuvent s'inscrire aux activités qu'ils aiment.",
                                             gradient: "from-orange-500 to-yellow-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -551,8 +551,8 @@ function LandingPage() {
                                                 lineNumber: 143,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Resource Allocation",
-                                            description: "Manage campus facilities and spaces. Book amphitheaters, labs, and rooms with intelligent scheduling.",
+                                            title: "Allocation des Ressources",
+                                            description: "Gérez les installations et les espaces du campus. Réservez des amphithéâtres, des laboratoires et des salles avec une planification intelligente.",
                                             gradient: "from-green-500 to-emerald-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -567,8 +567,8 @@ function LandingPage() {
                                                 lineNumber: 149,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Real-Time Analytics",
-                                            description: "Get instant insights into engagement metrics, club performance, and student participation trends.",
+                                            title: "Analyses en Temps Réel",
+                                            description: "Obtenez des aperçus instantanés sur les mesures d'engagement, la performance des clubs et les tendances de participation des étudiants.",
                                             gradient: "from-indigo-500 to-blue-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -583,8 +583,8 @@ function LandingPage() {
                                                 lineNumber: 155,
                                                 columnNumber: 23
                                             }, void 0),
-                                            title: "Enterprise Security",
-                                            description: "Role-based access control, encrypted data, and secure authentication protect your campus information.",
+                                            title: "Sécurité d'Entreprise",
+                                            description: "Le contrôle d'accès basé sur les rôles, les données cryptées et l'authentification sécurisée protègent les informations de votre campus.",
                                             gradient: "from-red-500 to-rose-400"
                                         }, void 0, false, {
                                             fileName: "[project]/CL0V/app/home/page.tsx",
@@ -627,7 +627,7 @@ function LandingPage() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                 className: "text-4xl md:text-5xl font-black mb-4",
-                                                children: "Powering ENSA Khouribga"
+                                                children: "Propulser l'ENSA Khouribga"
                                             }, void 0, false, {
                                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                                 lineNumber: 169,
@@ -635,7 +635,7 @@ function LandingPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-xl text-blue-100/70",
-                                                children: "Real numbers from our vibrant campus community"
+                                                children: "Des chiffres réels de notre communauté de campus dynamique"
                                             }, void 0, false, {
                                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                                 lineNumber: 170,
@@ -652,7 +652,7 @@ function LandingPage() {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(StatCard, {
                                                 number: "50+",
-                                                label: "Active Clubs",
+                                                label: "Clubs Actifs",
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trophy$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Trophy$3e$__["Trophy"], {
                                                     className: "h-8 w-8"
                                                 }, void 0, false, {
@@ -667,13 +667,13 @@ function LandingPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(StatCard, {
                                                 number: "1,200+",
-                                                label: "Students",
+                                                label: "Étudiants",
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$users$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Users$3e$__["Users"], {
                                                     className: "h-8 w-8"
                                                 }, void 0, false, {
                                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                                     lineNumber: 174,
-                                                    columnNumber: 64
+                                                    columnNumber: 65
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/CL0V/app/home/page.tsx",
@@ -682,13 +682,13 @@ function LandingPage() {
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(StatCard, {
                                                 number: "200+",
-                                                label: "Events/Year",
+                                                label: "Événements/An",
                                                 icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$calendar$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__$3c$export__default__as__Calendar$3e$__["Calendar"], {
                                                     className: "h-8 w-8"
                                                 }, void 0, false, {
                                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                                     lineNumber: 175,
-                                                    columnNumber: 65
+                                                    columnNumber: 67
                                                 }, void 0)
                                             }, void 0, false, {
                                                 fileName: "[project]/CL0V/app/home/page.tsx",
@@ -749,7 +749,7 @@ function LandingPage() {
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                                     className: "text-4xl md:text-5xl font-black mb-6",
-                                                    children: "Ready to Get Started?"
+                                                    children: "Prêt à Commencer ?"
                                                 }, void 0, false, {
                                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                                     lineNumber: 188,
@@ -757,7 +757,7 @@ function LandingPage() {
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-xl text-white/90 mb-8 max-w-2xl mx-auto",
-                                                    children: "Access your clubs, events, and activities. Login or create your student account now."
+                                                    children: "Accédez à vos clubs, événements et activités. Connectez-vous ou créez votre compte étudiant dès maintenant."
                                                 }, void 0, false, {
                                                     fileName: "[project]/CL0V/app/home/page.tsx",
                                                     lineNumber: 189,
@@ -780,7 +780,7 @@ function LandingPage() {
                                                                         lineNumber: 195,
                                                                         columnNumber: 25
                                                                     }, this),
-                                                                    "Sign Up"
+                                                                    "S'inscrire"
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/CL0V/app/home/page.tsx",
@@ -799,7 +799,7 @@ function LandingPage() {
                                                             asChild: true,
                                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$10_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$react$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
                                                                 href: "/login",
-                                                                children: "Login"
+                                                                children: "Connexion"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/CL0V/app/home/page.tsx",
                                                                 lineNumber: 200,

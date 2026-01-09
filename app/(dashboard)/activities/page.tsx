@@ -363,6 +363,33 @@ export default function ActivitiesPage() {
                           />
                         </div>
                       </div>
+                      <div className="grid grid-cols-2 gap-4">
+                        <div className="grid gap-2">
+                          <Label htmlFor="budget">Budget (DH)</Label>
+                          <Input
+                            id="budget"
+                            name="budget"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            defaultValue={editingActivity?.budget?.toString() || ""}
+                            placeholder="0.00"
+                          />
+                        </div>
+                        <div className="grid gap-2">
+                          <Label htmlFor="rating">Rating (0-20)</Label>
+                          <Input
+                            id="rating"
+                            name="rating"
+                            type="number"
+                            min="0"
+                            max="20"
+                            step="0.1"
+                            defaultValue={editingActivity?.rating?.toString() || ""}
+                            placeholder="0.0"
+                          />
+                        </div>
+                      </div>
                       <div className="grid gap-2">
                         <Label>Organizer Type</Label>
                         <RadioGroup 
@@ -490,6 +517,10 @@ export default function ActivitiesPage() {
                       </span>
                       <p className="text-xs text-muted-foreground line-clamp-2 group-hover:text-accent-foreground/80">{activity.description}</p>
                       <p className="text-xs text-muted-foreground group-hover:text-accent-foreground/80">Capacity: {activity.maxCapacity} participants</p>
+                      <div className="flex justify-between items-center mt-1">
+                         <p className="text-xs font-medium text-amber-600">{activity.rating?.toFixed(1) || 'N/A'}/20</p>
+                         <p className="text-xs text-muted-foreground">{activity.budget?.toFixed(2) || '0.00'} DH</p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -528,6 +559,14 @@ export default function ActivitiesPage() {
                       <div>
                         <p className="text-muted-foreground mb-1">Maximum Capacity</p>
                         <p className="font-medium">{selectedActivity.maxCapacity} participants</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground mb-1">Budget</p>
+                        <p className="font-medium">{selectedActivity.budget?.toFixed(2) || '0.00'} DH</p>
+                      </div>
+                      <div>
+                        <p className="text-muted-foreground mb-1">Rating</p>
+                        <p className="font-medium text-amber-600">{selectedActivity.rating?.toFixed(1) || 'N/A'}/20</p>
                       </div>
                       <div>
                         <p className="text-muted-foreground mb-1">Activity ID</p>

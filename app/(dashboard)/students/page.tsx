@@ -16,12 +16,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Plus, Edit, Trash2, Users, Calendar, Award, Building2, TrendingUp, Loader2 } from "lucide-react"
+import { Edit, Trash2, Users, Calendar, Award, Building2, TrendingUp, Loader2 } from "lucide-react"
 import { useToast } from "@/hooks/use-toast"
 
 // 1. Import Types & Actions
 import { Major, Event, Club, Activity } from "@/types/db"
-import { StudentWithMajor, getStudents, createStudent, updateStudent, deleteStudent, getMajors, getStudentEvents, getStudentClubs, getStudentActivities, getTotalActivitiesCount } from "@/actions/student-actions"
+import { StudentWithMajor, getStudents, updateStudent, deleteStudent, getMajors, getStudentEvents, getStudentClubs, getStudentActivities, getTotalActivitiesCount } from "@/actions/student-actions"
 
 
 
@@ -84,14 +84,10 @@ export default function StudentsPage() {
   // --- 2. HANDLE ACTIONS ---
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
+    if (!editingStudent) return
 
-    let result;
-    if (editingStudent) {
-      result = await updateStudent(editingStudent.studentId, formData)
-    } else {
-      result = await createStudent(formData)
-    }
+    const formData = new FormData(e.currentTarget)
+    const result = await updateStudent(editingStudent.studentId, formData)
 
     if (result.success) {
       toast({ title: result.message })
@@ -216,16 +212,11 @@ export default function StudentsPage() {
                     if (!open) setEditingStudent(null)
                   }}
                 >
-                  <DialogTrigger asChild>
-                    <Button size="sm">
-                      <Plus className="h-4 w-4" />
-                    </Button>
-                  </DialogTrigger>
                   <DialogContent>
                     <DialogHeader>
-                      <DialogTitle>{editingStudent ? "Edit Student" : "Create New Student"}</DialogTitle>
+                      <DialogTitle>Edit Student</DialogTitle>
                       <DialogDescription>
-                        {editingStudent ? "Update student information" : "Add a new student to the system"}
+                        Update student information
                       </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={handleSubmit} className="space-y-4 mt-4">
@@ -266,7 +257,7 @@ export default function StudentsPage() {
                         <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
                           Cancel
                         </Button>
-                        <Button type="submit">{editingStudent ? "Update" : "Create"}</Button>
+                        <Button type="submit">Update</Button>
                       </div>
                     </form>
                   </DialogContent>

@@ -412,9 +412,6 @@ async function deleteStudent(studentId) {
             message: 'Student deleted successfully'
         };
     } catch (error) {
-        // SQLITE_CONSTRAINT_FOREIGNKEY happens if you try to delete a student 
-        // who is arguably an "Organizer" of an event or has critical linked data.
-        // (Though usually, ON DELETE CASCADE handles this, it's good to be safe)
         return {
             success: false,
             message: error.message
@@ -458,7 +455,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2
 ;
 ;
 ;
-;
 }),
 "[project]/CL0V/.next-internal/server/app/(dashboard)/students/page/actions.js { ACTIONS_MODULE0 => \"[project]/CL0V/actions/auth-actions.ts [app-rsc] (ecmascript)\", ACTIONS_MODULE1 => \"[project]/CL0V/actions/student-actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)", ((__turbopack_context__) => {
 "use strict";
@@ -480,8 +476,6 @@ __turbopack_context__.s([
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["getStudentClubs"],
     "405fda7eb3a9b799d827ff4332611a9f0e62f6c74e",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["deleteStudent"],
-    "40852ca8bcc92030e1c2fec9a5d89cb0a554ab764e",
-    ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["createStudent"],
     "60a0ef4ce8b4795ac36b4acc6df890381a47990a1b",
     ()=>__TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$actions$2f$student$2d$actions$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["updateStudent"]
 ]);

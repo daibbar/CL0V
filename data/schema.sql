@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS activities (
     maxCapacity INTEGER CHECK(maxCapacity > 0),
     startDate TIMESTAMP NOT NULL,
     endDate TIMESTAMP NOT NULL,
+    budget REAL DEFAULT 0,
+    rating REAL CHECK(rating >= 0 AND rating <= 20) DEFAULT 0,
     clubId INTEGER,
     eventId INTEGER,
 

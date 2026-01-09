@@ -89,7 +89,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <Trophy className="size-5 fill-current group-data-[collapsible=icon]:size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight ml-2 group-data-[collapsible=icon]:hidden overflow-hidden">
-                  <span className="text-lg font-black tracking-tight text-white truncate">Slak Ajmi</span>
+                  <span className="text-lg font-black tracking-tight text-white truncate">Campus manager</span>
                   <span className="text-[10px] font-medium text-white/60 uppercase tracking-widest truncate">Campus Manager</span>
                 </div>
               </a>

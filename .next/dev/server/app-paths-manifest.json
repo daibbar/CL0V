@@ -1,16 +1,17 @@
 {
   "/(dashboard)/activities/page": "app/(dashboard)/activities/page.js",
+  "/(dashboard)/admins/page": "app/(dashboard)/admins/page.js",
   "/(dashboard)/clubs/page": "app/(dashboard)/clubs/page.js",
   "/(dashboard)/dashboard/page": "app/(dashboard)/dashboard/page.js",
   "/(dashboard)/events/page": "app/(dashboard)/events/page.js",
+  "/(dashboard)/guests/page": "app/(dashboard)/guests/page.js",
   "/(dashboard)/memberships/page": "app/(dashboard)/memberships/page.js",
+  "/(dashboard)/resources/page": "app/(dashboard)/resources/page.js",
+  "/(dashboard)/students/page": "app/(dashboard)/students/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/home/page": "app/home/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js",
   "/register/page": "app/register/page.js",
-  "/student/clubs/page": "app/student/clubs/page.js",
-  "/student/dashboard/page": "app/student/dashboard/page.js",
-  "/student/events/page": "app/student/events/page.js",
-  "/student/profile/page": "app/student/profile/page.js"
+  "/student/dashboard/page": "app/student/dashboard/page.js"
 }

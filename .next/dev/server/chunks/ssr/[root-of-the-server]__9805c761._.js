@@ -286,12 +286,14 @@ async function createActivity(formData) {
     const maxCapacity = formData.get('maxCapacity') ? Number(formData.get('maxCapacity')) : null;
     const startDate = formData.get('startDate');
     const endDate = formData.get('endDate');
+    const budget = formData.get('budget') ? Number(formData.get('budget')) : 0;
+    const rating = formData.get('rating') ? Number(formData.get('rating')) : 0;
     const clubId = formData.get('clubId') ? Number(formData.get('clubId')) : null;
     const eventId = formData.get('eventId') ? Number(formData.get('eventId')) : null;
     try {
         const stmt = __TURBOPACK__imported__module__$5b$project$5d2f$CL0V$2f$lib$2f$db$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].prepare(`
-      INSERT INTO activities (activityName, description, type, maxCapacity, startDate, endDate, clubId, eventId)
-      VALUES (@activityName, @description, @type, @maxCapacity, @startDate, @endDate, @clubId, @eventId)
+      INSERT INTO activities (activityName, description, type, maxCapacity, startDate, endDate, budget, rating, clubId, eventId)
+      VALUES (@activityName, @description, @type, @maxCapacity, @startDate, @endDate, @budget, @rating, @clubId, @eventId)
     `);
         stmt.run({
             activityName,
@@ -300,6 +302,8 @@ async function createActivity(formData) {
             maxCapacity,
             startDate,
             endDate,
+            budget,
+            rating,
             clubId,
             eventId
         });
@@ -325,7 +329,7 @@ async function getActivities() {
       FROM activities a
       LEFT JOIN events e ON a.eventId = e.eventId
       LEFT JOIN clubs c ON a.clubId = c.clubId
-      ORDER BY a.startDate DESC
+      ORDER BY a.rating DESC, a.startDate DESC
     `).all();
         return activities;
     } catch (error) {
@@ -358,6 +362,8 @@ async function updateActivity(activityId, formData) {
     const maxCapacity = formData.get('maxCapacity') ? Number(formData.get('maxCapacity')) : null;
     const startDate = formData.get('startDate');
     const endDate = formData.get('endDate');
+    const budget = formData.get('budget') ? Number(formData.get('budget')) : 0;
+    const rating = formData.get('rating') ? Number(formData.get('rating')) : 0;
     const clubId = formData.get('clubId') ? Number(formData.get('clubId')) : null;
     const eventId = formData.get('eventId') ? Number(formData.get('eventId')) : null;
     try {
@@ -369,6 +375,8 @@ async function updateActivity(activityId, formData) {
           maxCapacity = @maxCapacity,
           startDate = @startDate,
           endDate = @endDate,
+          budget = @budget,
+          rating = @rating,
           clubId = @clubId,
           eventId = @eventId
       WHERE activityId = @activityId
@@ -380,6 +388,8 @@ async function updateActivity(activityId, formData) {
             maxCapacity,
             startDate,
             endDate,
+            budget,
+            rating,
             clubId,
             eventId,
             activityId

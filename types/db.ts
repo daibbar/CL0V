@@ -52,6 +52,8 @@ export interface Activity {
   maxCapacity: number | null;
   startDate: string;
   endDate: string;
+  budget: number;
+  rating: number;
   // These are nullable because an activity belongs to EITHER a club OR an event
   clubId: number | null;
   eventId: number | null;

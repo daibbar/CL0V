@@ -6,7 +6,8 @@ import { AuthError } from 'next-auth';
 export async function authenticate(
   prevState: string | undefined,
   formData: FormData,
-) {
+) {// --- DELETE ---
+
   try {
     await signIn('credentials', formData);
   } catch (error) {

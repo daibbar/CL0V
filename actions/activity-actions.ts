@@ -10,7 +10,6 @@ export type ActivityWithRelations = Activity & {
   clubName?: string | null;
 };
 
-// --- CREATE ACTIVITY ---
 export async function createActivity(formData: FormData) {
   const activityName = formData.get('activityName') as string;
   const description = formData.get('description') as string;
@@ -18,16 +17,18 @@ export async function createActivity(formData: FormData) {
   const maxCapacity = formData.get('maxCapacity') ? Number(formData.get('maxCapacity')) : null;
   const startDate = formData.get('startDate') as string;
   const endDate = formData.get('endDate') as string;
+  const budget = formData.get('budget') ? Number(formData.get('budget')) : 0;
+  const rating = formData.get('rating') ? Number(formData.get('rating')) : 0;
   const clubId = formData.get('clubId') ? Number(formData.get('clubId')) : null;
   const eventId = formData.get('eventId') ? Number(formData.get('eventId')) : null;
 
   try {
     const stmt = db.prepare(`
-      INSERT INTO activities (activityName, description, type, maxCapacity, startDate, endDate, clubId, eventId)
-      VALUES (@activityName, @description, @type, @maxCapacity, @startDate, @endDate, @clubId, @eventId)
+      INSERT INTO activities (activityName, description, type, maxCapacity, startDate, endDate, budget, rating, clubId, eventId)
+      VALUES (@activityName, @description, @type, @maxCapacity, @startDate, @endDate, @budget, @rating, @clubId, @eventId)
     `);
 
-    stmt.run({ activityName, description, type, maxCapacity, startDate, endDate, clubId, eventId });
+    stmt.run({ activityName, description, type, maxCapacity, startDate, endDate, budget, rating, clubId, eventId });
     
     revalidatePath('/activities');
     return { success: true, message: 'Activity created successfully' };
@@ -36,7 +37,6 @@ export async function createActivity(formData: FormData) {
   }
 }
 
-// --- READ ACTIVITIES ---
 export async function getActivities() {
   try {
     const activities = db.prepare(`
@@ -47,7 +47,7 @@ export async function getActivities() {
       FROM activities a
       LEFT JOIN events e ON a.eventId = e.eventId
       LEFT JOIN clubs c ON a.clubId = c.clubId
-      ORDER BY a.startDate DESC
+      ORDER BY a.rating DESC, a.startDate DESC
     `).all() as ActivityWithRelations[];
     
     return activities;
@@ -86,6 +86,8 @@ export async function updateActivity(activityId: number, formData: FormData) {
   const maxCapacity = formData.get('maxCapacity') ? Number(formData.get('maxCapacity')) : null;
   const startDate = formData.get('startDate') as string;
   const endDate = formData.get('endDate') as string;
+  const budget = formData.get('budget') ? Number(formData.get('budget')) : 0;
+  const rating = formData.get('rating') ? Number(formData.get('rating')) : 0;
   const clubId = formData.get('clubId') ? Number(formData.get('clubId')) : null;
   const eventId = formData.get('eventId') ? Number(formData.get('eventId')) : null;
 
@@ -98,12 +100,14 @@ export async function updateActivity(activityId: number, formData: FormData) {
           maxCapacity = @maxCapacity,
           startDate = @startDate,
           endDate = @endDate,
+          budget = @budget,
+          rating = @rating,
           clubId = @clubId,
           eventId = @eventId
       WHERE activityId = @activityId
     `);
 
-    stmt.run({ activityName, description, type, maxCapacity, startDate, endDate, clubId, eventId, activityId });
+    stmt.run({ activityName, description, type, maxCapacity, startDate, endDate, budget, rating, clubId, eventId, activityId });
 
     revalidatePath('/activities');
     return { success: true, message: 'Activity updated successfully' };
